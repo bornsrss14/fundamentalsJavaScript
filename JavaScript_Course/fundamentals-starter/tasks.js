@@ -245,3 +245,40 @@ let jonas = {
 
 console.log(jonas.age);
 console.log(jonas.getSummary());
+
+// -------------------------------- challenge 3
+
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78, // 92
+  height: 1.69, // 1.95
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: "John Smith",
+  mass: 92, //78
+  height: 1.95, // 1.96
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+
+console.log(mark.calcBMI());
+console.log(john.calcBMI());
+console.log(
+  `${
+    mark.bmi > john.bmi
+      ? `Mark Miller's ${mark.calcBMI()}`
+      : `John Smith's ${john.calcBMI()} `
+  } BMI is higher than ${
+    john.bmi < mark.bmi
+      ? `John Smith's ${john.calcBMI()} `
+      : `Mark Miller's ${mark.calcBMI()}`
+  }`
+);
+// "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!".
