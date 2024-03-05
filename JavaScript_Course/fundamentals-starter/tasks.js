@@ -282,3 +282,9 @@ console.log(
   }`
 );
 // "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!".
+
+// for loop keeps running while condition is TRUE
+
+for(let rep = 1 ;rep <= 20 ; rep++){
+console.log(`This is my ej of template literal ${rep}`);
+}
