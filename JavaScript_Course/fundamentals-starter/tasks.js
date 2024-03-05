@@ -288,3 +288,18 @@ console.log(
 for(let rep = 1 ;rep <= 20 ; rep++){
 console.log(`This is my ej of template literal ${rep}`);
 }
+
+// -------------------------- otro loop
+
+const jonasArray =[
+  'jonas'
+  , 'Shmetman'
+  ,2024 - 1998
+  , 'teacher'
+  , ['Adrian', 'Brenda', 'Cristina']
+];
+
+for(let i=0;i <= jonasArray.length;i++){
+  console.log(jonasArray[i]);
+
+}
