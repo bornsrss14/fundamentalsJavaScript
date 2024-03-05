@@ -297,9 +297,35 @@ const jonasArray =[
   ,2024 - 1998
   , 'teacher'
   , ['Adrian', 'Brenda', 'Cristina']
+  , true
 ];
 
 for(let i=0;i <= jonasArray.length;i++){
-  console.log(jonasArray[i]);
+  console.log(jonasArray[i], typeof jonasArray[i]);
 
+}
+
+// ----------------------------- loop de edades
+const yearOf = [1998, 2005, 1996,1990,2001];
+const agesOf = [];
+
+for(let i=0;i <= yearOf.length;i++){
+  agesOf.push(2024 - yearOf[i]);
+}
+console.log(agesOf);
+
+
+// continue and break statement
+console.log('----------ONLY STRINGS ----------------');
+for(let r=0;r <= jonasArray.length;r++){
+  if(typeof jonasArray[r] !== 'string') continue;{
+    console.log(jonasArray[r], typeof jonasArray[r] );
+  }
+}
+
+console.log('------- BREAK WITH NUMBERS');
+for(r=0;r <= jonasArray.length;r++){
+  if(typeof jonasArray[r] === 'number') break;{
+    console.log(jonasArray[r], typeof jonasArray[r]);
+  }
 }
