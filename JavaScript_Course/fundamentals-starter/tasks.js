@@ -329,3 +329,13 @@ for(r=0;r <= jonasArray.length;r++){
     console.log(jonasArray[r], typeof jonasArray[r]);
   }
 }
+
+// const yearOf = [1998, 2005, 1996,1990,2001];
+// const agesOf = [];
+
+//looping backwards and loops inside loops
+for(let i = yearOf.length -1; i >=0;i--){
+  agesOf.push(2024 - yearOf[i]);
+}
+console.log(agesOf);
+
