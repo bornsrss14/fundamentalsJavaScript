@@ -285,47 +285,47 @@ console.log(
 
 // for loop keeps running while condition is TRUE
 
-for(let rep = 1 ;rep <= 20 ; rep++){
-console.log(`This is my ej of template literal ${rep}`);
+for (let rep = 1; rep <= 20; rep++) {
+  console.log(`This is my ej of template literal ${rep}`);
 }
 
 // -------------------------- otro loop
 
-const jonasArray =[
-  'jonas'
-  , 'Shmetman'
-  ,2024 - 1998
-  , 'teacher'
-  , ['Adrian', 'Brenda', 'Cristina']
-  , true
+const jonasArray = [
+  "jonas",
+  "Shmetman",
+  2024 - 1998,
+  "teacher",
+  ["Adrian", "Brenda", "Cristina"],
+  true,
 ];
 
-for(let i=0;i <= jonasArray.length;i++){
+for (let i = 0; i <= jonasArray.length; i++) {
   console.log(jonasArray[i], typeof jonasArray[i]);
-
 }
 
 // ----------------------------- loop de edades
-const yearOf = [1998, 2005, 1996,1990,2001];
+const yearOf = [1998, 2005, 1996, 1990, 2001];
 const agesOf = [];
 
-for(let i=0;i <= yearOf.length;i++){
+for (let i = 0; i <= yearOf.length; i++) {
   agesOf.push(2024 - yearOf[i]);
 }
 console.log(agesOf);
 
-
 // continue and break statement
-console.log('----------ONLY STRINGS ----------------');
-for(let r=0;r <= jonasArray.length;r++){
-  if(typeof jonasArray[r] !== 'string') continue;{
-    console.log(jonasArray[r], typeof jonasArray[r] );
+console.log("----------ONLY STRINGS ----------------");
+for (let r = 0; r <= jonasArray.length; r++) {
+  if (typeof jonasArray[r] !== "string") continue;
+  {
+    console.log(jonasArray[r], typeof jonasArray[r]);
   }
 }
 
-console.log('------- BREAK WITH NUMBERS');
-for(r=0;r <= jonasArray.length;r++){
-  if(typeof jonasArray[r] === 'number') break;{
+console.log("------- BREAK WITH NUMBERS");
+for (r = 0; r <= jonasArray.length; r++) {
+  if (typeof jonasArray[r] === "number") break;
+  {
     console.log(jonasArray[r], typeof jonasArray[r]);
   }
 }
@@ -334,8 +334,73 @@ for(r=0;r <= jonasArray.length;r++){
 // const agesOf = [];
 
 //looping backwards and loops inside loops
-for(let i = yearOf.length -1; i >=0;i--){
+for (let i = yearOf.length - 1; i >= 0; i--) {
   agesOf.push(2024 - yearOf[i]);
 }
 console.log(agesOf);
 
+// ----------------------------------------- .
+
+for (let r = 1; r < 4; r++) {
+  console.log(`This is TITLE EXCERCICE ${r} ❤️`);
+
+  for (let rep = 1; rep < 6; rep++) {
+    console.log(`This rep ${rep}`);
+  }
+}
+
+// Generar un numero random, simulando a lanzar un dado y la cndiciòn será hasta que el dado caiga en 6
+
+var numeroAleatorio = Math.trunc(Math.random() * 6) + 1;
+
+while (numeroAleatorio !== 6) {
+  console.log(`You rolled a dice ${numeroAleatorio}`);
+  numeroAleatorio = Math.trunc(Math.random() * 6) + 1;
+  if (numeroAleatorio === 6) {
+    console.log('Loop is about to end');
+  }
+}
+
+// CHALLENGE #4 Let's improve Steven's tip calculator even more!-----------
+
+const calcTip = function(bill){
+  return bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+}
+// declaramos los arreglos, para las cuentas y para guardar los totales de cada operacion
+const bills = [ 22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+// vamos a someter a evaluacion para recorrer el arreglo y para hacer las operaciones correspondbibills
+for (let i = 0; i < bills.length; i++) {
+  let tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(bills[i] + tip);
+}
+
+console.log(bills);
+console.log(tips);
+console.log(totals);
+
+
+// ----------------------------------------------- challenge Temperature -----------
+const temperatures = [45,4, -2, 9,67];
+
+const calclTemperature = function (tempOne, tempTwo){
+  const temps = tempOne.concat(tempTwo);
+  let max = temps[0];
+  let min = temps[0];
+  for(let i=0;i < temps.length;i++){
+    if(typeof temps[i] !=='number') continue;
+    if(temps[i] > max){
+      max = temps[i];
+    }
+    if(temps[i] < min){
+      min = temps[i];
+    }
+  }
+  console.log(max, min);
+  
+};
+calclTemperature([1,0,5,0,'error',1,4], [88,12,45]);
+calclTemperature(temperatures);
