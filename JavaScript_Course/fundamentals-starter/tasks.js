@@ -398,9 +398,13 @@ const calclTemperature = function (tempOne, tempTwo){
     if(temps[i] < min){
       min = temps[i];
     }
+  console.log(`Son ${temps[i]}ºC registrados in ${i + 1} days`);
+
   }
   console.log(max, min);
   
 };
-calclTemperature([1,0,5,0,'error',1,4], [88,12,45]);
-calclTemperature(temperatures);
+calclTemperature([17, 21, 23]);
+calclTemperature([12, 5, -5, 0, 4]);
+
+// 17ºC (grados registrados en el array por posicion) in (dia que corresponde) day
