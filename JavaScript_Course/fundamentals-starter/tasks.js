@@ -409,7 +409,7 @@ calclTemperature([12, 5, -5, 0, 4]);
 
 // 17ºC (grados registrados en el array por posicion) in (dia que corresponde) day
 
-// este pequeño ciclo se encarga de sumar los numero impares del 1 -100 en un ciclo for
+// EJERCICIO #1 este pequeño ciclo se encarga de sumar los numero impares del 1 -100 en un ciclo for
 
 let sumEvenNumbers = 0;
 for(let i=2; i <=100 ;i++){
