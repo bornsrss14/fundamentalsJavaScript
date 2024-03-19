@@ -193,43 +193,43 @@ alert(`El total de las cuentas son de ${totals}`);
 // --------------------------------------
 
 const rosPandas = {
-  nickName: "Rosario",
-  lastName: "Fuentes",
+  nickName: 'Rosario',
+  lastName: 'Fuentes',
   agePandas: 24,
-  userPandas: "bornsrss",
+  userPandas: 'bornsrss',
 };
 
 let keyPandas = prompt(
-  "What do you want to know about pandasneezing? Choose: nickName, lastName, agePandas, userPandas",
-  ""
+  'What do you want to know about pandasneezing? Choose: nickName, lastName, agePandas, userPandas',
+  ''
 );
 if (rosPandas[keyPandas]) {
   console.log(rosPandas[keyPandas]);
 } else {
-  console.log("Choose: nickName, lastName, agePandas, userPandas", "");
+  console.log('Choose: nickName, lastName, agePandas, userPandas', '');
 }
-rosPandas.favoriteSong = "Cold Sweat";
-rosPandas["country"] = "Japan";
+rosPandas.favoriteSong = 'Cold Sweat';
+rosPandas['country'] = 'Japan';
 console.log(rosPandas);
 
 console.log(
-  rosPandas["nickName"] +
-    "has" +
-    rosPandas["agePandas"] +
-    "years old, she is from" +
-    rosPandas["country"] +
-    "and his favorite song is" +
-    rosPandas["favoriteSong"]
+  rosPandas['nickName'] +
+    'has' +
+    rosPandas['agePandas'] +
+    'years old, she is from' +
+    rosPandas['country'] +
+    'and his favorite song is' +
+    rosPandas['favoriteSong']
 );
 
 // -------------------------------------------------------------------- object integrado con una funcion
 
 let jonas = {
-  firstName: "Jonas",
-  lastName: "",
+  firstName: 'Jonas',
+  lastName: '',
   birthYear: 1991,
-  job: "teacher",
-  friends: ["Ros", "Alita", "Miriam"],
+  job: 'teacher',
+  friends: ['Ros', 'Alita', 'Miriam'],
   hasDriverLicense: true,
 
   calcAge: function () {
@@ -239,7 +239,7 @@ let jonas = {
   getSummary: function () {
     return `${this.firstName} is a ${this.calcAge()} years old ${
       this.job
-    }, and he has ${this.hasDriverLicense ? "a" : "no"} driver's License.`;
+    }, and he has ${this.hasDriverLicense ? 'a' : 'no'} driver's License.`;
   },
 };
 
@@ -249,7 +249,7 @@ console.log(jonas.getSummary());
 // -------------------------------- challenge 3
 
 const mark = {
-  fullName: "Mark Miller",
+  fullName: 'Mark Miller',
   mass: 78, // 92
   height: 1.69, // 1.95
   calcBMI: function () {
@@ -259,7 +259,7 @@ const mark = {
 };
 
 const john = {
-  fullName: "John Smith",
+  fullName: 'John Smith',
   mass: 92, //78
   height: 1.95, // 1.96
   calcBMI: function () {
@@ -292,11 +292,11 @@ for (let rep = 1; rep <= 20; rep++) {
 // -------------------------- otro loop
 
 const jonasArray = [
-  "jonas",
-  "Shmetman",
+  'jonas',
+  'Shmetman',
   2024 - 1998,
-  "teacher",
-  ["Adrian", "Brenda", "Cristina"],
+  'teacher',
+  ['Adrian', 'Brenda', 'Cristina'],
   true,
 ];
 
@@ -314,17 +314,17 @@ for (let i = 0; i <= yearOf.length; i++) {
 console.log(agesOf);
 
 // continue and break statement
-console.log("----------ONLY STRINGS ----------------");
+console.log('----------ONLY STRINGS ----------------');
 for (let r = 0; r <= jonasArray.length; r++) {
-  if (typeof jonasArray[r] !== "string") continue;
+  if (typeof jonasArray[r] !== 'string') continue;
   {
     console.log(jonasArray[r], typeof jonasArray[r]);
   }
 }
 
-console.log("------- BREAK WITH NUMBERS");
+console.log('------- BREAK WITH NUMBERS');
 for (r = 0; r <= jonasArray.length; r++) {
-  if (typeof jonasArray[r] === "number") break;
+  if (typeof jonasArray[r] === 'number') break;
   {
     console.log(jonasArray[r], typeof jonasArray[r]);
   }
@@ -363,11 +363,11 @@ while (numeroAleatorio !== 6) {
 
 // CHALLENGE #4 Let's improve Steven's tip calculator even more!-----------
 
-const calcTip = function(bill){
-  return bill >=50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
-}
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
 // declaramos los arreglos, para las cuentas y para guardar los totales de cada operacion
-const bills = [ 22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
 const totals = [];
 
@@ -382,27 +382,24 @@ console.log(bills);
 console.log(tips);
 console.log(totals);
 
-
 // ----------------------------------------------- challenge Temperature -----------
-const temperatures = [45,4, -2, 9,67];
+const temperatures = [45, 4, -2, 9, 67];
 
-const calclTemperature = function (tempOne, tempTwo){
+const calclTemperature = function (tempOne, tempTwo) {
   const temps = tempOne.concat(tempTwo);
   let max = temps[0];
   let min = temps[0];
-  for(let i=0;i < temps.length;i++){
-    if(typeof temps[i] !=='number') continue;
-    if(temps[i] > max){
+  for (let i = 0; i < temps.length; i++) {
+    if (typeof temps[i] !== 'number') continue;
+    if (temps[i] > max) {
       max = temps[i];
     }
-    if(temps[i] < min){
+    if (temps[i] < min) {
       min = temps[i];
     }
-  console.log(`Son ${temps[i]}ºC registrados in ${i + 1} days`);
-
+    console.log(`Son ${temps[i]}ºC registrados in ${i + 1} days`);
   }
   console.log(max, min);
-  
 };
 calclTemperature([17, 21, 23]);
 calclTemperature([12, 5, -5, 0, 4]);
@@ -410,20 +407,35 @@ calclTemperature([12, 5, -5, 0, 4]);
 // 17ºC (grados registrados en el array por posicion) in (dia que corresponde) day
 
 // EJERCICIO #1 este pequeño ciclo se encarga de sumar los numero impares del 1 -100 en un ciclo for
-
 let sumEvenNumbers = 0;
-for(let i=2; i <=100 ;i++){
-  if(i % 2 === 0){
+for (let i = 2; i <= 100; i++) {
+  if (i % 2 === 0) {
     sumEvenNumbers += i;
   }
 }
-console.log(`La suma de todos los numeros pares del 1-100 es ${sumEvenNumbers}`);
+console.log(
+  `La suma de todos los numeros pares del 1-100 es ${sumEvenNumbers}`
+);
 // para numeros impares
-
 let sumOddNumbers = 0;
-for (let im = 1; im <=100; im++) {
-  if(im % 2 !== 0){
+for (let im = 1; im <= 100; im++) {
+  if (im % 2 !== 0) {
     sumOddNumbers += im;
   }
 }
-console.log(`La suma de todos los numeros impares del 1 al 100 es ${sumOddNumbers}`);
+console.log(
+  `La suma de todos los numeros impares del 1 al 100 es ${sumOddNumbers}`
+);
+
+// EJERCICIO #2
+//Tabla de multiplicar: Solicita al usuario el numero y luego imprime la tabla de multiplicar de ese numero
+// del 1-10 utilizando un ciclo for
+let userNumber = prompt(
+  'Por favor ingresa un numero para calcular su tabla de multiplicar',
+  ''
+);
+for (let i = 1; i <= 10; i++) {
+  let multiploNumer = userNumber * i;
+  console.log(multiploNumer);
+}
+
