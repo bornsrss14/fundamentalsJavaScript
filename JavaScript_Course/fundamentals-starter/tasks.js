@@ -439,3 +439,12 @@ for (let i = 1; i <= 10; i++) {
   console.log(multiploNumer);
 }
 
+//EJERCICIO #3
+// Factorial de un número: Desarrolla un programa que calcule el factorial de un número
+//ingresado por el usuario utilizando un ciclo for.
+// n!=n×(n−1)×(n−2)×…×2×1
+let userFactorialNumber = prompt('Por favor ingresa un numero', '');
+for (let factorialVariable = 1; factorialVariable <= userFactorialNumber; factorialVariable++) {
+    calculo *= factorialVariable; // Multiplicamos el cálculo por el número de la iteración
+}
+console.log(`El factorial de ${userFactorialNumber} es ${calculo}`);
