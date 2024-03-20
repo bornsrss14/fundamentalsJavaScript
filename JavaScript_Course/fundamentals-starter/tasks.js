@@ -443,8 +443,39 @@ for (let i = 1; i <= 10; i++) {
 // Factorial de un número: Desarrolla un programa que calcule el factorial de un número
 //ingresado por el usuario utilizando un ciclo for.
 // n!=n×(n−1)×(n−2)×…×2×1
-let userFactorialNumber = prompt('Por favor ingresa un numero', '');
-for (let factorialVariable = 1; factorialVariable <= userFactorialNumber; factorialVariable++) {
-    calculo *= factorialVariable; // Multiplicamos el cálculo por el número de la iteración
+
+//userFactorialNumber
+//factorialVariable se inicializa
+//calculo = calculo  x factorial Variable
+//
+//1 * 1 = 1
+// 1 *2 = 2
+// 2 * 3 = 6
+// 6 * 4 = 24
+//24 * 5 = 120
+//120 * 6 = 720
+let calculo = 1;
+let userFactorialNumber = prompt('Por favor ingresa un numero', ''); //5
+for (
+  let factorialVariable = 1;
+  factorialVariable <= userFactorialNumber /*5*/;
+  factorialVariable++
+) {
+  calculo *= factorialVariable; // Multiplicamos el cálculo por el número de la iteración 1*1 1*2 2*3 6*4 24*5
 }
 console.log(`El factorial de ${userFactorialNumber} es ${calculo}`);
+
+//Ejercicio #4 Secuencia Fibonacci
+// Implementa un programa que genere los primeros n términos de la secuencia Fibonacci utilizando un ciclo for.
+// comienzo con dos primeros numeros de la secuancia  firstDigFibonacci, secondDigFibonacci
+
+// 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597
+let fibonacciSequence = [0,1];
+let numeroDado = prompt('Dame un numero para calcular la secuencia Fibonacci',''); //6
+for(let i = 2 ; i < numeroDado;i++){
+  let calculoPosition = fibonacciSequence[i -2] + fibonacciSequence[i-1];
+  fibonacciSequence.push(calculoPosition);
+}
+console.log(`La secuencia de Fibonnacci de ${numeroDado} es ${fibonacciSequence} longitud es de ${fibonacciSequence.length}`);
+
+
