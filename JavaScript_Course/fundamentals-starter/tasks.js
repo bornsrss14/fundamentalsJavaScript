@@ -470,12 +470,32 @@ console.log(`El factorial de ${userFactorialNumber} es ${calculo}`);
 // comienzo con dos primeros numeros de la secuancia  firstDigFibonacci, secondDigFibonacci
 
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597
-let fibonacciSequence = [0,1];
-let numeroDado = prompt('Dame un numero para calcular la secuencia Fibonacci',''); //6
-for(let i = 2 ; i < numeroDado;i++){
-  let calculoPosition = fibonacciSequence[i -2] + fibonacciSequence[i-1];
+let fibonacciSequence = [0, 1];
+let numeroDado = prompt(
+  'Dame un numero para calcular la secuencia Fibonacci',
+  ''
+); //6
+for (let i = 2; i < numeroDado; i++) {
+  let calculoPosition = fibonacciSequence[i - 2] + fibonacciSequence[i - 1];
   fibonacciSequence.push(calculoPosition);
 }
-console.log(`La secuencia de Fibonnacci de ${numeroDado} es ${fibonacciSequence} longitud es de ${fibonacciSequence.length}`);
+console.log(
+  `La secuencia de Fibonnacci de ${numeroDado} es ${fibonacciSequence} longitud es de ${fibonacciSequence.length}`
+);
 
+//Ejercicio #5
+//Crea un programa que verifique si un número ingresado por el usuario es primo o no utilizando un ciclo for para comprobar sus divisores.
 
+let inputNumber = Number(prompt('Numero ingresado', ''));
+let esPrimo = true;
+for (let i = 2; i < inputNumber; i++) {
+  if (inputNumber % i === 0) {
+    esPrimo = false;
+    break;
+  }
+}
+if (esPrimo) {
+  console.log(numeroIngresado + ' es un número primo.');
+} else {
+  console.log(`El numero ${inputNumber} no es un número primo.`);
+}
