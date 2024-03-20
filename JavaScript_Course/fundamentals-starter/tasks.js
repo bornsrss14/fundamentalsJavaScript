@@ -490,7 +490,8 @@ let inputNumber = Number(prompt('Numero ingresado', ''));
 let esPrimo = true;
 for (let i = 2; i < inputNumber; i++) {
   if (inputNumber % i === 0) {
-    esPrimo = false;
+    esPrimo = false; //si el if es cierto, entonces toma este valor la bandera, a falso y se va a ejecutar
+    //lo que tiene en el else
     break;
   }
 }
@@ -499,3 +500,17 @@ if (esPrimo) {
 } else {
   console.log(`El numero ${inputNumber} no es un número primo.`);
 }
+
+//EJERCICIO #6
+//Contador de vocales: Desarrolla un programa que cuente el número de vocales en
+// una cadena de texto ingresada por el usuario utilizando un ciclo for.
+
+let texto = prompt("Ingresa una cadena de texto:");
+texto = texto.toLowerCase();
+let contadorVocales = 0;
+for (let i = 0; i < texto.length; i++) {
+    if (texto[i] === 'a' || texto[i] === 'e' || texto[i] === 'i' || texto[i] === 'o' || texto[i] === 'u') {
+        contadorVocales++;
+    }
+}
+console.log("El número de vocales en la cadena es: " + contadorVocales);
