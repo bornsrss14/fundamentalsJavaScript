@@ -505,12 +505,37 @@ if (esPrimo) {
 //Contador de vocales: Desarrolla un programa que cuente el número de vocales en
 // una cadena de texto ingresada por el usuario utilizando un ciclo for.
 
-let texto = prompt("Ingresa una cadena de texto:");
+let texto = prompt('Ingresa una cadena de texto:');
 texto = texto.toLowerCase();
 let contadorVocales = 0;
 for (let i = 0; i < texto.length; i++) {
-    if (texto[i] === 'a' || texto[i] === 'e' || texto[i] === 'i' || texto[i] === 'o' || texto[i] === 'u') {
-        contadorVocales++;
-    }
+  if (
+    texto[i] === 'a' ||
+    texto[i] === 'e' ||
+    texto[i] === 'i' ||
+    texto[i] === 'o' ||
+    texto[i] === 'u'
+  ) {
+    contadorVocales++;
+  }
 }
-console.log("El número de vocales en la cadena es: " + contadorVocales);
+console.log('El número de vocales en la cadena es: ' + contadorVocales);
+
+//Ejercicio # 7
+/*A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its 
+own digits, each raised to the power of the number of digits in a given base. In this Kata,
+ we will restrict ourselves to decimal (base 10). */
+//153
+ let inputArmstron = prompt('Por favor ingresa un numero','');
+ let narcissisticNumber = 0;
+ let resultadoFinal =0;
+ for(let i=0;i < inputArmstron.length;i++){
+  narcissisticNumber = Math.pow(inputArmstron[i], inputArmstron.length);
+  resultadoFinal += narcissisticNumber;
+ } if(resultadoFinal == inputArmstron){
+  console.log('Es un numero narcicista')
+
+ } else{
+  console.log('No es');
+ }
+ console.log(resultadoFinal);
