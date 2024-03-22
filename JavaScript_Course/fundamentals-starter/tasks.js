@@ -539,3 +539,15 @@ own digits, each raised to the power of the number of digits in a given base. In
   console.log('No es');
  }
  console.log(resultadoFinal);
+
+ //Arrow Funtions
+// Para calcular los años que le quedan para jubilarse, 
+//teniendo como parametros el año de nacimiento, edad actual, fecha actual
+
+const fun = (birthYe, currentYear) => {
+  let age = currentYear - birthYe;
+  let yearsUntilRetire = 65 - age;
+  return yearsUntilRetire;
+}
+
+console.log(fun(1998, 2024));
