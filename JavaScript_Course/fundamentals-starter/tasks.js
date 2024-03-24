@@ -520,6 +520,25 @@ for (let i = 0; i < texto.length; i++) {
   }
 }
 console.log('El número de vocales en la cadena es: ' + contadorVocales);
+// ------------------------- A este ejercicio lo convierto en una funcion de flecha
+const functionUno = texto => {
+  texto = texto.toLowerCase();
+  let contadorVocales = 0;
+  for (let i = 0; i < texto.length; i++) {
+    if (
+      texto[i] === 'a' ||
+      texto[i] === 'e' ||
+      texto[i] === 'i' ||
+      texto[i] === 'o' ||
+      texto[i] === 'u'
+    ) {
+      contadorVocales ++;
+    }
+  }
+  return contadorVocales;
+}
+console.log(`El primer resultado es de ${functionUno('Ese oso sí se asea')}`);
+console.log(`El segundo resultado es de ${functionUno('Rebeka')}`);
 
 //Ejercicio # 7
 /*A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its 
