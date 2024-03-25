@@ -1,0 +1,53 @@
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  display: flex;
+  width: 500px;
+  height: 200px;
+  align-items: center;
+}
+.container > div {
+  text-align: center;
+}
+
+/* ----------------------------------------------------------------Flex Grow  */
+/* .item-1 {
+  flex-basis: 100px;
+  flex-grow: 1;
+}
+.item-2 {
+  flex-grow: 3;
+  flex-basis: 100px;
+}
+.item-3 {
+  flex-grow: 1;
+  flex-basis: 100px;
+}
+.item-4 {
+  flex-grow: 1;
+  flex-basis: 100px;
+} */
+
+/* ------------------------------------------------------------------Flex Shrink */
+
+.item-1 {
+  flex-basis: 150px;
+  flex-shrink: 1;
+}
+.item-2 {
+  flex-basis: 150px;
+  flex-shrink: 3;
+  background-color: red;
+  color: white;
+}
+.item-3 {
+  flex-basis: 150px;
+  flex-shrink: 1;
+}
+.item-4 {
+  flex-basis: 150px;
+  flex-shrink: 1;
+}
