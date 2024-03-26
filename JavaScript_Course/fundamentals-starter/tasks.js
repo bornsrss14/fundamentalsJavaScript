@@ -521,7 +521,7 @@ for (let i = 0; i < texto.length; i++) {
 }
 console.log('El número de vocales en la cadena es: ' + contadorVocales);
 // ------------------------- A este ejercicio lo convierto en una funcion de flecha
-const functionUno = texto => {
+const functionUno = (texto) => {
   texto = texto.toLowerCase();
   let contadorVocales = 0;
   for (let i = 0; i < texto.length; i++) {
@@ -532,11 +532,11 @@ const functionUno = texto => {
       texto[i] === 'o' ||
       texto[i] === 'u'
     ) {
-      contadorVocales ++;
+      contadorVocales++;
     }
   }
   return contadorVocales;
-}
+};
 console.log(`El primer resultado es de ${functionUno('Ese oso sí se asea')}`);
 console.log(`El segundo resultado es de ${functionUno('Rebeka')}`);
 
@@ -545,28 +545,137 @@ console.log(`El segundo resultado es de ${functionUno('Rebeka')}`);
 own digits, each raised to the power of the number of digits in a given base. In this Kata,
  we will restrict ourselves to decimal (base 10). */
 //153
- let inputArmstron = prompt('Por favor ingresa un numero','');
- let narcissisticNumber = 0;
- let resultadoFinal =0;
- for(let i=0;i < inputArmstron.length;i++){
+let inputArmstron = prompt('Por favor ingresa un numero', '');
+let narcissisticNumber = 0;
+let resultadoFinal = 0;
+for (let i = 0; i < inputArmstron.length; i++) {
   narcissisticNumber = Math.pow(inputArmstron[i], inputArmstron.length);
   resultadoFinal += narcissisticNumber;
- } if(resultadoFinal == inputArmstron){
-  console.log('Es un numero narcicista')
-
- } else{
+}
+if (resultadoFinal == inputArmstron) {
+  console.log('Es un numero narcicista');
+} else {
   console.log('No es');
- }
- console.log(resultadoFinal);
+}
+console.log(resultadoFinal);
 
- //Arrow Funtions
-// Para calcular los años que le quedan para jubilarse, 
+//EJERCICIO #8 Arrow Funtions
+// Para calcular los años que le quedan para jubilarse,
 //teniendo como parametros el año de nacimiento, edad actual, fecha actual
 
 const fun = (birthYe, currentYear) => {
   let age = currentYear - birthYe;
   let yearsUntilRetire = 65 - age;
   return yearsUntilRetire;
-}
+};
 
 console.log(fun(1998, 2024));
+
+// EJERCICIO #9 Crear una calculadora básica con el switch statement
+//Que pueda sumar, multiplicar, restar dividir
+
+const resultado_op = (operacion, numeroUno, numeroDos) => {
+  switch (operacion) {
+    case '+':
+      return numeroUno + numeroDos;
+    case '-':
+      return numeroUno - numeroDos;
+    case 'x':
+      return numeroUno * numeroDos;
+    case '/':
+      return numeroUno / numeroDos;
+    default:
+      return `Operador ${operacion} no valido, intente de nuevo`;
+  }
+};
+console.log(resultado_op('+', 100, 2));
+
+//EJERCICIO #10 switch statement dia de la semana
+const arrayNuevo = [
+  'Monday',
+  'Tuesday',
+  'Wednesay',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
+const daysOfWeek = (dayInput) => {
+  switch (dayInput) {
+    case 1:
+      return `Today is ${arrayNuevo[0]}`;
+    case 2:
+      return `Today is ${arrayNuevo[1]}`;
+    case 3:
+      return `Today is ${arrayNuevo[2]}`;
+    case 4:
+      return `Today is ${arrayNuevo[3]}`;
+    case 5:
+      return `Today is ${arrayNuevo[4]}`;
+    case 6:
+      return `Today is ${arrayNuevo[5]}`;
+    case 7:
+      return `Today is ${arrayNuevo[6]}`;
+    default:
+      return `Numero ${dayInput} fuera de rango`;
+  }
+};
+console.log(daysOfWeek(1));
+
+// EJERCICIO #11 Esta pequeña funcion hará que se agreguen elementos a un menu y despuès
+// mostrará, eliminará, agragarà al menu, segun las opciones
+let arrayMenu = [];
+let foodItem =' ';
+let foodItemRemove =' ';
+
+function showInformation() {
+  alert(arrayMenu.join('\n'));
+}
+
+function addElement() {
+  foodItem = prompt('Ingrese un elemento', '');
+  arrayMenu.push(foodItem);
+}
+
+function removeElement() {
+  foodItemRemove = prompt('¿Cuál quieres eliminar?', '');
+  for (let i = 0; i < arrayMenu.length; i++) {
+    if (foodItemRemove.toLowerCase() === arrayMenu[i].toLowerCase()){
+      arrayMenu.splice(i, 1);
+      break;
+    }
+  }
+}
+
+function showMenu() {
+  console.log('=== MENÚ DE OPCIONES ===');
+  console.log('1. Show Information');
+  console.log('2. Add element');
+  console.log('3. Remove Element');
+  console.log('4. Quite');
+
+  let optionInput = +prompt('Selecciona una opcion de las anteriores', '');
+  switch (optionInput) {
+    case 1: //this is Show information
+      showInformation();
+      break;
+    case 2: //add element
+      addElement();
+      break;
+    case 3: //remove
+      removeElement();
+      break;
+    case 4:
+      
+      console.log('Bye ┐(︶▽︶)┌');
+      return; // Salir de la función y del bucle
+    default:
+      console.log('Opción no válida, intente de nuevo.');
+      break;
+  }
+
+  // Repetir el proceso mostrando el menú nuevamente
+  showMenu();
+}
+console.log(showMenu());
+
