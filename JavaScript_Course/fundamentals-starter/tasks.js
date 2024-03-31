@@ -625,8 +625,8 @@ console.log(daysOfWeek(1));
 // EJERCICIO #11 Esta pequeña funcion hará que se agreguen elementos a un menu y despuès
 // mostrará, eliminará, agragarà al menu, segun las opciones
 let arrayMenu = [];
-let foodItem =' ';
-let foodItemRemove =' ';
+let foodItem = ' ';
+let foodItemRemove = ' ';
 
 function showInformation() {
   alert(arrayMenu.join('\n'));
@@ -640,7 +640,7 @@ function addElement() {
 function removeElement() {
   foodItemRemove = prompt('¿Cuál quieres eliminar?', '');
   for (let i = 0; i < arrayMenu.length; i++) {
-    if (foodItemRemove.toLowerCase() === arrayMenu[i].toLowerCase()){
+    if (foodItemRemove.toLowerCase() === arrayMenu[i].toLowerCase()) {
       arrayMenu.splice(i, 1);
       break;
     }
@@ -655,27 +655,24 @@ function showMenu() {
   console.log('4. Quite');
 
   let optionInput = +prompt('Selecciona una opcion de las anteriores', '');
-  switch (optionInput) {
-    case 1: //this is Show information
-      showInformation();
-      break;
-    case 2: //add element
-      addElement();
-      break;
-    case 3: //remove
-      removeElement();
-      break;
-    case 4:
-      
-      console.log('Bye ┐(︶▽︶)┌');
-      return; // Salir de la función y del bucle
-    default:
-      console.log('Opción no válida, intente de nuevo.');
-      break;
-  }
-
+    switch (optionInput) {
+      case 1: //this is Show information
+        showInformation();
+        break;
+      case 2: //add element
+        addElement();
+        break;
+      case 3: //remove
+        removeElement();
+        break;
+      case 4:
+        console.log('Bye ┐(︶▽︶)┌');
+        return; // Salir de la función y del bucle
+      default:
+        console.log('Opción no válida, intente de nuevo.');
+        break;
+    }
   // Repetir el proceso mostrando el menú nuevamente
   showMenu();
 }
 console.log(showMenu());
-

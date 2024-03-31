@@ -5,12 +5,15 @@
 }
 .container {
   display: flex;
+  align-items: stretch;
   width: 500px;
   height: 200px;
-  align-items: center;
 }
 .container > div {
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ----------------------------------------------------------------Flex Grow  */
@@ -43,9 +46,26 @@
   background-color: red;
   color: white;
 }
-.item-3 {
+.item-31 {
   flex-basis: 150px;
   flex-shrink: 1;
+  background-color: aquamarine;
+}
+
+.item-3 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-flow: row wrap; */
+  flex-basis: 150px;
+  flex-shrink: 1;
+  align-self: self-start;
+  justify-content: center;
+  background-color: aquamarine;
+  margin-top: 10px;
+}
+.item-3 > p {
+  margin: 5px 0;
 }
 .item-4 {
   flex-basis: 150px;
