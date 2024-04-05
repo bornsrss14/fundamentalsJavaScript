@@ -24,6 +24,8 @@ let gameLost = function () {
   document.querySelector(".score").textContent = 0;
   document.querySelector(".check").style.display = "none"; // Oculta el botón "Check"
   document.querySelector(".again").style.display = "block"; // Oculta el botón "Check"
+  document.querySelector('body').style.backgroundColor = "red";
+  document.querySelector('.number').textContent = "˙◠˙";
 };
 
 document.querySelector(".check").addEventListener("click", function () {
