@@ -28,6 +28,8 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".number").style.width = "30rem";
     document.querySelector(".message").textContent = "シ Correct Number!";
     document.querySelector(".number").textContent = diceRoll;
+    document.querySelector(".check").style.display = "none"; // Oculta el botón "Check"
+    document.querySelector(".again").style.display = "block";
   } else if (diceRoll > guessVariable) {
     if (score__inicial > 1) {
       document.querySelector(".message").textContent = "Muy bajo!";
@@ -36,6 +38,8 @@ document.querySelector(".check").addEventListener("click", function () {
     } else {
       document.querySelector(".message").textContent = "You lost the game!";
       document.querySelector(".score").textContent = 0;
+      document.querySelector(".check").style.display = "none"; // Oculta el botón "Check"
+      document.querySelector(".again").style.display = "block"; // Oculta el botón "Check"
     }
   } else if (diceRoll < guessVariable) {
     if (score__inicial > 1) {
@@ -45,17 +49,23 @@ document.querySelector(".check").addEventListener("click", function () {
     } else {
       document.querySelector(".message").textContent = "You lost the game!";
       document.querySelector(".score").textContent = 0;
+      document.querySelector(".check").style.display = "none"; // Oculta el botón "Check"
+      document.querySelector(".again").style.display = "block"; // Oculta el botón "Check"
     }
   }
 });
 
-document.querySelector(".again").addEventListener("click", function () {
+let resetAndAgain = function () {
   score__inicial = 20;
   diceRoll = Math.trunc(Math.random() * 20) + 1;
-  document.querySelector('.number').textContent = "?";
+  document.querySelector(".number").textContent = "?";
   document.querySelector(".score").textContent = score__inicial;
   document.querySelector("body").style.backgroundColor = "#222";
   document.querySelector(".number").style.width = "15rem";
   document.querySelector(".message").textContent = start;
-  document.querySelector('.guess').value = "";
-});
+  document.querySelector(".guess").value = "";
+  document.querySelector(".again").style.display = "none"; // Oculta el botón "Check"
+  document.querySelector(".check").style.display = "block"; // Oculta el botón "Check"
+};
+document.querySelector(".again").addEventListener("click", resetAndAgain);
+document.querySelector(".btn-reset").addEventListener("click", resetAndAgain);
