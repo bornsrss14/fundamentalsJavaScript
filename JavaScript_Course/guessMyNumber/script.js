@@ -13,9 +13,10 @@
 
 // 3.- Cada vez que fallamos al adivinar el numero, nuestro score decrementa
 
-const diceRoll = Math.trunc(Math.random() * 20) + 1; //give us a number btween 0 n 1
+let diceRoll = Math.trunc(Math.random() * 20) + 1; //give us a number btween 0 n 1
 let score__inicial = 20;
-document.querySelector(".number").textContent = diceRoll;
+const start = "Start guessing...";
+// document.querySelector(".number").textContent = diceRoll;
 
 document.querySelector(".check").addEventListener("click", function () {
   let guessVariable = +document.querySelector(".guess").value;
@@ -23,9 +24,10 @@ document.querySelector(".check").addEventListener("click", function () {
     document.querySelector(".message").textContent =
       "ヽ(ー_ー )ノ invalid number";
   } else if (diceRoll === guessVariable) {
-    document.querySelector('body').style.backgroundColor = '#60b347';
-    document.querySelector('.number').style.width = '30rem';
+    document.querySelector("body").style.backgroundColor = "#60b347";
+    document.querySelector(".number").style.width = "30rem";
     document.querySelector(".message").textContent = "シ Correct Number!";
+    document.querySelector(".number").textContent = diceRoll;
   } else if (diceRoll > guessVariable) {
     if (score__inicial > 1) {
       document.querySelector(".message").textContent = "Muy bajo!";
@@ -45,4 +47,15 @@ document.querySelector(".check").addEventListener("click", function () {
       document.querySelector(".score").textContent = 0;
     }
   }
+});
+
+document.querySelector(".again").addEventListener("click", function () {
+  score__inicial = 20;
+  diceRoll = Math.trunc(Math.random() * 20) + 1;
+  document.querySelector('.number').textContent = "?";
+  document.querySelector(".score").textContent = score__inicial;
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
+  document.querySelector(".message").textContent = start;
+  document.querySelector('.guess').value = "";
 });
