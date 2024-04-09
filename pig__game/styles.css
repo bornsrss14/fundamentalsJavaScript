@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap')7
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+.main-container{
+    display: flex;
+    height: 80%;
+    justify-content: center;
+    margin-top:3rem;
+}
+.playerBlock{
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    height: 100%;
+    margin:.1rem;
+    background-color: white;
+}
+
+.sectionScore{
+    border-radius: .81rem;
+    text-align: center;
+    color: white;
+    margin: 8px;
+    padding: 1rem;
+    background: rgb(110, 154, 190);
+    width: 10rem;
+    height: auto;
+}
+h1{
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: .6rem;
+}
+#numScore{
+    font-size: 3rem;
+    margin-top: .8rem;
+    text-align: center;
+}
+
+h1, #numScore, .btnStan{
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+#textPhar{
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin: .4rem;
+}
+#textPharScore{
+    font-size: 2rem;
+    margin: 0;
+}
+.diceImg{
+    background: white;
+    width: 7rem;
+    height: 7rem;
+}
+.btnStan{
+    background: white;
+    border-radius: 100px;
+    border: none;
+    color: black;
+    font-size: 1rem;
+    padding: .7rem .7rem;
+    cursor: pointer;
+}
+.centralElements{
+    
+}
