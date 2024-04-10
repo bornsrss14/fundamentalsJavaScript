@@ -66,6 +66,8 @@ h1,
   margin: 0;
 }
 .diceImg {
+  display: flex;
+  flex-direction: column;
   margin: 2rem;
   background: white;
   border-radius: 13%;
@@ -90,19 +92,20 @@ h1,
   position: absolute;
   top: 20%;
 }
-.genericDot {
+.genericDot >div {
   border-radius: 100%;
   height: 1.5rem;
   width: 1.5rem;
   background: black;
 }
-.hidden {
+.diceImg >.hidden {
   display: none;
 }
 
 /* A partir de aqui voy hacer clases que generen plantillas para el dado */
 
-.dot__one {
+.dotTemplate {
+  position: absolute;
   display: grid;
   grid-template-areas:
     "aa bb cc"
@@ -110,6 +113,7 @@ h1,
     "gg hh ii";
   grid-gap: 1px;
   height: 100%;
+  width: 100%;
   align-content: space-evenly;
   justify-content: space-evenly;
 }
