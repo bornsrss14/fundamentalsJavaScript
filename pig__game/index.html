@@ -11,7 +11,7 @@
       <div class="playerBlock">
         <div id="blockLeft">
           <h1>Player 1</h1>
-          <h2 id="numScore">#00</h2>
+          <h2 id="numScore0">#00</h2>
           <div class="sectionScore">
             <p id="textPhar">Current</p>
             <p id="textPharScore">#score</p>
@@ -22,7 +22,7 @@
       <div class="playerBlock">
         <div id="blockRight">
           <h1>Player 2</h1>
-          <h2 id="numScore">#01</h2>
+          <h2 id="numScore1">#01</h2>
           <div class="sectionScore">
             <p id="textPhar">Current</p>
             <p id="textPharScore">#score</p>
@@ -30,34 +30,35 @@
         </div>
       </div>
       <div class="centralElements">
-        <button class="btnStan">🔁 New Game</button>
+        <button class="btnStan" id="btnNewGame">🔁 New Game</button>
+
         <div class="diceImg">
-          <div class="genericDot dotTemplate hidden">
+          <div id="dice1" class="genericDot dotTemplate hidden">
             <div  id="dot__one"></div>
           </div>
-          <div class="genericDot dotTemplate hidden">
+          <div id="dice2" class="genericDot dotTemplate hidden ">
             <div id="dot__two1"></div>
             <div id="dot__two2"></div>
           </div>
-          <div class="genericDot dotTemplate">
+          <div id="dice3" class="genericDot dotTemplate hidden">
             <div id="dot__three1"></div>
             <div id="dot__three2"></div>
             <div id="dot__three3"></div>
           </div>
-          <div class="genericDot dotTemplate hidden">
+          <div id="dice4" class="genericDot dotTemplate hidden">
             <div id="dot__four1"></div>
             <div id="dot__four2"></div>
             <div id="dot__four3"></div>
             <div id="dot__four4"></div>
           </div>
-          <div class="genericDot dotTemplate hidden">
+          <div id="dice5" class="genericDot dotTemplate hidden ">
             <div id="dot__five3"></div>
             <div id="dot__five4"></div>
             <div id="dot__five2"></div>
             <div id="dot__five5"></div>
             <div id="dot__five1"></div>
           </div>
-          <div class="genericDot dotTemplate hidden">
+          <div id="dice6" class="genericDot dotTemplate hidden">
             <div id="dot__six1"></div>
             <div id="dot__six2"></div>
             <div id="dot__six3"></div>
@@ -66,8 +67,8 @@
             <div id="dot__six6"></div>
           </div>
         </div>
-        <button class="btnStan">💗 Roll dice</button>
-        <button class="btnStan">✅ Hold</button>
+        <button class="btnStan" id="rollDice">💗 Roll dice</button>
+        <button class="btnStan" id="btnHold">✅ Hold</button>
       </div>
     </section>
 
