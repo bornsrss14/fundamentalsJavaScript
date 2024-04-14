@@ -54,34 +54,37 @@ const switchPlayer = () => {
 
 // Función para lanzar los dados
 const functionRollDice = () => {
-  const funRandom = Math.trunc(Math.random() * 6) + 1;
-  resetView();
-  if (funRandom !== 1) {
-    diceImgEl.classList.remove("oculto");
-    currentScore += funRandom;
-    document.getElementById(`currentScore${activePlayer}`).textContent =
-      currentScore;
-    switch (+funRandom) {
-      case 2:
-        diceImgEl.querySelector("#dice2").classList.remove("hidden");
-        break;
-      case 3:
-        diceImgEl.querySelector("#dice3").classList.remove("hidden");
-        break;
-      case 4:
-        document.querySelector("#dice4").classList.remove("hidden");
-        diceImgEl.querySelector("#dice4").classList.remove("hidden");
-        break;
-      case 5:
-        diceImgEl.querySelector("#dice5").classList.remove("hidden");
-        break;
-      case 6:
-        diceImgEl.querySelector("#dice6").classList.remove("hidden");
-        break;
-      // Cases para otros números del dado
+  if (playing) {
+    const funRandom = Math.trunc(Math.random() * 6) + 1;
+
+    resetView();
+    if (funRandom !== 1) {
+      diceImgEl.classList.remove("oculto");
+      currentScore += funRandom;
+      document.getElementById(`currentScore${activePlayer}`).textContent =
+        currentScore;
+      switch (+funRandom) {
+        case 2:
+          diceImgEl.querySelector("#dice2").classList.remove("hidden");
+          break;
+        case 3:
+          diceImgEl.querySelector("#dice3").classList.remove("hidden");
+          break;
+        case 4:
+          document.querySelector("#dice4").classList.remove("hidden");
+          diceImgEl.querySelector("#dice4").classList.remove("hidden");
+          break;
+        case 5:
+          diceImgEl.querySelector("#dice5").classList.remove("hidden");
+          break;
+        case 6:
+          diceImgEl.querySelector("#dice6").classList.remove("hidden");
+          break;
+        // Cases para otros números del dado
+      }
+    } else {
+      switchPlayer();
     }
-  } else {
-    switchPlayer();
   }
 };
 
@@ -91,7 +94,7 @@ const functionHold = () => {
     scores[activePlayer] += currentScore;
     document.getElementById(`numScore${activePlayer}`).textContent =
       scores[activePlayer];
-    if (scores[activePlayer] >= 100) {
+    if (scores[activePlayer] >= 10) {
       playing = false;
       diceImgEl.classList.add("oculto");
       document
