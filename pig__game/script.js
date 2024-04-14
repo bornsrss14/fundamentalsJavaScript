@@ -40,7 +40,7 @@ const functionNew = () => {
 const resetView = () => {
   diceImgEl
     .querySelectorAll(".genericDot")
-    .forEach((dot) => dot.classList.add("hidden"));
+    .forEach((elementFor) => elementFor.classList.add("hidden"));
 };
 
 // Función para cambiar de jugador
@@ -57,6 +57,7 @@ const functionRollDice = () => {
   const funRandom = Math.trunc(Math.random() * 6) + 1;
   resetView();
   if (funRandom !== 1) {
+    diceImgEl.classList.remove("oculto");
     currentScore += funRandom;
     document.getElementById(`currentScore${activePlayer}`).textContent =
       currentScore;
@@ -68,6 +69,7 @@ const functionRollDice = () => {
         diceImgEl.querySelector("#dice3").classList.remove("hidden");
         break;
       case 4:
+        document.querySelector("#dice4").classList.remove("hidden");
         diceImgEl.querySelector("#dice4").classList.remove("hidden");
         break;
       case 5:
@@ -98,6 +100,7 @@ const functionHold = () => {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove("player--active");
+      resetView();
     } else {
       switchPlayer();
     }
