@@ -6,10 +6,26 @@ const restaurant = {
   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
   starterMenu: ["Foccacia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto", "Osobuscco"],
+  openingHours:{
+    thu:{
+      open:12,
+      close:22
+    },
+    fri:{
+      open:11,
+      close:23
+    },
+    sat:{
+      open:0,
+      close:24,
+    },
+  },
   order: function (starterMenuPlat, mainMenuPlat) {
     return [this.starterMenu[starterMenuPlat], this.mainMenu[mainMenuPlat]];
   },
 };
+
+
 // Si yo mapeo los array de cada uno
 const [star, mainC] = restaurant.order(0, 3);
 console.log(star, mainC);
