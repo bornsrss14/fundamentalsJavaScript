@@ -6,18 +6,18 @@ const restaurant = {
   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
   starterMenu: ["Foccacia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto", "Osobuscco"],
-  openingHours:{
-    thu:{
-      open:12,
-      close:22
+  openingHours: {
+    thu: {
+      open: 12,
+      close: 22,
     },
-    fri:{
-      open:11,
-      close:23
+    fri: {
+      open: 11,
+      close: 23,
     },
-    sat:{
-      open:0,
-      close:24,
+    sat: {
+      open: 0,
+      close: 24,
     },
   },
   order: function (starterMenuPlat, mainMenuPlat) {
@@ -25,6 +25,15 @@ const restaurant = {
   },
 };
 
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+//reasigno nuevos nombres a las propiedades seleccionadas del objeto
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
 
 // Si yo mapeo los array de cada uno
 const [star, mainC] = restaurant.order(0, 3);
@@ -293,12 +302,15 @@ const books = [
   },
 ];
 
-const [,,thirdBook] = books;
+const [, , thirdBook] = books;
 console.log(thirdBook);
 
-const ratings = [['rating', 4.19],['ratingsCount', 1448789]];
-const [[, rating],[, ratingsCount]] = ratings;
+const ratings = [
+  ["rating", 4.19],
+  ["ratingsCount", 1448789],
+];
+const [[, rating], [, ratingsCount]] = ratings;
 
 const ratingStars = [63405, 1808];
 
-const [fiveStarRatings, oneStarRatings, threeStarRatings=0] = ratingStars;
+const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
