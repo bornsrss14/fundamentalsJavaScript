@@ -32,23 +32,30 @@ const restaurant = {
   },
 
   orderDeliveryComplete: function ({
-    time = "00:00",
-    address = "S/N",
-    mainIndexx = "0",
-    starterIndex = "0",
+    time:t = "00:00",
+    address:ad = "S/N",
+    mainIndexx:ma = "0",
+    starterIndex: st = "0",
   }) {
-    console.log(`Order recived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndexx]}, will be 
-      delivered to ${address} at ${time}`);
+    console.log(`Order recived! ${this.starterMenu[st]} and ${this.mainMenu[ma]}, will be 
+      delivered to ${ad} at ${t}`);
   },
 };
 const [star, mainC] = restaurant.order(0, 3);
-
+//Aquí llamamos al método de el objeto (DOS VECES)
 restaurant.orderDeliveryComplete({
   time: "22:30",
   address: "privada 1 de Mayo #4 Mza 6 LT 4 Col Las Palmas",
   mainIndexx: 2,
   starterIndex: 1,
 });
+
+restaurant.orderDeliveryComplete(
+  {
+    address:'Col Dos Caminos',
+    mainIndexx:1,
+  }
+);
 
 const {
   thu: { open: o, close: c },

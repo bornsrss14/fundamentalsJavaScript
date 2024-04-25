@@ -84,7 +84,7 @@ const books = [
     publisher: "Addison-Wesley Professional",
     publicationDate: "2011-03-24",
     edition: 4,
-    keywords: [
+    keywords: [ 
       "computer science",
       "programming",
       "algorithms",
@@ -175,7 +175,8 @@ const books = [
       },
     },
     highlighted: true,
-  },
+  }
+  ,
   {
     title: "Operating System Concepts",
     author: ["Abraham Silberschatz", "Peter B. Galvin", "Greg Gagne"],
@@ -301,6 +302,10 @@ const books = [
     highlighted: true,
   },
 ];
+const {thirdParty:{ goodreads:{ rating:ratingBooks}}} = books[0];
+
+const {keywords:tags2} = books[0];
+console.log(tags2);
 
 const [, , thirdBook] = books;
 console.log(thirdBook);
@@ -314,3 +319,19 @@ const [[, rating], [, ratingsCount]] = ratings;
 const ratingStars = [63405, 1808];
 
 const [fiveStarRatings, oneStarRatings, threeStarRatings = 0] = ratingStars;
+
+const {title, author, ISBN} =books[0];
+
+let bookTitle = 'unknown';
+let bookAuthor = 'unknown';
+
+
+function printBook({title, author, year= 'unknow'}){
+  console.log(`This ${title} by ${author}, in the ${year}`);
+};
+
+printBook({
+  title:'Rose Mary',
+  author:'Ross',
+  year:'1998',
+});
