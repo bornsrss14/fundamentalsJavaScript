@@ -326,8 +326,8 @@ let bookTitle = 'unknown';
 let bookAuthor = 'unknown';
 
 
-function printBook({title, author, year= 'unknow'}){
-  console.log(`This ${title} by ${author}, in the ${year}`);
+function printBook({title, author, year:yea= 'unknow'}){
+  console.log(`This ${title} by ${author}, in the ${yea}`);
 };
 
 printBook({
@@ -335,3 +335,31 @@ printBook({
   author:'Ross',
   year:'1998',
 });
+//109 The Nulish Coalescing Operator (??)
+const numeroDefinido = 10;
+const numeroDefinidoOpcional = numeroDefinido ?? 'Esta es una opcion valida igual';
+console.log(numeroDefinidoOpcional);
+
+//110  Logical Assignment operators
+const album2002 = {
+  albumName: 'Turn on the bright lights',
+  year : '2001',
+  duration: '49:00',
+  discografica: 'Matador Records'
+};
+
+const album2007 = {
+albumName:'Our Love To Admire',
+year: '2007',
+duration: '47:05',
+genero: 'Indie Rock',
+};
+
+album2002.discografica = album2002.discografica ?? 'Discografica Unknow';
+album2007.discografica = album2007.discografica ?? 'No tiene';
+console.log(album2002);
+console.log(album2007);
+
+let textHola = "Verdadero";
+textHola ||= 'Esto es el reemplazo del falso';
+console.log(textHola);
