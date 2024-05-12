@@ -12,10 +12,10 @@ const openingHours = {
     open: 0, // Open 24 hours
     close: 24,
   },
-  [weekdays[2]]:{
+  [weekdays[2]]: {
     // open:1,
-    close:23,
-  }
+    close: 23,
+  },
 };
 const restaurant = {
   name: "Classico Italiano",
@@ -59,24 +59,40 @@ const restaurant = {
 //     console.log(`${index +1}:${element}`);
 // }
 
-// #1
+// #1 Optional chaining
+
+const user = {
+  name: "Taylor",
+  address: {
+    city: "Manhattan",
+    zipdode: 785455,
+  },
+};
+
+const city = user.address?.city || "Esta no es una propiedad valida";
+console.log(city);
+
+const country =
+  user.address?.country ?? "Esta propiedad no es accesible, o no existe";
+console.log(country);
+
 for (const day of weekdays) {
-  const open =  restaurant.openingHours[day]?.open ?? 'were close';
+  const open = restaurant.openingHours[day]?.open ?? "were close";
   console.log(`On ${day}, we are open at ${open}`);
-  
-}
-console.log('----- SEPARADOR --------');
-// Another practical solution
-for (const day of weekdays) {
-  const open = restaurant.openingHours[day]?.open;
-  if (open !== undefined) {
-    console.log(`On ${day},we open at ${open}`);
-  } else {
-    console.log(`On ${day}, we are closed`);
-  }
 }
 
-// #2 UTILIZAMOS ESTE MISMO OPERADOR PERO AHORA CON METHODS
-console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
-console.log(restaurant.orderRissotto?.(0,1) ?? 'Method does not exist');
-//#3 EN ARRAYS
+// console.log('----- SEPARADOR --------');
+// // Another practical solution
+// for (const day of weekdays) {
+//   const open = restaurant.openingHours[day]?.open;
+//   if (open !== undefined) {
+//     console.log(`On ${day},we open at ${open}`);
+//   } else {
+//     console.log(`On ${day}, we are closed`);
+//   }
+// }
+
+// // #2 UTILIZAMOS ESTE MISMO OPERADOR PERO AHORA CON METHODS
+// console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
+// console.log(restaurant.orderRissotto?.(0,1) ?? 'Method does not exist');
+// //#3 EN ARRAYS
