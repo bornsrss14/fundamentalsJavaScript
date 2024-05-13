@@ -42,7 +42,7 @@ const game = {
     ],
   ],
   score: "4:0",
-  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  scored: ["Lewandowski",'Hugo','Hugo','Hugo', "Gnarby", "Lewandowski", "Hummels"],
   date: "Nov 9th, 2037",
   odds: {
     team1: 1.33,
@@ -101,10 +101,10 @@ team1 > team2 && console.log("Team 2 is more likely to win");
 
 // 1. Loop over the game.scored array and print each player name to the
 // console, along with the goal number (Example: "Goal 1: Lewandowski")
-console.log('---------------------CHALLENGE #2------------------------------');
+console.log("---------------------CHALLENGE #2------------------------------");
 
 for (const [i, player] of game.scored.entries()) {
-  console.log(`The Goal # ${i+1} is from ${player}`);  
+  console.log(`The Goal # ${i + 1} is from ${player}`);
 }
 
 // 2. Use a loop to calculate the average odd and log it to the console (We already
@@ -132,12 +132,20 @@ console.log(`El promedio de Odds es igual a ${average}`);
 // Obtenga los nombres de los equipos directamente del objeto del juego,
 // no los codifique (excepto "empate"). SUGERENCIA: observe cómo las probabilidades y los objetos del juego tienen los mismos nombres de propiedad 😉
 
-
 for (const [clave, valor] of Object.entries(game.odds)) {
-  const teamStr = clave === 'x' ? 'Draw':`victory ${game[clave]}`;
+  const teamStr = clave === "x" ? "Draw" : `victory ${game[clave]}`;
   console.log(`Mi resultado es ${teamStr} de: ${valor}`);
 }
-
-// let res = game['score'];
+// let res = game["date"];
 // console.log(res);
 
+// BONUS: Create an object called 'scorers' which contains the names of the players who
+console.log('-------------------------BONUS----------------------------');
+
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
+}
+for (const [jugador, goles] of Object.entries(scorers)) {
+  console.log(`El jugador ${jugador} anotó ${goles} goles`);
+}
