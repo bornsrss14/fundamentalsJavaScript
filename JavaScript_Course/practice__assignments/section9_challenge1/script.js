@@ -10,7 +10,6 @@
 // 6. Write a function ('printGoals') that receives an arbitrary number of player names (NOT an array) and prints each of them to the console, along with the number of goals that were scored in total (number of player names passed in)
 // 7. The team with the lower odd is more likely to win. Print to the console which team is more likely to win, WITHOUT using an if/else statement or the ternary operator.
 
-
 const game = {
   team1: "bayern munich",
   team2: "Borrusia Dortmund",
@@ -51,12 +50,11 @@ const game = {
     team2: 6.5,
   },
 };
-const [players1, players2] =  game.players;
+const [players1, players2] = game.players;
 console.log(...players1, ...players2);
 
-
-const [gkk , ...fieldPlayers2]= players1;
-console.log(gkk , fieldPlayers2);
+const [gkk, ...fieldPlayers2] = players1;
+console.log(gkk, fieldPlayers2);
 
 const allPlayers2 = [...players1, ...players2];
 console.log(allPlayers2);
@@ -78,7 +76,6 @@ const {
   odds: { team1, x: draw, team2 },
 } = game;
 
-
 // console.log(team1, draw, team2);
 
 // STEP 6 WRITE A FUNTION
@@ -92,10 +89,55 @@ const printGoals = function (...players) {
 
 printGoals("Davies", "Muller", "Lewandowski", "Kimmich");
 printGoals("Davies", "Muller");
-console.log('----------------AQUI'),
-printGoals(...game.scored);
+console.log("----------------AQUI"), printGoals(...game.scored);
 
 // 7. The team with the lower odd is more likely to win. Print to the console which team
 // is more likely to win, WITHOUT using an if/else statement or the ternary operator.
 team1 < team2 && console.log("Team 1 is more likely to win");
 team1 > team2 && console.log("Team 2 is more likely to win");
+
+//CHALLANGE #2
+// game.scored scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+
+// 1. Loop over the game.scored array and print each player name to the
+// console, along with the goal number (Example: "Goal 1: Lewandowski")
+console.log('---------------------CHALLENGE #2------------------------------');
+
+for (const [i, player] of game.scored.entries()) {
+  console.log(`The Goal # ${i+1} is from ${player}`);  
+}
+
+// 2. Use a loop to calculate the average odd and log it to the console (We already
+//   studied how to calculate averages, you can go check if you don't remember)
+// Utilice un bucle para calcular la impar promedio y regístrelo en la consola (ya
+//   // estudié cómo calcular promedios, puedes ir a verificar si no lo recuerdas)
+
+const oddValue = Object.values(game.odds);
+average = 0;
+for (const i of oddValue) average += i;
+average /= oddValue.length;
+console.log(`El promedio de Odds es igual a ${average}`);
+
+// 3. Print the 3 odds to the console, but in a nice formatted way, exaclty like this:
+//       Odd of victory Bayern Munich: 1.33
+//       Odd of draw: 3.25
+//       Odd of victory Borrussia Dortmund: 6.5
+// Get the team names directly from the game object, don't hardcode them (except for "draw").
+// HINT: Note how the odds and the game objects have the same property names 😉
+
+// 3. Imprime las 3 probabilidades en la consola, pero en un formato agradable, exactamente como este:
+//       Cuota de victoria Bayern Múnich: 1,33
+//       Cuota de empate: 3,25
+//       Cuota de victoria Borrussia Dortmund: 6,5
+// Obtenga los nombres de los equipos directamente del objeto del juego,
+// no los codifique (excepto "empate"). SUGERENCIA: observe cómo las probabilidades y los objetos del juego tienen los mismos nombres de propiedad 😉
+
+
+for (const [clave, valor] of Object.entries(game.odds)) {
+  const teamStr = clave === 'x' ? 'Draw':`victory ${game[clave]}`;
+  console.log(`Mi resultado es ${teamStr} de: ${valor}`);
+}
+
+// let res = game['score'];
+// console.log(res);
+
