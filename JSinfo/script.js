@@ -18,7 +18,6 @@ const openingHours = {
   },
 };
 
-
 const restaurant = {
   name: "Classico Italiano",
   location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -117,18 +116,17 @@ const restaurant = {
 // console.log(values);
 // Object.entries(nombreDelObjeto)
 
-
-//#5 SETS 
+//#5 SETS
 //primero lo declaramos
 let mySet = new Set();
 //tenemos varios metodos para poder agrega datos al set
-mySet.add('Rosario');
+mySet.add("Rosario");
 mySet.add(2);
 mySet.add(3);
 console.log(mySet);
 //Verificar si un elemento existe en el set
 
-const r = mySet.has('Rosario');
+const r = mySet.has("Rosario");
 console.log(r);
 mySet.delete(2);
 
@@ -137,7 +135,7 @@ for (const clave of mySet) {
   console.log(clave);
 }
 // Tambièn creo un SET con valores iniciales
-const otroSet = new Set([4,14,24,7,21,45,12]);
+const otroSet = new Set([4, 14, 24, 7, 21, 45, 12]);
 console.log(otroSet);
 
 for (const it of otroSet) {
@@ -146,19 +144,49 @@ for (const it of otroSet) {
 console.log(`Nothing in particular ${otroSet.size} elements`);
 
 //MAPS
-let mapRos = new Map();
-mapRos.set('name', 'Rosario');
-mapRos.set(1, 24);
-mapRos.set(true, 'bitch');
-mapRos.set(false, 'caothic');
+// let mapRos = new Map();
+// mapRos.set('name', 'Rosario');
+// mapRos.set(1, 24);
+// mapRos.set(true, 'bitch');
+// mapRos.set(false, 'caothic');
 
-console.log(mapRos.get(true));
-console.log(mapRos.has(1));
-console.log(mapRos.size);
+// console.log(mapRos.get(true));
+// console.log(mapRos.has(1));
+// console.log(mapRos.size);
 
-console.log(mapRos);
+// console.log(mapRos);
 //RECORRER EL MAPA CON FOR OF...
 
-for (const [clave, valor] of mapRos.entries()) {
-  console.log(`The key is ${clave} and the value is ${valor}`);
+// for (const [clave, valor] of mapRos.entries()) {
+//   console.log(`The key is ${clave} and the value is ${valor}`);
+// }
+// //ESTO ES SI TENEMOS UN OBJETO QUE QUEREMOS CONVERTIR EN MAP, AYUDA MUCHO
+// const hourMap = new Map(Object.entries(openingHours));
+// console.log(hourMap);
+
+const question = new Map([
+  [
+    "question",
+    "¿En qué año Interpol saca su album debut Turn on the bright lights?",
+  ],
+  [1, "2012"],
+  [2, "2001"],
+  [3, "2002"],
+  ["correct", 3],
+  [true, "Eres un gran fan de Interpol ヽ(^。^)ノ"],
+  [false, "Boo, you whore! (>o<) "],
+]);
+
+//vamos a probar como se ve el mapa así
+console.log("---SEPARADOR----");
+console.log(question.get("question"));
+//vamos a recorrerlo con un for of... para obtener sus valores solo numericos keys
+for (const [key, value] of question) {
+  if (typeof key === "number") console.log(`${key}: ${value}`);
 }
+
+const userAnswer = +prompt("Tu respuesta por favor", "");
+console.log(userAnswer);
+//aqui buscamos que sea falso o verdadero
+console.log(question.get(question.get("correct") === userAnswer)); //evaluo si el valor de question.get('correct') que es 3 es igual a la respuesta del usuario, de esto tendré un valor falso y uno verdadero
+console.log(question.get(true));
