@@ -17,6 +17,8 @@ const openingHours = {
     close: 23,
   },
 };
+
+
 const restaurant = {
   name: "Classico Italiano",
   location: "Via Angelo Tavanti 23, Firenze, Italy",
@@ -61,25 +63,24 @@ const restaurant = {
 
 // #1 Optional chaining
 
-const user = {
-  name: "Taylor",
-  address: {
-    city: "Manhattan",
-    zipdode: 785455,
-  },
-};
+// const user = {
+//   name: "Taylor",
+//   address: {
+//     city: "Manhattan",
+//     zipdode: 785455,
+//   },
+// };
+// const city = user.address?.city || "Esta no es una propiedad valida";
+// console.log(city);
 
-const city = user.address?.city || "Esta no es una propiedad valida";
-console.log(city);
+// const country =
+//   user.address?.country ?? "Esta propiedad no es accesible, o no existe";
+// console.log(country);
 
-const country =
-  user.address?.country ?? "Esta propiedad no es accesible, o no existe";
-console.log(country);
-
-for (const day of weekdays) {
-  const open = restaurant.openingHours[day]?.open ?? "were close";
-  console.log(`On ${day}, we are open at ${open}`);
-}
+// for (const day of weekdays) {
+//   const open = restaurant.openingHours[day]?.open ?? "were close";
+//   console.log(`On ${day}, we are open at ${open}`);
+// }
 
 // console.log('----- SEPARADOR --------');
 // // Another practical solution
@@ -96,3 +97,68 @@ for (const day of weekdays) {
 // console.log(restaurant.order?.(0,1) ?? 'Method does not exist');
 // console.log(restaurant.orderRissotto?.(0,1) ?? 'Method does not exist');
 // //#3 EN ARRAYS
+
+//#4 EN OBJETOS
+
+// const paulBanks = {
+//   nombreP:'Paul',
+//   apellidoP: 'Banks',
+//   ageP : 46,
+//   kids: 1,
+// };
+
+// const propiedades = Object.keys(paulBanks);
+
+// for (const p of propiedades) {
+//   console.log(`${p}: ${paulBanks[p]}`);
+// };
+
+// const values = Object.values(paulBanks);
+// console.log(values);
+// Object.entries(nombreDelObjeto)
+
+
+//#5 SETS 
+//primero lo declaramos
+let mySet = new Set();
+//tenemos varios metodos para poder agrega datos al set
+mySet.add('Rosario');
+mySet.add(2);
+mySet.add(3);
+console.log(mySet);
+//Verificar si un elemento existe en el set
+
+const r = mySet.has('Rosario');
+console.log(r);
+mySet.delete(2);
+
+//Recorrer los elementos del set con un bucle For Of
+for (const clave of mySet) {
+  console.log(clave);
+}
+// Tambièn creo un SET con valores iniciales
+const otroSet = new Set([4,14,24,7,21,45,12]);
+console.log(otroSet);
+
+for (const it of otroSet) {
+  console.log(`These are the values of ${it}`);
+}
+console.log(`Nothing in particular ${otroSet.size} elements`);
+
+//MAPS
+let mapRos = new Map();
+mapRos.set('name', 'Rosario');
+mapRos.set(1, 24);
+mapRos.set(true, 'bitch');
+mapRos.set(false, 'caothic');
+
+console.log(mapRos.get(true));
+console.log(mapRos.has(1));
+console.log(mapRos.size);
+
+console.log(mapRos);
+//RECORRER EL MAPA CON FOR OF...
+
+for (const [clave, valor] of mapRos.entries()) {
+  console.log(`The key is ${clave} and the value is ${valor}`);
+}
