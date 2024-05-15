@@ -42,7 +42,15 @@ const game = {
     ],
   ],
   score: "4:0",
-  scored: ["Lewandowski",'Hugo','Hugo','Hugo', "Gnarby", "Lewandowski", "Hummels"],
+  scored: [
+    "Lewandowski",
+    "Hugo",
+    "Hugo",
+    "Hugo",
+    "Gnarby",
+    "Lewandowski",
+    "Hummels",
+  ],
   date: "Nov 9th, 2037",
   odds: {
     team1: 1.33,
@@ -140,12 +148,57 @@ for (const [clave, valor] of Object.entries(game.odds)) {
 // console.log(res);
 
 // BONUS: Create an object called 'scorers' which contains the names of the players who
-console.log('-------------------------BONUS----------------------------');
+console.log("-------------------------BONUS----------------------------");
 
 const scorers = {};
 for (const player of game.scored) {
   scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
 for (const [jugador, goles] of Object.entries(scorers)) {
-  console.log(`El jugador ${jugador} anotó ${goles} goles`);
+  console.log(
+    `El jugador ${jugador} anotó ${goles} goles de ${game.scored.length}`
+  );
+}
+
+const scorer = {
+  rosario: 1,
+};
+// 1. Create an array 'events' of the different game events that happened (no duplicates)
+
+const gameEvents = new Map([
+  [17, "⚽️ Goal"],
+  [36, "🔁 Substitution"],
+  [47, "⚽️ Goal"],
+  [61, "🔁 Substitution"],
+  [64, "🔶 Yellow card"],
+  [69, "🔴 Red Card"],
+  [70, "🔁 Substitution"],
+  [72, "🔁 Substitution"],
+  [76, "⚽️ GOAL"],
+  [80, "⚽️ GOAL"],
+  [92, "🔶 Yellow card"],
+]);
+
+const arrayEventsUno = [...new Set(gameEvents.values())];
+console.log(arrayEventsUno);
+console.log(arrayEventsUno.length);
+// 2. After the game has finished, is was found that the yellow card from
+// minute 64 was unfair. So remove this event from the game events log.
+gameEvents.delete(64);
+
+// 3. Print the following string to the console:
+//  "An event happened, on average, every 9 minutes" (keep in mind that a game has 90 minutes)
+const str = `an event happened, on average, every ${
+  90 / gameEvents.size
+} minutes`;
+console.log(str);
+
+
+const lastTime = [...gameEvents.keys()].pop();
+console.log(`El promedio del tiempo en que ocurrieron los eventos fue de ${lastTime / gameEvents.size} minutos`);
+
+
+for (const [key1, value1] of gameEvents) {
+  const resultDesition = key1 <= 45 ? 'FIRST': 'SECOND';
+  console.log(`The Event of ${value1} at minute ${key1} pertenece al ${resultDesition} HALF`);
 }
