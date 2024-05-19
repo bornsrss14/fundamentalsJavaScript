@@ -229,18 +229,53 @@ console.log(nombreJoin);
 // 6.- imprimimos cada palabra del array pero las unimos en una sola frase, atraves de join() con el carácter ‘ ’; espacio de separacion
 // creamos una variable para el array que almacena la frase separada por ‘ ’;
 
-const userInputPhrase = prompt('Porfavor ingresa una frase', '');
+// const userInputPhrase = prompt('Porfavor ingresa una frase', '');
 // 
-const convertToUpperCase = function(){
+const convertToUpperCase = function(userInputPhrase){
 const arrayPhrase = userInputPhrase.split(' ');
 const wordsArray = [];
 for (const word of arrayPhrase) {
   wordsArray.push(word[0].toUpperCase() + word.slice(1));
+  // wordsArray.push(word.replace(word[0], word[0].toUpperCase()));
 }
 console.log(wordsArray.join(' '));
 };
-convertToUpperCase(userInputPhrase);
+// convertToUpperCase(userInputPhrase);
+convertToUpperCase('Esto es un ejemplo sin entrada de usuario---------');
 
 //El método join() se usa en arrays para unir todos sus elementos en una sola cadena.
 const arrayJoin = ['esto','es','un','ejemplo',5]
 console.log(arrayJoin.join(' '));
+
+//metodo para rellenar un string, PADDING STRING
+const message = "rellename esta";
+console.log(message.length);
+const corazones = message.padStart(20, "♡").padEnd(26, "♡");
+console.log(corazones);
+//voy a crear un metodo de enmascaramiento de numeros de una tarjeta de credito
+
+const entradaNumeros = String(prompt('Tu numero de tarjeta', ''));
+const maskNumbersCard = function(cardNumbers){
+  const lastCharacters = cardNumbers.slice(-4);
+  return last = lastCharacters.padStart(cardNumbers.length, '*')
+  // console.log(lastCharacters.padStart(cardNumbers.length, '*'));
+};
+console.log(maskNumbersCard(entradaNumeros));
+// maskNumbersCard(entradaNumeros);
+
+//metodo para repetir REPEAT
+
+const planesInLine = function(n){
+  const mesStr = `There are ${n} planes in line ${'✈️'.repeat(n)}`;
+  return mesStr;
+}
+
+console.log(planesInLine(5));
+console.log(planesInLine(50));
+console.log(planesInLine(15));
+
+//DESAFIO DE STIRNGS
+// 1. Recibo y almaceno una cadena de texto que sea como este ejemplo ‘esto_es_un_ejemplo’
+// 2. La convierto en ‘estoEsUnEjemploDeCamelCase’
+// 3. la entrada de texto es medianate un TextArea en la pagina
+// 4. al presionar el botón, será convertido a camelCase
