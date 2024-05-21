@@ -193,32 +193,37 @@
 
 // const inputWord = prompt('Ingressa tu nombre', '');
 
-const inputWord = 'RoSArIo'
-const functionLoweCase = function(inputW){
-  const wordLower = inputW.toLowerCase();
-  const correct = wordLower[0].toUpperCase() + wordLower.slice(1);
-  console.log(correct);
-};
-functionLoweCase(inputWord);
+// const inputWord = "RoSArIo";
+// const functionLoweCase = function (inputW) {
+//   const wordLower = inputW.toLowerCase();
+//   const correct = wordLower[0].toUpperCase() + wordLower.slice(1);
+//   console.log(correct);
+// };
+// functionLoweCase(inputWord);
 
-const email = 'rosario.fuega@gmail.com';
-const comparaison = '   RoSArio.Fuega@gmail.com';
+// const email = "rosario.fuega@gmail.com";
+// const comparaison = "   RoSArio.Fuega@gmail.com";
 
-console.log(email === comparaison.toLowerCase().trim() ? 'Sí, es igual': 'No, diferente');
+// console.log(
+//   email === comparaison.toLowerCase().trim() ? "Sí, es igual" : "No, diferente"
+// );
 
-
-//replacing text 
-const price = '574,75$';
-const signRepl = price.replace('$', '#').replace(',','.');
-console.log(signRepl);
+//replacing text
+// const price = "574,75$";
+// const signRepl = price.replace("$", "#").replace(",", ".");
+// console.log(signRepl);
 
 //El metodo split, lo que hace es dividir apartir de una cadena divisora
-const splitPhrs = 'Rosario+Fuentes+García'.split('+');
-console.log(splitPhrs);
-const [nombre, apellidoP, apellidoM ] = splitPhrs;
-console.log(`Tu te llamas ${nombre} y tu apellido paterno es ${apellidoP} y apellido materno es ${apellidoM}`);
-const nombreJoin = ['Ms.', nombre, apellidoP, apellidoM.toUpperCase()].join(' ');
-console.log(nombreJoin);
+// const splitPhrs = "Rosario+Fuentes+García".split("+");
+// console.log(splitPhrs);
+// const [nombre, apellidoP, apellidoM] = splitPhrs;
+// console.log(
+//   `Tu te llamas ${nombre} y tu apellido paterno es ${apellidoP} y apellido materno es ${apellidoM}`
+// );
+// const nombreJoin = ["Ms.", nombre, apellidoP, apellidoM.toUpperCase()].join(
+//   " "
+// );
+// console.log(nombreJoin);
 // //Función para poner en mayusculas todas las primeras letras de una palabra en una oración
 // 1. Vamos a ingresar una frase completa
 // 2. la vamos a dividir al detectar el carácter de espacio ‘ ’;
@@ -229,53 +234,110 @@ console.log(nombreJoin);
 // 6.- imprimimos cada palabra del array pero las unimos en una sola frase, atraves de join() con el carácter ‘ ’; espacio de separacion
 // creamos una variable para el array que almacena la frase separada por ‘ ’;
 
-// const userInputPhrase = prompt('Porfavor ingresa una frase', '');
-// 
-const convertToUpperCase = function(userInputPhrase){
-const arrayPhrase = userInputPhrase.split(' ');
-const wordsArray = [];
-for (const word of arrayPhrase) {
-  wordsArray.push(word[0].toUpperCase() + word.slice(1));
-  // wordsArray.push(word.replace(word[0], word[0].toUpperCase()));
-}
-console.log(wordsArray.join(' '));
-};
-// convertToUpperCase(userInputPhrase);
-convertToUpperCase('Esto es un ejemplo sin entrada de usuario---------');
+// // const userInputPhrase = prompt('Porfavor ingresa una frase', '');
+// //
+// const convertToUpperCase = function (userInputPhrase) {
+//   const arrayPhrase = userInputPhrase.split(" ");
+//   const wordsArray = [];
+//   for (const word of arrayPhrase) {
+//     wordsArray.push(word[0].toUpperCase() + word.slice(1));
+//     // wordsArray.push(word.replace(word[0], word[0].toUpperCase()));
+//   }
+//   console.log(wordsArray.join(" "));
+// };
+// // convertToUpperCase(userInputPhrase);
+// convertToUpperCase("Esto es un ejemplo sin entrada de usuario---------");
 
-//El método join() se usa en arrays para unir todos sus elementos en una sola cadena.
-const arrayJoin = ['esto','es','un','ejemplo',5]
-console.log(arrayJoin.join(' '));
+// //El método join() se usa en arrays para unir todos sus elementos en una sola cadena.
+// const arrayJoin = ["esto", "es", "un", "ejemplo", 5];
+// console.log(arrayJoin.join(" "));
 
-//metodo para rellenar un string, PADDING STRING
-const message = "rellename esta";
-console.log(message.length);
-const corazones = message.padStart(20, "♡").padEnd(26, "♡");
-console.log(corazones);
-//voy a crear un metodo de enmascaramiento de numeros de una tarjeta de credito
+// //metodo para rellenar un string, PADDING STRING
+// const message = "rellename esta";
+// console.log(message.length);
+// const corazones = message.padStart(20, "♡").padEnd(26, "♡");
+// console.log(corazones);
+// //voy a crear un metodo de enmascaramiento de numeros de una tarjeta de credito
 
-const entradaNumeros = String(prompt('Tu numero de tarjeta', ''));
-const maskNumbersCard = function(cardNumbers){
-  const lastCharacters = cardNumbers.slice(-4);
-  return last = lastCharacters.padStart(cardNumbers.length, '*')
-  // console.log(lastCharacters.padStart(cardNumbers.length, '*'));
-};
-console.log(maskNumbersCard(entradaNumeros));
-// maskNumbersCard(entradaNumeros);
+// const entradaNumeros = String(prompt("Tu numero de tarjeta", ""));
+// const maskNumbersCard = function (cardNumbers) {
+//   const lastCharacters = cardNumbers.slice(-4);
+//   return (last = lastCharacters.padStart(cardNumbers.length, "*"));
+//   // console.log(lastCharacters.padStart(cardNumbers.length, '*'));
+// };
+// console.log(maskNumbersCard(entradaNumeros));
+// // maskNumbersCard(entradaNumeros);
 
-//metodo para repetir REPEAT
+// //metodo para repetir REPEAT
 
-const planesInLine = function(n){
-  const mesStr = `There are ${n} planes in line ${'✈️'.repeat(n)}`;
-  return mesStr;
-}
+// const planesInLine = function (n) {
+//   const mesStr = `There are ${n} planes in line ${"✈️".repeat(n)}`;
+//   return mesStr;
+// };
 
-console.log(planesInLine(5));
-console.log(planesInLine(50));
-console.log(planesInLine(15));
+// console.log(planesInLine(5));
+// console.log(planesInLine(50));
+// console.log(planesInLine(15));
 
-//DESAFIO DE STIRNGS
+// //DESAFIO DE STIRNGS
 // 1. Recibo y almaceno una cadena de texto que sea como este ejemplo ‘esto_es_un_ejemplo’
 // 2. La convierto en ‘estoEsUnEjemploDeCamelCase’
 // 3. la entrada de texto es medianate un TextArea en la pagina
 // 4. al presionar el botón, será convertido a camelCase
+
+const txtArea = document.querySelector(".textAreaCon"); //este elemento se selecciona y se almacena en txtArea
+const btnAction = document.querySelector(".btn"); //este elemento se selecciona y almacena en txtArea
+
+// const underCaseWord = prompt("Ingresa tu texto", "");
+
+// const toCamelCase = function (underCaseWord) {
+//   const arrayCamelCase = [];
+//   const arrayResultOfCaseWordSplit = underCaseWord.split("_"); //esto ya es un array
+
+//   for (const item of arrayResultOfCaseWordSplit) {
+//     arrayCamelCase.push(item[0].toUpperCase() + item.slice(1));
+//   }
+//   return arrayCamelCase.join("");
+// };
+// console.log(toCamelCase(underCaseWord));
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   const btn = document.querySelector(".btn");
+//   const textarea = document.querySelector(".textAreaCon");
+//   const result = document.querySelector('.result');
+
+//   btn.addEventListener("click", function (underCaseWord) {
+//     var underCaseWord = textarea.value;
+//     const arrayCamelCase = [];
+//     const arrayResultOfCaseWordSplit = underCaseWord.split("_"); //esto ya es un array
+
+//     for (const item of arrayResultOfCaseWordSplit) {
+//       arrayCamelCase.push(item[0].toUpperCase() + item.slice(1));
+//     }
+//     return arrayCamelCase.join("");
+//   });
+// });
+
+//EVENTOS DE BOTON
+
+document.addEventListener("DOMContentLoaded", function () {
+  var btnConvertir = document.getElementById("btnConvertir");
+  var inputTexto = document.getElementById("inputTexto");
+  var resultadoDiv = document.getElementById("resultado");
+
+  btnConvertir.addEventListener("click", function () {
+    var underCaseWord = inputTexto.value.trim();
+    var camelCaseWord = convertirSnakeCaseToCamelCase(underCaseWord);
+    resultadoDiv.textContent = camelCaseWord;
+  });
+
+  function convertirSnakeCaseToCamelCase(underCaseWord) {
+    const arrayCamelCase = [];
+    const arrayResultOfCaseWordSplit = underCaseWord.split("_");
+
+    for (const item of arrayResultOfCaseWordSplit) {
+      arrayCamelCase.push(item[0].toUpperCase() + item.toLowerCase().slice(1));
+    }
+    return arrayCamelCase.join("");
+  }
+});

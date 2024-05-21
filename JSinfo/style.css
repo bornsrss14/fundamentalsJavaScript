@@ -1,0 +1,42 @@
+.elementsContainer {
+  position: relative;
+  margin: auto;
+  left: 35%;
+  top: 35%;
+  height: auto;
+}
+#btnConvertir {
+  background: white;
+  color: purple;
+  height: 2.75rem;
+  width: 14rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin: 0 4rem;
+  text-align: center;
+  border: none;
+  box-shadow: 0 10px 15px rgba(211, 211, 211, 0.208);
+  transition: box-shadow 0.3s ease-in-out;
+  cursor: pointer;
+}
+.btnConvertir:hover {
+  /* Darker shadow on hover */
+
+  box-shadow: 0 5px 10px rgba(211, 211, 211, 0.75);
+}
+#inputTexto {
+  max-width: 15rem;
+  height: 3.75rem;
+  margin-bottom: 1.35rem;
+}
+
+.divElementsContainer {
+  display: flex;
+  max-width: 15rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#resultado{
+  margin-top: 2rem;
+}
