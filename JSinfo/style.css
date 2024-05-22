@@ -32,11 +32,14 @@
 
 .divElementsContainer {
   display: flex;
-  max-width: 15rem;
+  max-width: 25rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 #resultado{
   margin-top: 2rem;
+  width:100%;
+  height: auto;
+
 }
