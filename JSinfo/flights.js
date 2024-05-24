@@ -29,7 +29,7 @@ const funFormat = function () {
       type.startsWith("_Delayed") ? "⊹" : "♡"
     } ${type.replaceAll("_", " ")} ${getCode(from)} ${getCode(
       to
-    )} (${time.replace(":", "h")})`.padStart(36);
+    )} (${time.replace(":", "h")})`;
     result += salida + "\n";
   }
   return result;

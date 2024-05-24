@@ -320,24 +320,74 @@ const btnAction = document.querySelector(".btn"); //este elemento se selecciona 
 
 //EVENTOS DE BOTON
 
-document.addEventListener("DOMContentLoaded", function () {
-  var btnConvertir = document.getElementById("btnConvertir");
-  var inputTexto = document.getElementById("inputTexto");
-  var resultadoDiv = document.getElementById("resultado");
+// document.addEventListener("DOMContentLoaded", function () {
+//   var btnConvertir = document.getElementById("btnConvertir");
+//   var inputTexto = document.getElementById("inputTexto");
+//   var resultadoDiv = document.getElementById("resultado");
 
-  btnConvertir.addEventListener("click", function () {
-    var underCaseWord = inputTexto.value.trim();
-    var camelCaseWord = convertirSnakeCaseToCamelCase(underCaseWord);
-    resultadoDiv.textContent = camelCaseWord;
-  });
+//   btnConvertir.addEventListener("click", function () {
+//     var underCaseWord = inputTexto.value.trim();
+//     var camelCaseWord = convertirSnakeCaseToCamelCase(underCaseWord);
+//     resultadoDiv.textContent = camelCaseWord;
+//   });
 
-  function convertirSnakeCaseToCamelCase(underCaseWord) {
-    const arrayCamelCase = [];
-    const arrayResultOfCaseWordSplit = underCaseWord.split("_");
+//   function convertirSnakeCaseToCamelCase(underCaseWord) {
+//     const arrayCamelCase = [];
+//     const arrayResultOfCaseWordSplit = underCaseWord.split("_");
 
-    for (const item of arrayResultOfCaseWordSplit) {
-      arrayCamelCase.push(item[0].toUpperCase() + item.toLowerCase().slice(1));
-    }
-    return arrayCamelCase.join("");
-  }
-});
+//     for (const item of arrayResultOfCaseWordSplit) {
+//       arrayCamelCase.push(item[0].toUpperCase() + item.toLowerCase().slice(1));
+//     }
+//     return arrayCamelCase.join("");
+//   }
+// });
+//Functions aceptin callback functions
+// const deleteSpaces = (str) =>{
+//   return str.replace(/ /g,'').toLowerCase();
+// };
+
+// const upperFirstCase = (str) =>{
+//   const [uno, ...dos] = str.split(' ');
+//   return [uno.toUpperCase(), ...dos].join(' ');
+// };
+
+// const transformer = (str, fn) =>{
+// console.log(`This is the original ${str}`);
+// console.log(`This is a modified ${fn(str)}, transformed by ${fn.name} function`);
+// };
+
+// transformer('This is my best life!', upperFirstCase);
+// transformer('This is my best life!', deleteSpaces);
+
+//functions returning functions
+
+const handShake = function (hand, personas) {
+  return function (name, apellido) {
+    console.log(`This ${hand} ${personas} from ${name} ${apellido}`);
+  };
+};
+
+const handShakeD = (handD, personasD) => (nameD, apellidoD) =>
+  console.log(`This ${handD} ${personasD} from ${nameD} ${apellidoD}`);
+
+const handHi = handShake("Bonjour!", "a tous"); // basicamente ahora handHi es una funcion, el resultado de la funcion handShake
+handHi("Ross", "Fuentes");
+handHi("Anna", undefined);
+handShake("Hola", "a todos")("Stella", "Artois");
+handShakeD("Hola", "a todos")("Arabella", "Artois");
+
+function contador(inicial) {
+  let cuenta = inicial;
+  return function () {
+    cuenta++;
+    return cuenta;
+  };
+}
+
+const contadorDesdeCinco = contador(5);
+console.log(contadorDesdeCinco()); // Salida: 6
+console.log(contadorDesdeCinco()); // Salida: 7
+console.log(contadorDesdeCinco()); // Salida: 7
+const contadorDesdeCien = contador(100);
+console.log(contadorDesdeCien()); // Salida: 101
+console.log(contadorDesdeCien()); // Salida: 101
