@@ -361,33 +361,66 @@ const btnAction = document.querySelector(".btn"); //este elemento se selecciona 
 
 //functions returning functions
 
-const handShake = function (hand, personas) {
-  return function (name, apellido) {
-    console.log(`This ${hand} ${personas} from ${name} ${apellido}`);
-  };
+// const handShake = function (hand, personas) {
+//   return function (name, apellido) {
+//     console.log(`This ${hand} ${personas} from ${name} ${apellido}`);
+//   };
+// };
+
+// const handShakeD = (handD, personasD) => (nameD, apellidoD) =>
+//   console.log(`This ${handD} ${personasD} from ${nameD} ${apellidoD}`);
+
+// const handHi = handShake("Bonjour!", "a tous"); // basicamente ahora handHi es una funcion, el resultado de la funcion handShake
+// handHi("Ross", "Fuentes");
+// handHi("Anna", undefined);
+// handShake("Hola", "a todos")("Stella", "Artois");
+// handShakeD("Hola", "a todos")("Arabella", "Artois");
+// const variableConf = handShakeD();
+// function contador(inicial) {
+//   let cuenta = inicial;
+//   return function () {
+//     cuenta++;
+//     return cuenta;
+//   };
+// }
+
+// const contadorDesdeCinco = contador(5);
+// console.log(contadorDesdeCinco()); // Salida: 6
+// console.log(contadorDesdeCinco()); // Salida: 7
+// console.log(contadorDesdeCinco()); // Salida: 7
+// const contadorDesdeCien = contador(100);
+// console.log(contadorDesdeCien()); // Salida: 101
+// console.log(contadorDesdeCien()); // Salida: 101
+const flightData = [1998, 'Rosario Fuentes'];
+const arrflightData = [1999, 'Brenda Isela'];
+//The call and the apply method
+const vivaAerobus = {
+  airline: "Viva Aerobus",
+  iataCode: "VA",
+  bookings: [],
+  book: function (flightNum, namePass) {
+    console.log(
+      `${namePass} booked a seat on ${this.airline} flight, ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({flight:`${this.iataCode}${flightNum}`,namePass});
+  },
+};
+//tomaremos el metodo de book, y lo almaceno en una variable para utilizarlo en otra aerolinea
+const bookFunGral = vivaAerobus.book;
+
+vivaAerobus.book('1486', 'Rebecca Oh');
+
+const mexicanaAviacion = {
+  airline: 'Mexicana de aviacion',
+  iataCode: 'MA',
+  bookings:[],
 };
 
-const handShakeD = (handD, personasD) => (nameD, apellidoD) =>
-  console.log(`This ${handD} ${personasD} from ${nameD} ${apellidoD}`);
+// bookFunGral('2258', 'Ross Fuentes');
 
-const handHi = handShake("Bonjour!", "a tous"); // basicamente ahora handHi es una funcion, el resultado de la funcion handShake
-handHi("Ross", "Fuentes");
-handHi("Anna", undefined);
-handShake("Hola", "a todos")("Stella", "Artois");
-handShakeD("Hola", "a todos")("Arabella", "Artois");
-
-function contador(inicial) {
-  let cuenta = inicial;
-  return function () {
-    cuenta++;
-    return cuenta;
-  };
-}
-
-const contadorDesdeCinco = contador(5);
-console.log(contadorDesdeCinco()); // Salida: 6
-console.log(contadorDesdeCinco()); // Salida: 7
-console.log(contadorDesdeCinco()); // Salida: 7
-const contadorDesdeCien = contador(100);
-console.log(contadorDesdeCien()); // Salida: 101
-console.log(contadorDesdeCien()); // Salida: 101
+bookFunGral.call(mexicanaAviacion,'4478', 'Hugo Mendoza');
+bookFunGral.call(vivaAerobus,'1989', 'Taylor Swift');
+bookFunGral.call(mexicanaAviacion, ...flightData);
+bookFunGral.apply(mexicanaAviacion, arrflightData );
+console.log(vivaAerobus);
+console.log(mexicanaAviacion);
