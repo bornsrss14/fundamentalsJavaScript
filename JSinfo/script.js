@@ -422,5 +422,59 @@ bookFunGral.call(mexicanaAviacion,'4478', 'Hugo Mendoza');
 bookFunGral.call(vivaAerobus,'1989', 'Taylor Swift');
 bookFunGral.call(mexicanaAviacion, ...flightData);
 bookFunGral.apply(mexicanaAviacion, arrflightData );
+
+//bind METHOD
+
+const vivaVar = bookFunGral.bind(vivaAerobus);
+const mexicanaAv = bookFunGral.bind(mexicanaAviacion);
+vivaVar('2000', 'Diana Fuentes');
+vivaVar('0202', 'America Eagle');
+mexicanaAv('0707', 'James Bond');
+vivaAerobus.planes = 14;
+vivaAerobus.buyPlane = function(){
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+// console.log(vivaAerobus);
+// console.log(mexicanaAviacion);
+// const funVivaClick = vivaAerobus.buyPlane;
+// const binReference = funVivaClick.bind(vivaAerobus);
+
+//Una forma interesante de aplicar el método bind, es cuando usamos objetos con 
+// oyentes de eventos EventListener 
+
+
+// const btn = document.querySelector('#btnConvertir');
+// btn.addEventListener('click',funVivaClick);
+
+// document.getElementById('btnConvertir').addEventListener('click', binReference);
+
+//Vamos a hacer una funcion para vincular
+// const taxes = (rate, value) => value + value * rate;
+
+// const addValTaxes = taxes.bind(null, .23);
+// console.log(addValTaxes(250));
+
+vivaAerobus.taxes = function(rate, value){
+  const result = value + value * rate;
+  console.log( `The result of taxes is ${result}`);
+}
+const funcTaxesFrst = vivaAerobus.taxes;
+const binRefVivaAerobus = funcTaxesFrst.bind(vivaAerobus, .23, 100);
+// const binReference = funVivaClick.bind(vivaAerobus);
+document.getElementById('btnConvertir').addEventListener('click', binRefVivaAerobus);
 console.log(vivaAerobus);
-console.log(mexicanaAviacion);
+
+//functions returning functions
+const addRateTax = function(rate){
+  return function(value){
+    return value + value * rate;
+  }
+}
+const nuevoAddRate = addRateTax(.23);
+console.log(nuevoAddRate(250));
+console.log(nuevoAddRate(230));
+console.log(nuevoAddRate(20));
+
