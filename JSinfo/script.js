@@ -391,60 +391,59 @@ const btnAction = document.querySelector(".btn"); //este elemento se selecciona 
 // const contadorDesdeCien = contador(100);
 // console.log(contadorDesdeCien()); // Salida: 101
 // console.log(contadorDesdeCien()); // Salida: 101
-const flightData = [1998, 'Rosario Fuentes'];
-const arrflightData = [1999, 'Brenda Isela'];
-//The call and the apply method
-const vivaAerobus = {
-  airline: "Viva Aerobus",
-  iataCode: "VA",
-  bookings: [],
-  book: function (flightNum, namePass) {
-    console.log(
-      `${namePass} booked a seat on ${this.airline} flight, ${this.iataCode}${flightNum}`
-    );
-    this.bookings.push({flight:`${this.iataCode}${flightNum}`,namePass});
-  },
-};
+// const flightData = [1998, 'Rosario Fuentes'];
+// const arrflightData = [1999, 'Brenda Isela'];
+// //The call and the apply method
+// const vivaAerobus = {
+//   airline: "Viva Aerobus",
+//   iataCode: "VA",
+//   bookings: [],
+//   book: function (flightNum, namePass) {
+//     console.log(
+//       `${namePass} booked a seat on ${this.airline} flight, ${this.iataCode}${flightNum}`
+//     );
+//     this.bookings.push({flight:`${this.iataCode}${flightNum}`,namePass});
+//   },
+// };
 //tomaremos el metodo de book, y lo almaceno en una variable para utilizarlo en otra aerolinea
-const bookFunGral = vivaAerobus.book;
+// const bookFunGral = vivaAerobus.book;
 
-vivaAerobus.book('1486', 'Rebecca Oh');
+// vivaAerobus.book('1486', 'Rebecca Oh');
 
-const mexicanaAviacion = {
-  airline: 'Mexicana de aviacion',
-  iataCode: 'MA',
-  bookings:[],
-};
+// const mexicanaAviacion = {
+//   airline: 'Mexicana de aviacion',
+//   iataCode: 'MA',
+//   bookings:[],
+// };
 
 // bookFunGral('2258', 'Ross Fuentes');
 
-bookFunGral.call(mexicanaAviacion,'4478', 'Hugo Mendoza');
-bookFunGral.call(vivaAerobus,'1989', 'Taylor Swift');
-bookFunGral.call(mexicanaAviacion, ...flightData);
-bookFunGral.apply(mexicanaAviacion, arrflightData );
+// bookFunGral.call(mexicanaAviacion,'4478', 'Hugo Mendoza');
+// bookFunGral.call(vivaAerobus,'1989', 'Taylor Swift');
+// bookFunGral.call(mexicanaAviacion, ...flightData);
+// bookFunGral.apply(mexicanaAviacion, arrflightData );
 
 //bind METHOD
 
-const vivaVar = bookFunGral.bind(vivaAerobus);
-const mexicanaAv = bookFunGral.bind(mexicanaAviacion);
-vivaVar('2000', 'Diana Fuentes');
-vivaVar('0202', 'America Eagle');
-mexicanaAv('0707', 'James Bond');
-vivaAerobus.planes = 14;
-vivaAerobus.buyPlane = function(){
-  console.log(this);
-  this.planes++;
-  console.log(this.planes);
-};
+// const vivaVar = bookFunGral.bind(vivaAerobus);
+// const mexicanaAv = bookFunGral.bind(mexicanaAviacion);
+// vivaVar('2000', 'Diana Fuentes');
+// vivaVar('0202', 'America Eagle');
+// mexicanaAv('0707', 'James Bond');
+// vivaAerobus.planes = 14;
+// vivaAerobus.buyPlane = function(){
+//   console.log(this);
+//   this.planes++;
+//   console.log(this.planes);
+// };
 
 // console.log(vivaAerobus);
 // console.log(mexicanaAviacion);
 // const funVivaClick = vivaAerobus.buyPlane;
 // const binReference = funVivaClick.bind(vivaAerobus);
 
-//Una forma interesante de aplicar el método bind, es cuando usamos objetos con 
-// oyentes de eventos EventListener 
-
+//Una forma interesante de aplicar el método bind, es cuando usamos objetos con
+// oyentes de eventos EventListener
 
 // const btn = document.querySelector('#btnConvertir');
 // btn.addEventListener('click',funVivaClick);
@@ -457,24 +456,87 @@ vivaAerobus.buyPlane = function(){
 // const addValTaxes = taxes.bind(null, .23);
 // console.log(addValTaxes(250));
 
-vivaAerobus.taxes = function(rate, value){
-  const result = value + value * rate;
-  console.log( `The result of taxes is ${result}`);
-}
-const funcTaxesFrst = vivaAerobus.taxes;
-const binRefVivaAerobus = funcTaxesFrst.bind(vivaAerobus, .23, 100);
-// const binReference = funVivaClick.bind(vivaAerobus);
-document.getElementById('btnConvertir').addEventListener('click', binRefVivaAerobus);
-console.log(vivaAerobus);
+// vivaAerobus.taxes = function(rate, value){
+//   const result = value + value * rate;
+//   console.log( `The result of taxes is ${result}`);
+// }
+// const funcTaxesFrst = vivaAerobus.taxes;
+// const binRefVivaAerobus = funcTaxesFrst.bind(vivaAerobus, .23, 100);
+// // const binReference = funVivaClick.bind(vivaAerobus);
+// document.getElementById('btnConvertir').addEventListener('click', binRefVivaAerobus);
+// console.log(vivaAerobus);
 
-//functions returning functions
-const addRateTax = function(rate){
-  return function(value){
-    return value + value * rate;
-  }
-}
-const nuevoAddRate = addRateTax(.23);
-console.log(nuevoAddRate(250));
-console.log(nuevoAddRate(230));
-console.log(nuevoAddRate(20));
+// //functions returning functions
+// const addRateTax = function(rate){
+//   return function(value){
+//     return value + value * rate;
+//   }
+// }
+// const nuevoAddRate = addRateTax(.23);
+// console.log(nuevoAddRate(250));
+// console.log(nuevoAddRate(230));
+// console.log(nuevoAddRate(20));
 
+// challenge #1 Sections A Closer Look of functions
+//Let's buils a simple poll app!
+//Una encuesta tiene una pregunta, una serie de opciones entre las que las personas pueden elegir
+//  y una serie con el número de respuestas para cada opción.  Estos datos se almacenan en el objeto
+//  inicial a continuación.
+
+const poll = {
+  question: "Whats is your favorite programming language?",
+  options: ["0: JavaScript", "1: Python", "2:C#", "3: Rust"],
+  answers: new Array(4).fill(0),
+  registerNewAnswer: function () {
+    const answer = +prompt(
+      `${this.question}\n${this.options.join("\n")}\n(Write option number)`
+    );
+    console.log(answer);
+
+    //Paso para registrar la respuesta
+    typeof answer === "number" &&
+      answer < this.answers.length &&
+      this.answers[answer]++;
+      this.displayResults(); 
+      this.displayResults('string'); 
+
+  },
+  displayResults: function(type = 'array'){
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if(type === 'string') {
+      console.log(`Type results are ${this.answers.join(' ')}`);
+    }
+
+
+  },
+};
+// const registerNewAnswerRef = poll.registerNewAnswer; //asignacion de funcion
+
+const btnPoll = document.getElementById("btnPoll");
+btnPoll.addEventListener("click", poll.registerNewAnswer.bind(poll));
+//Here are my tasks
+// 1. Cree un método llamado 'registerNewAnswer' en el objeto 'encuesta'.  El método hace 2 cosas:
+// 1.1.  Muestra una ventana de solicitud para que el usuario ingrese el número de la opción seleccionada.
+//          El mensaje debería verse así:
+//          ¿Cuál es tu lenguaje de programación favorito?
+//          0: JavaScript
+//          1: Python
+//          2: C#
+//          3:Rust
+//          (Escriba el número de opción)
+
+// 1.2.  Según el número ingresado, actualice la matriz de respuestas.
+// Por ejemplo, si la opción es 3, aumente el valor EN LA POSICIÓN 3 de la matriz en
+// 1. Asegúrese de verificar si la entrada es un número y si el número tiene sentido
+// (por ejemplo, la respuesta 52 no tendría sentido, ¿verdad?)
+
+//2. Llame a este método cada vez que el usuario haga clic en el botón "Responder encuesta".
+
+// 3. Cree un método 'displayResults' que muestre los resultados de la encuesta.
+//  El método toma una cadena como entrada (llamada 'tipo'),
+//  que puede ser 'cadena' o 'matriz'.  Si el tipo es 'matriz', simplemente muestre la matriz de resultados
+//   tal como está, usando console.log().  Esta debería ser la opción predeterminada.
+//   Si el tipo es 'cadena', muestre una cadena como "Los resultados de la encuesta son 13, 2, 4, 1".
+
+//  4. Ejecute el método 'displayResults' al final de cada llamada al método 'registerNewAnswer'.
