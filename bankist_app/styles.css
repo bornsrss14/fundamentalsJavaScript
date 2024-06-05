@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: #400;
+}
+.app {
+  margin: 4rem auto;
+  position: relative;
+  max-width: 100rem;
+  grid-template-columns: 4fr 3fr;
+  grid-template-rows: auto repeat(3, 15rem) auto;
+}
+.balance {
+  /* grid-column: 1/ span 2; */
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  margin: 1rem;
+  padding: 1.2rem;
+}
+nav {
+  display: flex;
+  margin: 1rem;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.div_container_img {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.balance_value {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.title--h2 {
+  margin-bottom: 1.4rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+}
+.form {
+  display: grid;
+  grid-template-columns: 2.5fr 2.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.4rem 1rem;
+}
+.movements_type--withdrawal {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+.movements_type--deposite{
+    background-image: linear-gradient(to top left, #46e52a, #69ff58);
+}
+.movements_type{
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #fff;
+    padding: .1rem 1rem;
+    border-radius: 10rem;
+    margin-right: 2rem;
+}
+.movements_date{
+font-size: 1.1rem;
+text-transform: uppercase;
+font-weight: 500;
+color: #666;
+}
+.movements_value{
+    font-size: 1.7rem;
+    margin-left: auto;
+}
+.movements_row{
+    padding: 2.5rem 3rem;
+    display: flex;
+}
