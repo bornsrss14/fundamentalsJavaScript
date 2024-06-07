@@ -39,7 +39,7 @@
     </nav>
     <main class="app" style="opacity: 100">
       <!-- BALANCE -->
-      <div class="balance">
+      <div class="balance balance--area">
         <div>
           <p>Current Balance</p>
           <p>Apartir de: <span id="current-date"></span></p>
@@ -47,7 +47,7 @@
         <p class="balance_value">25 952,59 €</p>
       </div>
       <!-- MOVEMENTS -->
-      <div class="movements">
+      <div class="movements movements--area">
         <div class="movements_row">
           <div class="movements_type movements_type--deposite"># deposite</div>
           <div class="movements_date">23/12/2019</div>
@@ -71,12 +71,16 @@
           <div class="movements_value">100,00 €</div>
         </div>
         <div class="movements_row">
-          <div class="movements_type movements_type--withdrawal"># withdrawal</div>
+          <div class="movements_type movements_type--withdrawal">
+            # withdrawal
+          </div>
           <div class="movements_date">12/01/2024</div>
           <div class="movements_value">150,00 €</div>
         </div>
         <div class="movements_row">
-          <div class="movements_type movements_type--withdrawal"># withdrawal</div>
+          <div class="movements_type movements_type--withdrawal">
+            # withdrawal
+          </div>
           <div class="movements_date">14/25/2020</div>
           <div class="movements_value">200,00 €</div>
         </div>
@@ -87,30 +91,52 @@
         </div>
       </div>
       <!-- SUMMARY -->
-      <div class="summary"></div>
+      <div class="summary summary--area">
+        <p>In</p>
+        <p>27,035,20 €</p>
+        <p>Out</p>
+        <p>1082,61 €</p>
+        <p>Interest</p>
+        <p>323,46 €</p>
+        <button>↓ SORT</button>
+      </div>
       <!-- OPERATIONS TRANSFERS -->
-      <div class="oparation operation--transfer">
+      <div class="operation transfer--area operation--transfer">
         <p class="title--h2">Transfer money</p>
+        <form class="form" action="">
+          <input class="form_input" type="text" />
+          <input class="form_input" type="number" />
+          <button>→</button>
+          <label for="">Transfer to</label>
+          <label for="">Amount</label>
+        </form>
       </div>
       <!-- OPERATION LOAN -->
-      <div class="oparation operation--loan">
+      <div class="operation loan--area operation--loan">
         <p class="title--h2">Request loan</p>
+        <form class="form" action="">
+          <input class="form_input" type="number" />
+          <button>→</button>
+          <label for="">Amount</label>
+        </form>
       </div>
       <!-- OPERATION CLOSE -->
-      <div class="oparation operation--close">
+      <div class="operation close--area operation--close">
         <p class="title--h2">Close account</p>
         <form class="form form--close" action="">
-          <input type="text" />
-          <input type="text" />
+          <input class="form_input" type="text" />
+          <input class="form_input" type="text" />
           <button>→</button>
           <label for="">Confirm user</label>
           <label for="">Confirm PIN</label>
         </form>
       </div>
       <!-- LOGOUT TIMER -->
-      <p class="logout_timer">
-        You will be logged out in <span class="timer">05:00</span>
-      </p>
+      <div class="logout--area">
+        <p class="logout_timer">
+          You will be logged out in <span class="timer">05:00</span>
+        </p>
+      </div>
     </main>
     <script src="script.js"></script>
   </body>
