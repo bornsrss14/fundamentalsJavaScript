@@ -53,7 +53,7 @@ const btn_closeAccount = document.querySelector(".btn_closeAccount");
 
 //CONTENEDORES
 const container_app = document.querySelector(".app");
-const movements = document.querySelector(".movements");
+const container_movements = document.querySelector(".movements");
 
 /// apartir de aquí inicio on el codigo
 document.addEventListener("DOMContentLoaded", () => {
@@ -61,6 +61,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const opciones = { year: "numeric", month: "long", day: "numeric" };
   fechaSpan.textContent = fechaActual.toLocaleDateString("es-ES", opciones);
 });
+
+const displayMovements = function (movements) {
+    container_movements.innerHTML = '';
+  movements.forEach(function (mov, index) {
+    const type = mov > 0 ? "deposite" : "withdrawal";
+    const html = `<div class="movements_row">
+    <div class="movements_type movements_type--${type}">${
+      index + 1
+    } ${type}</div>
+    <div class="movements_value">${mov}</div>
+  </div>`;
+    container_movements.insertAdjacentHTML("afterbegin", html);
+  });
+};
+displayMovements(account__one.movements);
 
 //MAPS
 const currencies = new Map([

@@ -13,7 +13,7 @@ html {
   max-width: 100rem;
   margin: 4rem auto;
   display: grid;
-  opacity: 0;
+  /* opacity: 0 !important; */
   transition: all 1s;
   gap: 1rem;
   grid-template-areas:
@@ -95,6 +95,7 @@ nav {
   border-radius: 2rem;
   overflow: scroll;
   min-width: 50rem;
+  max-height: 40rem;
 }
 .movements_type--withdrawal {
   background-image: linear-gradient(to top left, #e52a5a, #ff585f);
@@ -153,15 +154,15 @@ nav {
   transition: all 0.3s;
 }
 
-.btn{
-  border-radius: .7rem;
+.btn {
+  border-radius: 0.7rem;
   background-color: white;
   border: none;
   font-size: 1.8rem;
   cursor: pointer;
   color: #400;
 }
-.btn_sort{
+.btn_sort {
   font-size: 1rem;
   padding: 1rem 1.5rem;
 }
