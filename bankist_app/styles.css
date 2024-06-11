@@ -13,6 +13,8 @@ html {
   max-width: 100rem;
   margin: 4rem auto;
   display: grid;
+  opacity: 0;
+  transition: all 1s;
   gap: 1rem;
   grid-template-areas:
     "header header"
@@ -149,4 +151,17 @@ nav {
   padding: 0.3rem 1rem;
   border-radius: 0.7rem;
   transition: all 0.3s;
+}
+
+.btn{
+  border-radius: .7rem;
+  background-color: white;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #400;
+}
+.btn_sort{
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
 }
