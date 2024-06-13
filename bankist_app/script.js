@@ -62,9 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
   fechaSpan.textContent = fechaActual.toLocaleDateString("es-ES", opciones);
 });
 
-const displayMovements = function (movements) {
-    container_movements.innerHTML = '';
-  movements.forEach(function (mov, index) {
+const displayMovements = function (arr_movements) {
+  container_movements.innerHTML = "";
+  arr_movements.forEach(function (mov, index) {
     const type = mov > 0 ? "deposite" : "withdrawal";
     const html = `<div class="movements_row">
     <div class="movements_type movements_type--${type}">${
@@ -76,6 +76,20 @@ const displayMovements = function (movements) {
   });
 };
 displayMovements(account__one.movements);
+
+///FUNCIÓN PARA CREAR UN NOMBRE DE USUARIO PARA CADA USUARIO
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join("");
+  });
+};
+
+createUsernames(accounts); //recibe el array
+console.log(accounts);
 
 //MAPS
 const currencies = new Map([
