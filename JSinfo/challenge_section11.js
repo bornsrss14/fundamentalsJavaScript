@@ -23,6 +23,28 @@ const originalMovements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 //creo una nueva variable (array)
 const arryUsd = originalMovements.map((mov) => Math.round(mov * eurToUsd));
 console.log(`El resultado de la tasa de cambio es: ${arryUsd}`);
+//--------------- Registrar cada movimiento en un array y después imprimirlo a consola
+
+const movimientosBancarios = [500, -300, 8500, -200, 250, 146, 789, -120];
+// const movBanSimplif = movimientosBancarios.map(
+//   (mov, i) =>
+//     `Movement ${i + 1}, you ${mov > 0 ? "deposited" : "withdrew"} ${Math.abs(
+//       mov
+//     )}`
+// );
+// console.log(movBanSimplif);
+
+const funMovBanSimplif = function (arry) {
+  const movBanSimplif2 = arry.map(
+    (mov, index) =>
+      `Movimiento #${index + 1}, tú ${
+        mov > 0 ? "depositaste" : "retiraste"
+      } la cantidad de ${Math.abs(mov)}`
+  );
+  console.log(movBanSimplif2);
+};
+
+funMovBanSimplif(movimientosBancarios);
 
 //.FILTER()
 //Hace un nuevo array apartir de datos filtrados
