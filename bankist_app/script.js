@@ -71,7 +71,7 @@ const displayMovements = function (arr_movements) {
     <div class="movements_type movements_type--${type}">${
       index + 1
     } ${type}</div>
-    <div class="movements_value">${mov}</div>
+    <div class="movements_value">${mov} €</div>
   </div>`;
     container_movements.insertAdjacentHTML("afterbegin", html);
   });
@@ -88,11 +88,31 @@ const createUsernames = function (accs) {
       .join("");
   });
 };
+//FUNCION PARA MOSTRAR LA SUMA DE TODOS LOS DEPOSITOS summary_value--in
+const funSummaryInOut = function (arry) {
+  const summary = arry
+    .filter((val) => val > 0)
+    .reduce((acc, val, i, arr) => acc + val, 0);
+  summary_in.textContent = `${summary}€`;
+
+  const summaryOut = arry
+    .filter((val) => val < 0)
+    .reduce((acc, val, i, arr) => acc + val, 0);
+  summary_out.textContent = `${Math.abs(summaryOut)}€`;
+
+  const interest = arry
+    .filter((mov) => mov > 0)
+    .map((deposit) => (deposit * 1.2) / 100)
+    .filter((int, i, arr) => int >= 1)
+    .reduce((acc, int) => acc + int, 0);
+  summary_interest.textContent = `${interest} €`;
+};
+funSummaryInOut(account__one.movements);
 
 // createUsernames(accounts); //recibe el array
 console.log(accounts);
 
-//METODO PARA MOSTRAR EL BALANCE TOTAL en el ind class="balance_value"
+//FUNCION PARA MOSTRAR EL BALANCE TOTAL en el ind class="balance_value"
 const funCalcAndDisplayBalance = function (arryMovements) {
   const balance = arryMovements.reduce(
     (accumulator, currValue) => accumulator + currValue,
