@@ -28,6 +28,7 @@ const account__four = {
   pin: 1985,
 };
 
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const accounts = [account__one, account__two, account__three, account__four];
 //ENTRADAS
 const input_user = document.querySelector(".login_input--user");
@@ -38,7 +39,7 @@ const input_closePin = document.querySelector(".form_input--closePin");
 
 //MODIFICADORES DE TEXTOS
 const welcome_message = document.querySelector(".welcome");
-const fechaSpan = document.querySelector(".current-date");
+const fechaSpan = document.querySelector("#current-date");
 const balance_value = document.querySelector(".balance_value");
 const summary_in = document.querySelector(".summary_value--in");
 const summary_out = document.querySelector(".summary_value--out");
@@ -82,8 +83,8 @@ const createUsernames = function (accs) {
   accs.forEach(function (acc) {
     acc.username = acc.owner
       .toLowerCase()
-      .split(' ')
-      .map(name => name[0])
+      .split(" ")
+      .map((name) => name[0])
       .join("");
   });
 };
@@ -91,9 +92,26 @@ const createUsernames = function (accs) {
 createUsernames(accounts); //recibe el array
 console.log(accounts);
 
+//METODO PARA MOSTRAR EL BALANCE TOTAL en el ind class="balance_value"
+const funCalcAndDisplayBalance = function (arryMovements) {
+  const balance = arryMovements.reduce(
+    (accumulator, currValue) => accumulator + currValue,
+    0
+  );
+  balance_value.textContent = `${balance} €`;
+};
+funCalcAndDisplayBalance(account__one.movements);
+
 //MAPS
 const currencies = new Map([
   ["USD", "United State Dollar"],
   ["EUR", "Euro"],
   ["GBP", "Pound sterling"],
 ]);
+
+//calcular el max
+// const max = account__three.movements.reduce(
+//   (prev, next) => (prev > next ? prev : next),
+//   movements[0]
+// );
+// console.log(`El valor máximo es: ${max}`);
