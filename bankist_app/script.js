@@ -89,7 +89,7 @@ const createUsernames = function (accs) {
   });
 };
 
-createUsernames(accounts); //recibe el array
+// createUsernames(accounts); //recibe el array
 console.log(accounts);
 
 //METODO PARA MOSTRAR EL BALANCE TOTAL en el ind class="balance_value"
@@ -102,7 +102,7 @@ const funCalcAndDisplayBalance = function (arryMovements) {
 };
 funCalcAndDisplayBalance(account__one.movements);
 
-//MAPS
+//MAPSmax
 const currencies = new Map([
   ["USD", "United State Dollar"],
   ["EUR", "Euro"],
@@ -110,8 +110,12 @@ const currencies = new Map([
 ]);
 
 //calcular el max
-// const max = account__three.movements.reduce(
-//   (prev, next) => (prev > next ? prev : next),
-//   movements[0]
-// );
-// console.log(`El valor máximo es: ${max}`);
+
+const funmax = function (movements) {
+  const max = movements.reduce(
+    (prev, next) => (prev > next ? prev : next),
+    movements[0]
+  );
+  return `El valor máximo es: ${max}`;
+};
+console.log(funmax(account__four.movements));
