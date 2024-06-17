@@ -1,8 +1,7 @@
 "use strict";
-
 const account__one = {
   owner: "Emily Thompson",
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300, -100],
   interestRate: 1.2, //%
   pin: 1414,
 };
@@ -23,7 +22,7 @@ const account__three = {
 
 const account__four = {
   owner: "Anna Oh",
-  movements: [430, 1000, 700, 50, 90],
+  movements: [430, 1000, 700, 50, 90, -152, 140, 55, -80, 147,50, 150],
   interestRate: 1,
   pin: 1985,
 };
@@ -39,7 +38,7 @@ const input_closePin = document.querySelector(".form_input--closePin");
 
 //MODIFICADORES DE TEXTOS
 const welcome_message = document.querySelector(".welcome");
-const fechaSpan = document.querySelector("#current-date");
+const fechaSpan = document.getElementById("current-date");
 const balance_value = document.querySelector(".balance_value");
 const summary_in = document.querySelector(".summary_value--in");
 const summary_out = document.querySelector(".summary_value--out");
@@ -76,7 +75,7 @@ const displayMovements = function (arr_movements) {
     container_movements.insertAdjacentHTML("afterbegin", html);
   });
 };
-displayMovements(account__one.movements);
+// displayMovements(account__one.movements);
 
 ///FUNCIÓN PARA CREAR UN NOMBRE DE USUARIO PARA CADA USUARIO
 const createUsernames = function (accs) {
@@ -88,29 +87,60 @@ const createUsernames = function (accs) {
       .join("");
   });
 };
+createUsernames(accounts); //recibe el array
+console.log(accounts);
+//event handler
+let currentAccount;
+//FUNCION PARA INCIAR SESION
+// login_input--pin login_input--user
+
+btn_login.addEventListener("click", function (evnt) {
+  evnt.preventDefault();
+  currentAccount = accounts.find(
+    (account) => account.username === input_user.value
+  );
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(input_pin.value)) {
+    console.log("♡");
+    //display UI nd welcome message
+    welcome_message.textContent = `Welcome, ${currentAccount.owner
+      .split(" ")
+      .slice(0, 1)}`;
+    container_app.style.opacity = 100;
+    // CLEAR INPUT FIELDS
+    input_user.value = input_pin.value = "";
+    input_pin.blur();
+    //display movements
+    displayMovements(currentAccount.movements);
+    //display balance
+    funCalcAndDisplayBalance(currentAccount.movements);
+    //display summary - in-out-interests
+    funSummaryInOut(currentAccount);
+  } else {
+    alert("(╯°□°)╯");
+  }
+});
+
 //FUNCION PARA MOSTRAR LA SUMA DE TODOS LOS DEPOSITOS summary_value--in
-const funSummaryInOut = function (arry) {
-  const summary = arry
+const funSummaryInOut = function (acc) {
+  const summary = acc.movements
     .filter((val) => val > 0)
     .reduce((acc, val, i, arr) => acc + val, 0);
   summary_in.textContent = `${summary}€`;
 
-  const summaryOut = arry
+  const summaryOut = acc.movements
     .filter((val) => val < 0)
     .reduce((acc, val, i, arr) => acc + val, 0);
   summary_out.textContent = `${Math.abs(summaryOut)}€`;
 
-  const interest = arry
+  const interest = acc.movements
     .filter((mov) => mov > 0)
-    .map((deposit) => (deposit * 1.2) / 100)
+    .map((deposit) => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => int >= 1)
     .reduce((acc, int) => acc + int, 0);
-  summary_interest.textContent = `${interest} €`;
+  summary_interest.textContent = `${interest.toFixed(2)} €`;
 };
-funSummaryInOut(account__one.movements);
-
-// createUsernames(accounts); //recibe el array
-console.log(accounts);
+// funSummaryInOut(account__one.movements);
 
 //FUNCION PARA MOSTRAR EL BALANCE TOTAL en el ind class="balance_value"
 const funCalcAndDisplayBalance = function (arryMovements) {
@@ -120,7 +150,7 @@ const funCalcAndDisplayBalance = function (arryMovements) {
   );
   balance_value.textContent = `${balance} €`;
 };
-funCalcAndDisplayBalance(account__one.movements);
+// funCalcAndDisplayBalance(account__one.movements);
 
 //MAPSmax
 const currencies = new Map([
@@ -131,11 +161,11 @@ const currencies = new Map([
 
 //calcular el max
 
-const funmax = function (movements) {
-  const max = movements.reduce(
-    (prev, next) => (prev > next ? prev : next),
-    movements[0]
-  );
-  return `El valor máximo es: ${max}`;
-};
-console.log(funmax(account__four.movements));
+// const funmax = function (movements) {
+//   const max = movements.reduce(
+//     (prev, next) => (prev > next ? prev : next),
+//     movements[0]
+//   );
+//   return `El valor máximo es: ${max}`;
+// };
+// console.log(funmax(account__four.movements));

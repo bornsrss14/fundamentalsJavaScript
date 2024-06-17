@@ -13,7 +13,7 @@ html {
   max-width: 100rem;
   margin: 4rem auto;
   display: grid;
-  /* opacity: 0 !important; */
+  opacity: 0;
   transition: all 1s;
   gap: 1rem;
   grid-template-areas:
