@@ -32,6 +32,8 @@ const accounts = [account__one, account__two, account__three, account__four];
 //ENTRADAS
 const input_user = document.querySelector(".login_input--user");
 const input_pin = document.querySelector(".login_input--pin");
+const input_transferTo = document.querySelector('.form_input--transferTo');
+const input_amountTra = document.querySelector('.form_input--amount');
 const input_loan = document.querySelector(".form_input--loan");
 const input_closeUser = document.querySelector(".form_input--closeUser");
 const input_closePin = document.querySelector(".form_input--closePin");
@@ -99,9 +101,8 @@ btn_login.addEventListener("click", function (evnt) {
   currentAccount = accounts.find(
     (account) => account.username === input_user.value
   );
-  console.log(currentAccount);
   if (currentAccount?.pin === Number(input_pin.value)) {
-    console.log("♡");
+    // console.log("♡");
     //display UI nd welcome message
     welcome_message.textContent = `Welcome, ${currentAccount.owner
       .split(" ")
@@ -151,6 +152,12 @@ const funCalcAndDisplayBalance = function (arryMovements) {
   balance_value.textContent = `${balance} €`;
 };
 // funCalcAndDisplayBalance(account__one.movements);
+//FUNCIÓN PARA TRANFERIR
+btn_transfer.addEventListener('click', function(){
+  const userTransferTo = input_transferTo.value;
+  const amountTransfer = input_amountTra;
+});
+
 
 //MAPSmax
 const currencies = new Map([
