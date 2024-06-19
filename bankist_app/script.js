@@ -184,7 +184,8 @@ const funClickTransfer = function (event) {
   }
 };
 
-//FUNCION PARA CERRAR CUENTA
+//FUNCION PARA CERRAR cuenta
+//nuevo metodo .findIndex()
 const funCloseAcc = function(evnt){
   evnt.preventDefault();
   console.log('Cerrado');
