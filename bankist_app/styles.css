@@ -167,3 +167,15 @@ nav {
   font-size: 1rem;
   padding: 1rem 1.5rem;
 }
+
+
+/* Estilos de ejemplos derivados */
+
+.alert {
+  position: relative;
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
