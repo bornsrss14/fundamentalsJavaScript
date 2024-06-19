@@ -22,7 +22,7 @@ const account__three = {
 
 const account__four = {
   owner: "Anna Oh",
-  movements: [430, 1000, 700, 50, 90, -152, 140, 55, -80, 147, 50, 150],
+  movements: [430, 1000, 700, 50, 902, 140, 55, 147, 50, 150],
   interestRate: 1,
   pin: 1985,
 };
@@ -187,17 +187,7 @@ const funClickTransfer = function (event) {
 //FUNCION PARA CERRAR cuenta
 //
 //nuevo metodo .findIndex()
-
-//MAPSmax
-const currencies = new Map([
-  ["USD", "United State Dollar"],
-  ["EUR", "Euro"],
-  ["GBP", "Pound sterling"],
-]);
-//EVENT LISTENERS
-btn_transfer.addEventListener("click", funClickTransfer);
-
-btn_closeAccount.addEventListener("click", function (evnt) {
+const funCloseAcc = function (evnt) {
   evnt.preventDefault();
   console.log("currentAccount:", currentAccount);
   console.log("input_closeUser.value:", input_closeUser.value);
@@ -221,8 +211,33 @@ btn_closeAccount.addEventListener("click", function (evnt) {
   } else {
     alert("Failed to match username or pin");
   }
-});
+};
+//FUNCIÓN PARA PEDIR UN PRÉSTAMO
+  console.log("Ros");
+//1. verificar que alguna cantidad (arry.movements (mov)) sea al menos el 10% del prestamo solicitado (input.loan)
+const funLoan = function (evnt) {
+  evnt.preventDefault();
+  const amount = Number(input_loan.value);
+  if(amount >0 && currentAccount.movements.some((mov) => mov >= amount * 0.1) ){
+    currentAccount.movements.push(amount);
+    updateUI(currentAccount);
+  }else{
+    alert('Too large!');
+  }
+  input_loan.value = "";
+  input_loan.blur();
+};
 
+//MAPSmax
+const currencies = new Map([
+  ["USD", "United State Dollar"],
+  ["EUR", "Euro"],
+  ["GBP", "Pound sterling"],
+]);
+//EVENT LISTENERS
+btn_transfer.addEventListener("click", funClickTransfer);
+btn_closeAccount.addEventListener("click", funCloseAcc);
+btn_loan.addEventListener("click", funLoan);
 //calcular el max
 
 // const funmax = function (movements) {
@@ -233,3 +248,11 @@ btn_closeAccount.addEventListener("click", function (evnt) {
 //   return `El valor máximo es: ${max}`;
 // };
 // console.log(funmax(account__four.movements));
+// El método some and any, vamos a comprender la diferencia y relación con .includes()
+console.log(movements.includes(-130)); // solo podemos probar la igualdad
+//Cuando queremos meter una condición para evaluar si esto se incluye
+const trueDepositFalse = movements.some((some) => some > 0);
+console.log(trueDepositFalse);
+//EVERY--- SI TODOS LOS ELEMENTOS SATISFACEN LA CONDICIÓN
+const everyM = account__four.movements.every(mov => mov > 0);
+console.log(`Es: ${everyM}`);
