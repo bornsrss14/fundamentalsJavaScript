@@ -185,12 +185,8 @@ const funClickTransfer = function (event) {
 };
 
 //FUNCION PARA CERRAR cuenta
+//
 //nuevo metodo .findIndex()
-const funCloseAcc = function(evnt){
-  evnt.preventDefault();
-  console.log('Cerrado');
-
-};
 
 //MAPSmax
 const currencies = new Map([
@@ -200,7 +196,32 @@ const currencies = new Map([
 ]);
 //EVENT LISTENERS
 btn_transfer.addEventListener("click", funClickTransfer);
-btn_closeAccount.addEventListener('click', funCloseAcc);
+
+btn_closeAccount.addEventListener("click", function (evnt) {
+  evnt.preventDefault();
+  console.log("currentAccount:", currentAccount);
+  console.log("input_closeUser.value:", input_closeUser.value);
+  console.log("input_closePin.value:", input_closePin.value);
+  if (
+    input_closeUser.value === currentAccount.username &&
+    Number(input_closePin.value) === currentAccount.pin
+  ) {
+    console.log("Hack, Yes");
+    // Aquí puedes agregar la lógica para cerrar la cuenta, como removerla del array de cuentas
+    const index = accounts.findIndex(
+      (acc) => acc.username === currentAccount.username
+    );
+    accounts.splice(index, 1);
+    container_app.style.opacity = 0;
+
+    input_closeUser.value = input_closePin.value = "";
+    input_closeUser.blur();
+    input_closePin.blur();
+    welcome_message.textContent = `Account closed.`;
+  } else {
+    alert("Failed to match username or pin");
+  }
+});
 
 //calcular el max
 
