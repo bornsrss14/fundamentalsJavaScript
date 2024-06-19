@@ -22,7 +22,7 @@ const account__three = {
 
 const account__four = {
   owner: "Anna Oh",
-  movements: [430, 1000, 700, 50, 90, -152, 140, 55, -80, 147,50, 150],
+  movements: [430, 1000, 700, 50, 90, -152, 140, 55, -80, 147, 50, 150],
   interestRate: 1,
   pin: 1985,
 };
@@ -32,8 +32,8 @@ const accounts = [account__one, account__two, account__three, account__four];
 //ENTRADAS
 const input_user = document.querySelector(".login_input--user");
 const input_pin = document.querySelector(".login_input--pin");
-const input_transferTo = document.querySelector('.form_input--transferTo');
-const input_amountTra = document.querySelector('.form_input--amount');
+const input_transferTo = document.querySelector(".form_input--transferTo");
+const input_amountTra = document.querySelector(".form_input--amount");
 const input_loan = document.querySelector(".form_input--loan");
 const input_closeUser = document.querySelector(".form_input--closeUser");
 const input_closePin = document.querySelector(".form_input--closePin");
@@ -111,16 +111,20 @@ btn_login.addEventListener("click", function (evnt) {
     // CLEAR INPUT FIELDS
     input_user.value = input_pin.value = "";
     input_pin.blur();
-    //display movements
-    displayMovements(currentAccount.movements);
-    //display balance
-    funCalcAndDisplayBalance(currentAccount.movements);
-    //display summary - in-out-interests
-    funSummaryInOut(currentAccount);
+
+    updateUI(currentAccount);
   } else {
     alert("(╯°□°)╯");
   }
 });
+const updateUI = function (acc) {
+  //display movements
+  displayMovements(acc.movements);
+  //display balance
+  funCalcAndDisplayBalance(acc);
+  //display summary - in-out-interests
+  funSummaryInOut(acc);
+};
 
 //FUNCION PARA MOSTRAR LA SUMA DE TODOS LOS DEPOSITOS summary_value--in
 const funSummaryInOut = function (acc) {
@@ -144,20 +148,48 @@ const funSummaryInOut = function (acc) {
 // funSummaryInOut(account__one.movements);
 
 //FUNCION PARA MOSTRAR EL BALANCE TOTAL en el ind class="balance_value"
-const funCalcAndDisplayBalance = function (arryMovements) {
-  const balance = arryMovements.reduce(
+const funCalcAndDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce(
     (accumulator, currValue) => accumulator + currValue,
     0
   );
-  balance_value.textContent = `${balance} €`;
+  balance_value.textContent = `${acc.balance} €`;
 };
 // funCalcAndDisplayBalance(account__one.movements);
-//FUNCIÓN PARA TRANFERIR
-btn_transfer.addEventListener('click', function(){
-  const userTransferTo = input_transferTo.value;
-  const amountTransfer = input_amountTra;
-});
 
+//FUNCIÓN PARA TRANFERIR
+//1. verificar que amountTransfer/ sea una numero positivo
+//2. Que tenga suficiente saldo en cuenta
+//3. Se descuente del saldo de la cuenta origen
+//4. Se envíe el saldo a la cuenta destino
+//5. La cuenta destino existe (???)
+
+const funClickTransfer = function (event) {
+  event.preventDefault();
+  const amountTransfer = Number(input_amountTra.value);
+  const receiverAcc = accounts.find(
+    (acc) => acc.username === input_transferTo.value
+  );
+  // console.log(amountTransfer, receiverAcc);
+  input_amountTra.value = input_transferTo.value = "";
+  if (
+    amountTransfer > 0 &&
+    receiverAcc &&
+    currentAccount.balance >= amountTransfer &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    currentAccount.movements.push(-amountTransfer);
+    receiverAcc.movements.push(amountTransfer);
+    updateUI(currentAccount);
+  }
+};
+
+//FUNCION PARA CERRAR CUENTA
+const funCloseAcc = function(evnt){
+  evnt.preventDefault();
+  console.log('Cerrado');
+
+};
 
 //MAPSmax
 const currencies = new Map([
@@ -165,6 +197,9 @@ const currencies = new Map([
   ["EUR", "Euro"],
   ["GBP", "Pound sterling"],
 ]);
+//EVENT LISTENERS
+btn_transfer.addEventListener("click", funClickTransfer);
+btn_closeAccount.addEventListener('click', funCloseAcc);
 
 //calcular el max
 
