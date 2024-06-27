@@ -243,6 +243,7 @@ btn_closeAccount.addEventListener("click", funCloseAcc);
 btn_loan.addEventListener("click", funLoan);
 //calcular el max
 
+//EXTRA FUNCIONALIDADES DE EJERCICIOS
 // const funmax = function (movements) {
 //   const max = movements.reduce(
 //     (prev, next) => (prev > next ? prev : next),
@@ -262,10 +263,39 @@ console.log(`Es: ${everyM}`);
 
 //separated callback, a function------------  const fun = (X) => x*2;
 
-const depositTrue = (mov) => mov >0;
+const depositTrue = (mov) => mov > 0;
 //const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-console.log('-----------------------------------------');
+console.log("-----------------------------------------");
 console.log(movements.some(depositTrue));
 console.log(movements.every(depositTrue));
 console.log(movements.filter(depositTrue));
 console.log(movements.filter(depositTrue).length);
+
+//.flat() and .flatMap();
+const anasArry = [1, 2, [3, 4, [5, 6, [7, 8]]]];
+console.log(anasArry.flat(Infinity));
+
+let arrFlat = [[1,2,3], [4,5,6],7,8];
+console.log(arrFlat.flat());
+
+let arr1 = [1, 2, [3, 4]];
+console.log(arr1.flat());
+
+let arr2 = [1, 2, [3, 4, [5, 6]]];
+console.log(arr2.flat(2));
+
+let arr3 = [1, [2, [3, [4, 5]]]];
+console.log(arr3.flat(Infinity));
+
+let arr4 = [1, [2, [3, [4, [5, [6, 7]]]]]];
+console.log(arr4.flat(Infinity));
+
+let practiceArr1 = [[1, 2], [3, 4], [5, [6, 7]]];
+console.log(practiceArr1.flat());
+
+let practiceArr2 = [1, [2, [3, [4, [5]]]], 6];
+console.log(practiceArr2.flat(2)); // 1,2,3, (2), 6
+
+let practiceArr3 = [[1, [2, [3]]], 4, [5, [6, 7, [8]]]];
+console.log(practiceArr3.flat(3)); // 1,2,3,4,5,6,7,8
+
