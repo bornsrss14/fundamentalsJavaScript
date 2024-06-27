@@ -275,7 +275,7 @@ console.log(movements.filter(depositTrue).length);
 const anasArry = [1, 2, [3, 4, [5, 6, [7, 8]]]];
 console.log(anasArry.flat(Infinity));
 
-let arrFlat = [[1,2,3], [4,5,6],7,8];
+let arrFlat = [[1, 2, 3], [4, 5, 6], 7, 8];
 console.log(arrFlat.flat());
 
 let arr1 = [1, 2, [3, 4]];
@@ -290,7 +290,11 @@ console.log(arr3.flat(Infinity));
 let arr4 = [1, [2, [3, [4, [5, [6, 7]]]]]];
 console.log(arr4.flat(Infinity));
 
-let practiceArr1 = [[1, 2], [3, 4], [5, [6, 7]]];
+let practiceArr1 = [
+  [1, 2],
+  [3, 4],
+  [5, [6, 7]],
+];
 console.log(practiceArr1.flat());
 
 let practiceArr2 = [1, [2, [3, [4, [5]]]], 6];
@@ -299,3 +303,14 @@ console.log(practiceArr2.flat(2)); // 1,2,3, (2), 6
 let practiceArr3 = [[1, [2, [3]]], 4, [5, [6, 7, [8]]]];
 console.log(practiceArr3.flat(3)); // 1,2,3,4,5,6,7,8
 
+const overBalance = accounts
+  .map((acc) => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overBalance);
+
+// combinación de .map() and .flat();
+const flatMapEx = accounts
+  .flatMap((acc) => acc.movements) // the flat map method just go one level deepper !!!!
+  .reduce((acc, mov) => acc + mov, 0);
+  console.log(flatMapEx);
