@@ -11,3 +11,8 @@ const funMensaje = function (e) {
 };
 btn_login.addEventListener("click", funMensaje);
 //los agrega al final de el elemento seleccionado
+
+
+//CREA UN CALENDARIO
+const createCalendar = function(elem, year, month){
+};

@@ -213,16 +213,19 @@ const funCloseAcc = function (evnt) {
   }
 };
 //FUNCIÓN PARA PEDIR UN PRÉSTAMO
-  console.log("Ros");
+console.log("Ros");
 //1. verificar que alguna cantidad (arry.movements (mov)) sea al menos el 10% del prestamo solicitado (input.loan)
 const funLoan = function (evnt) {
   evnt.preventDefault();
   const amount = Number(input_loan.value);
-  if(amount >0 && currentAccount.movements.some((mov) => mov >= amount * 0.1) ){
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
     currentAccount.movements.push(amount);
     updateUI(currentAccount);
-  }else{
-    alert('Too large!');
+  } else {
+    alert("Too Hight! ( • ᴖ • ｡)");
   }
   input_loan.value = "";
   input_loan.blur();
@@ -254,5 +257,15 @@ console.log(movements.includes(-130)); // solo podemos probar la igualdad
 const trueDepositFalse = movements.some((some) => some > 0);
 console.log(trueDepositFalse);
 //EVERY--- SI TODOS LOS ELEMENTOS SATISFACEN LA CONDICIÓN
-const everyM = account__four.movements.every(mov => mov > 0);
+const everyM = account__four.movements.every((mov) => mov > 0);
 console.log(`Es: ${everyM}`);
+
+//separated callback, a function------------  const fun = (X) => x*2;
+
+const depositTrue = (mov) => mov >0;
+//const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+console.log('-----------------------------------------');
+console.log(movements.some(depositTrue));
+console.log(movements.every(depositTrue));
+console.log(movements.filter(depositTrue));
+console.log(movements.filter(depositTrue).length);
