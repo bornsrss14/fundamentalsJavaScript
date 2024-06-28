@@ -313,4 +313,38 @@ console.log(overBalance);
 const flatMapEx = accounts
   .flatMap((acc) => acc.movements) // the flat map method just go one level deepper !!!!
   .reduce((acc, mov) => acc + mov, 0);
-  console.log(flatMapEx);
+console.log(flatMapEx);
+//SORT EVENTS
+let items = [
+  { name: "Widget", price: 25 },
+  { name: "Ros", price: 14 },
+  { name: "Anna", price: -13 },
+  { name: "Gadget", price: 15 },
+  { name: "Thingamajig", price: 5 },
+];
+
+let ticket = [
+  { product: "Cookies", price: 45 },
+  { product: "Sugar 800kg", price: 98 },
+  { product: "Canol Oil 3pzas", price: 115 },
+  { product: "Members Mark Soluble", price: 873 },
+  { product: "Classic Nescafé 1.5kg", price: 475 },
+  { product: "Milk 12 pzas", price: 245 },
+];
+
+const lowToHight = (a, b) => a.price - b.price;
+const highToLow = (a, b) => b.price - a.price;
+
+let shalowLow = [...items];
+console.log("El resultado de Menor a Mayor de Items");
+console.log(shalowLow.sort(lowToHight));
+
+let shallowHight = [...items];
+console.log("El resultado de Mayor a Menor de Items");
+console.log(shallowHight.sort(highToLow));
+
+console.log("El resultado de Menor a Mayor de ticket");
+console.log(ticket.sort(lowToHight));
+
+const lTh = (a, b) => a - b;
+console.log(arr4.flat(Infinity).sort(lTh));
