@@ -95,6 +95,8 @@ console.log(accounts);
 let currentAccount;
 //FUNCION PARA INCIAR SESION
 // login_input--pin login_input--user
+const loThi = (a, b) => a - b;
+const hiTlo = (a, b) => b - a;
 
 btn_login.addEventListener("click", function (evnt) {
   evnt.preventDefault();
@@ -231,6 +233,19 @@ const funLoan = function (evnt) {
   input_loan.blur();
 };
 
+//FUNCIÓN PARA ORDENAR DE MAYOR A MENOR LOS ELEMENTOS DEL ARRAY
+//1.- tomar un array de currentAcount.movements y ordenarlo de mayor a menor
+let isAscending = true; // Estado inicial: orden ascendente
+const funSort = function () {
+  if (isAscending) {
+    currentAccount.movements.sort(loThi);
+  } else {
+    currentAccount.movements.sort(hiTlo);
+  }
+  isAscending = !isAscending; // Alternar el estado
+  updateUI(currentAccount);
+};
+
 //MAPSmax
 const currencies = new Map([
   ["USD", "United State Dollar"],
@@ -241,6 +256,7 @@ const currencies = new Map([
 btn_transfer.addEventListener("click", funClickTransfer);
 btn_closeAccount.addEventListener("click", funCloseAcc);
 btn_loan.addEventListener("click", funLoan);
+btn_sort.addEventListener("click", funSort);
 //calcular el max
 
 //EXTRA FUNCIONALIDADES DE EJERCICIOS
