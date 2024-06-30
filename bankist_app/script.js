@@ -242,9 +242,10 @@ const funSort = function () {
   } else {
     currentAccount.movements.sort(hiTlo);
   }
-  isAscending = !isAscending; // Alternar el estado
+  isAscending = !isAscending; // Alterno el estado
   updateUI(currentAccount);
 };
+//función paara crear el array de valores de transacción
 
 //MAPSmax
 const currencies = new Map([
@@ -257,6 +258,7 @@ btn_transfer.addEventListener("click", funClickTransfer);
 btn_closeAccount.addEventListener("click", funCloseAcc);
 btn_loan.addEventListener("click", funLoan);
 btn_sort.addEventListener("click", funSort);
+
 //calcular el max
 
 //EXTRA FUNCIONALIDADES DE EJERCICIOS
@@ -364,3 +366,25 @@ console.log(ticket.sort(lowToHight));
 
 const lTh = (a, b) => a - b;
 console.log(arr4.flat(Infinity).sort(lTh));
+
+//THE FILL METHOD: convierte un iterable en un array (lo rellena)
+
+const r = Array.from(
+  { length: 100 }, //el objeto similar a un array o iterable que deseo convertir en un array
+  (_, i) => Math.trunc(Math.random() * 500) + 1 //una función de mapeo que se llamará en cada elemento del array
+);
+
+console.log(r, typeof r);
+
+const funMayor = r.filter((el) => el > 100);
+const funMenor = r.filter((el) => el < 100);
+console.log(funMayor);
+console.log(funMenor);
+
+balance_value.addEventListener("click", function () {
+  const nwArrTodos = Array.from(
+    document.querySelectorAll(".movements_value"),
+    (el) => Number(el.textContent.replace("€", ""))
+  ).sort(lTh);
+  console.log(nwArrTodos);
+});
