@@ -381,6 +381,7 @@ const funMenor = r.filter((el) => el < 100);
 console.log(funMayor);
 console.log(funMenor);
 
+//entendido
 balance_value.addEventListener("click", function () {
   const nwArrTodos = Array.from(
     document.querySelectorAll(".movements_value"),
