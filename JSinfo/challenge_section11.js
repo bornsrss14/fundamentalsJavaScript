@@ -169,6 +169,31 @@ const funThree = function (dogsArry) {
 };
 
 // const allOwners = arry.flatMap((el) => el.owners);
+const thersSomeDogHealty = function (dogsArry) {
+  const yesOrNotHealty = dogsArry.some(
+    (dog) => dog.curFood === dog.recommendedFood
+  );
+  return yesOrNotHealty === true
+    ? "¿Hay algún perro saludable?: Yes"
+    : "No hay perros saludables";
+};
+//Hay algun perro que coma la cantidad recomendada de comida
+const trueFalseFun = (dog) =>
+  dog.curFood > dog.recommendedFood * 0.9 &&
+  dog.curFood < dog.recommendedFood * 1.1;
+
+const trueFalseDos = function (dogsArry) {
+  const trueFalse = dogsArry.some(trueFalseFun);
+  console.log(trueFalse);
+};
+
+const shallow = function (dogsArry) {
+  const dogsSorted = dogsArry
+    .slice()
+    .sort((a, b) => a.recommendedFood - b.recommendedFood);
+
+  console.log(dogsSorted);
+};
 
 //LLAMADAS DE FUNCIÓN -------------------------------------------------------₊˚🖇️✩ ( ｡•̀ ᴖ •́ ｡)💢 ˚🎧⊹♡
 console.log(funOne(dogs));
@@ -176,3 +201,8 @@ funTwo(dogs, "Michael");
 funTwo(dogs, "Ros");
 
 funThree(dogs);
+console.log(thersSomeDogHealty(dogs));
+trueFalseDos(dogs);
+console.log(dogs.filter(trueFalseFun));
+
+shallow(dogs);
