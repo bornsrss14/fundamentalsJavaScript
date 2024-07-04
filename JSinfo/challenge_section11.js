@@ -121,7 +121,7 @@ funCalcAverageHumanAge(testData2);
 //Básicamente, la porción actual debe estar entre el 90% y el 110% de la porción recomendada.
 
 const dogs = [
-  { name: "Rex", weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
+  { name: "Rex", weight: 22, curFood: 284, owners: ["Alice", "Bob"] },
   { name: "Bella", weight: 8, curFood: 200, owners: ["Matilda"] },
   { name: "Rocky", weight: 13, curFood: 275, owners: ["Sarah", "Jhon"] },
   { name: "Max", weight: 32, curFood: 340, owners: ["Michael"] },
@@ -169,19 +169,20 @@ const funThree = function (dogsArry) {
 };
 
 // const allOwners = arry.flatMap((el) => el.owners);
+//Algún perro que coma la cantidad de comida exacta recomendada
 const thersSomeDogHealty = function (dogsArry) {
   const yesOrNotHealty = dogsArry.some(
     (dog) => dog.curFood === dog.recommendedFood
   );
   return yesOrNotHealty === true
-    ? "¿Hay algún perro saludable?: Yes"
-    : "No hay perros saludables";
+    ? "¿Alguno come la cantidad correcta?: Yes"
+    : "No hay perros que coman exactamente lo recomendado";
 };
 //Hay algun perro que coma la cantidad recomendada de comida
 const trueFalseFun = (dog) =>
   dog.curFood > dog.recommendedFood * 0.9 &&
   dog.curFood < dog.recommendedFood * 1.1;
-
+//Hay algun elemento dentro del array pasado que cumpla con lo descrito en la función ???
 const trueFalseDos = function (dogsArry) {
   const trueFalse = dogsArry.some(trueFalseFun);
   console.log(trueFalse);
@@ -191,7 +192,6 @@ const shallow = function (dogsArry) {
   const dogsSorted = dogsArry
     .slice()
     .sort((a, b) => a.recommendedFood - b.recommendedFood);
-
   console.log(dogsSorted);
 };
 
