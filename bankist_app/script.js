@@ -1,9 +1,21 @@
 "use strict";
 const account__one = {
   owner: "Emily Thompson",
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300, -100],
+  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, //%
   pin: 1414,
+  movementsDates: [
+    "2019-11-18T21:31:17.178Z",
+    "2019-12-23T07:42:02.383Z",
+    "2020-01-28T09:15:04.904Z",
+    "2020-04-01T10:17:24.185Z",
+    "2020-05-08T14:11:59.604Z",
+    "2020-05-27T17:01:17.194Z",
+    "2020-07-11T23:36:17.929Z",
+    "2020-07-12T10:51:36.790Z",
+  ],
+  currency: "EUR",
+  locale: "pt-PT", // de-DE
 };
 
 const account__two = {
@@ -11,6 +23,18 @@ const account__two = {
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
+  movementsDates: [
+    "2019-11-01T13:15:33.035Z",
+    "2019-11-30T09:48:16.867Z",
+    "2019-12-25T06:04:23.907Z",
+    "2020-01-25T14:18:46.235Z",
+    "2020-02-05T16:33:06.386Z",
+    "2020-04-10T14:43:26.374Z",
+    "2020-06-25T18:49:59.371Z",
+    "2020-07-26T12:01:20.894Z",
+  ],
+  currency: "USD",
+  locale: "en-US",
 };
 
 const account__three = {
@@ -18,13 +42,37 @@ const account__three = {
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
+  movementsDates: [
+    "2024-01-10T08:15:30.123Z",
+    "2024-02-20T11:45:22.456Z",
+    "2024-03-25T14:32:11.789Z",
+    "2024-04-15T17:50:43.321Z",
+    "2024-05-05T09:25:54.654Z",
+    "2024-06-18T13:40:29.987Z",
+    "2024-07-22T10:30:15.432Z",
+    "2024-08-30T16:45:20.876Z",
+  ],
+  currency: "USD",
+  locale: "en-US",
 };
 
 const account__four = {
   owner: "Anna Oh",
-  movements: [430, 1000, 700, 50, 902, 140, 55, 147, 50, 150],
+  movements: [430, 1000, 50, 902, 435, 355, 23, 60, 200],
   interestRate: 1,
   pin: 1985,
+  movementsDates: [
+    "2021-01-15T10:30:45.123Z",
+    "2021-02-22T14:50:12.456Z",
+    "2021-03-30T07:24:34.789Z",
+    "2021-04-12T19:45:23.321Z",
+    "2021-05-05T11:33:54.654Z",
+    "2021-06-18T15:40:30.987Z",
+    "2021-07-25T09:29:45.432Z",
+    "2021-08-30T13:15:20.876Z",
+  ],
+  currency: "USD",
+  locale: "en-US",
 };
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -332,6 +380,7 @@ const flatMapEx = accounts
   .flatMap((acc) => acc.movements) // the flat map method just go one level deepper !!!!
   .reduce((acc, mov) => acc + mov, 0);
 console.log(flatMapEx);
+
 //SORT EVENTS
 let items = [
   { name: "Widget", price: 25 },
@@ -389,3 +438,16 @@ balance_value.addEventListener("click", function () {
   ).sort(lTh);
   console.log(nwArrTodos);
 });
+
+//EJERCICIO PRÁCTICO SOLO POR DIVERSIÓN
+
+balance_value.addEventListener("click", function () {
+  [...document.querySelectorAll(".movements_row")].forEach(function (row, index) {
+    if (index % 2 === 0) {
+      row.style.backgroundColor = "#FDEDDE";
+    }
+  }); 
+});
+const evenOrOdd = (num) => num % 2 === 0;
+console.log(evenOrOdd(4));
+console.log(evenOrOdd(7));

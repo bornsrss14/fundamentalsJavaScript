@@ -53,16 +53,83 @@ console.log(`El resultado de los positivos es: ${arryMap}`);
 console.log(accounts.flatMap((acc) => acc.movements));
 
 const cadenaTexto = function (cadena) {
-  const capitalize = (cadena) => cadena[0].toUpperCase() + cadena.slice(1);
+  const toCapitalize = function (word) {
+    return word[0].toUpperCase() + word.slice(1);
+  };
+  // const capitalize = (word) => word[0].toUpperCase() + word.slice(1);
   const exceptions = ["an", "a", "and", "the", "but", "or", "on", "with", "in"];
-
   const titleCase = cadena
     .toLowerCase()
     .split(" ")
-    .map((word) => (exceptions.includes(word) ? word : capitalize(word)))
+    .map((word) => (exceptions.includes(word) ? word : toCapitalize(word)))
     .join(" ");
 
   return titleCase;
 };
 
 console.log(cadenaTexto("rosario fuentes and another person"));
+
+//reduce como metodo para crear nuevos objetos
+const data = [
+  { id: 1, name: "Alice", age: 30 },
+  { id: 2, name: "Bob", age: 25 },
+  { id: 3, name: "Charlie", age: 35 },
+];
+console.log(data);
+
+const result = data.reduce((acc, item) => {
+  acc[item.id] = item;
+  return acc;
+}, {});
+console.log(result);
+
+const r = Array.from(
+  { length: 40 },
+  (_, i) => Math.trunc(Math.random() * 8000) + 1
+);
+
+const elementosPAres = r.reduce(
+  (acc, currentValue) => (currentValue % 2 === 0 ? ++acc : acc),
+  0
+);
+
+console.log(r);
+console.log(`Los elementos pares encontrados fueron: ${elementosPAres}`);
+//En el caso anterior creamos un array de 50 elementos random, y devolvemos el numero total de
+//elementos que son pares, deacuerdo a la condición
+
+//ahora lo que vamos hacer aquí es devolver un array apartir del acumulador
+
+const crearArryAccount = r.reduce((acc, curr) => {
+  if (curr % 2 === 0) {
+    acc.push(curr);
+  }
+  return acc;
+}, []);
+
+console.log(crearArryAccount);
+
+//ahora creamos un objeto
+
+// acceder a los depositos de todas las cuentas del array accounts
+const { deposits, withdrawls } = accounts
+  .flatMap((el) => el.movements)
+  .reduce(
+    (acc, current) => {
+      acc[current > 0 ? "deposits" : "withdrawls"] += current;
+      return acc;
+    },
+    {
+      deposits: 0,
+      withdrawls: 0,
+    }
+  );
+// queremos crear un acumulador sum.deposits;
+
+console.log(deposits, withdrawls);
+
+// 174. Numeric separators 
+const sistemSolarDiameter =  28_709_055_466; // it's to hard to read
+const price = 345_50;
+console.log(`El resultado en ${2* price}`); 
+console.log(`El diametro del sistema solar es: ${sistemSolarDiameter}`);
