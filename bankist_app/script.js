@@ -51,6 +51,7 @@ const account__three = {
     "2024-06-18T13:40:29.987Z",
     "2024-07-22T10:30:15.432Z",
     "2024-08-30T16:45:20.876Z",
+    /*     "2024-08-30T16:45:20.876Z", el toISOString genera un formato parecido a este */
   ],
   currency: "USD",
   locale: "en-US",
@@ -126,6 +127,9 @@ fechaSpan.textContent = `${day} / ${month} / ${year} At: ${hour}:${minutes}:${se
 const displayMovements = function (acc) {
   container_movements.innerHTML = "";
   acc.movements.forEach(function (mov, index) {
+    /* Lo que necesita es cachar una fecha generada, de dónde se generó ??? pues en el metodo al generar un prestamo o una transferencia*/
+    /* Aquí ya no es necesario hacer por ejemplo const new = Date.now(), porqeu aquí genera una fecha actual, de ahora */
+
     const dateMovement = new Date(acc.movementsDates[index]);
     const day = `${dateMovement.getDate()}`.padStart(2, 0);
     const month = `${dateMovement.getMonth() + 1}`.padStart(2, 0);
@@ -294,7 +298,7 @@ const funLoan = function (evnt) {
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
     currentAccount.movements.push(amount);
-    currentAccount.movementsDates.push(new Date().toISOString());
+    currentAccount. .push(new Date().toISOString());
     updateUI(currentAccount);
   } else {
     alert("Too Hight! ( • ᴖ • ｡)");
