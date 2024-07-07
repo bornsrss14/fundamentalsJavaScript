@@ -451,3 +451,4 @@ balance_value.addEventListener("click", function () {
 const evenOrOdd = (num) => num % 2 === 0;
 console.log(evenOrOdd(4));
 console.log(evenOrOdd(7));
+

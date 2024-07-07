@@ -128,8 +128,32 @@ const { deposits, withdrawls } = accounts
 
 console.log(deposits, withdrawls);
 
-// 174. Numeric separators 
-const sistemSolarDiameter =  28_709_055_466; // it's to hard to read
+// 174. Numeric separators
+const sistemSolarDiameter = 28_709_055_466; // it's to hard to read
 const price = 345_50;
-console.log(`El resultado en ${2* price}`); 
+console.log(`El resultado en ${2 * price}`);
 console.log(`El diametro del sistema solar es: ${sistemSolarDiameter}`);
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+//utilizando el metodo date
+/*
+const now = new Date();
+console.log(now);
+console.log(new Date("December 24,2024 "));
+console.log(new Date(0));
+console.log(new Date(3 * 24 * 60 * 60 * 1000));
+*/
+
+const rosBirthDay = new Date(2025, 5, 21, 14, 14);
+console.log(
+  `Mi próximo cumpleaños es en: ${rosBirthDay}, Vamos a desglozar esta fecha----- \n El año es: ${rosBirthDay.getFullYear()} \n El mes es: ${
+    rosBirthDay.getMonth() + 1
+  } \n El día (numero) es: ${rosBirthDay.getDate()} \n El día de la semana (1-7) ${rosBirthDay.getDay()} \n La hora: ${rosBirthDay.getHours()} \nLos minutos: ${rosBirthDay.getMinutes()} \ Los segundos (no especificado): ${rosBirthDay.getSeconds()}`
+);
+
+console.log(rosBirthDay.toISOString());
+const now =
+  Date.now(); /* Esto devuelve los milisegundos transcurridos desde el 1 de Enero de 1970 */
+let date = new Date(now);
+console.log(date.toString());
