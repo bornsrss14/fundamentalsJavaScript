@@ -58,7 +58,7 @@ const account__three = {
 
 const account__four = {
   owner: "Anna Oh",
-  movements: [430, 1000, 50, 902, 435, 355, 23, 60, 200],
+  movements: [430, 1000, 50, 902, 435, 355, 23, 60],
   interestRate: 1,
   pin: 1985,
   movementsDates: [
@@ -75,7 +75,7 @@ const account__four = {
   locale: "en-US",
 };
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 const accounts = [account__one, account__two, account__three, account__four];
 //ENTRADAS
 const input_user = document.querySelector(".login_input--user");
@@ -106,20 +106,38 @@ const container_app = document.querySelector(".app");
 const container_movements = document.querySelector(".movements");
 
 /// apartir de aquí inicio on el codigo
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
   const fechaActual = new Date();
   const opciones = { year: "numeric", month: "long", day: "numeric" };
   fechaSpan.textContent = fechaActual.toLocaleDateString("es-ES", opciones);
-});
+});*/
 
-const displayMovements = function (arr_movements) {
+const dateNow = new Date();
+const day = `${dateNow.getDate()}`.padStart(2, 0);
+const hour = dateNow.getHours();
+const month = `${dateNow.getMonth() + 1}`.padStart(2, 0);
+const seconds = `${dateNow.getSeconds()}`.padStart(2, 0);
+const minutes = dateNow.getMinutes();
+const year = dateNow.getFullYear();
+console.log(`FECHA ACTUAL${dateNow}`);
+
+fechaSpan.textContent = `${day} / ${month} / ${year} At: ${hour}:${minutes}:${seconds}`;
+
+const displayMovements = function (acc) {
   container_movements.innerHTML = "";
-  arr_movements.forEach(function (mov, index) {
+  acc.movements.forEach(function (mov, index) {
+    const dateMovement = new Date(acc.movementsDates[index]);
+    const day = `${dateMovement.getDate()}`.padStart(2, 0);
+    const month = `${dateMovement.getMonth() + 1}`.padStart(2, 0);
+    const year = dateMovement.getFullYear();
+    const movDateSet = `${day}/${month}/${year}`;
+
     const type = mov > 0 ? "deposite" : "withdrawal";
     const html = `<div class="movements_row">
     <div class="movements_type movements_type--${type}">${
       index + 1
     } ${type}</div>
+     <div class="movements__date"> ${movDateSet}</div> 
     <div class="movements_value">${mov} €</div>
   </div>`;
     container_movements.insertAdjacentHTML("afterbegin", html);
@@ -169,7 +187,7 @@ btn_login.addEventListener("click", function (evnt) {
 });
 const updateUI = function (acc) {
   //display movements
-  displayMovements(acc.movements);
+  displayMovements(acc);
   //display balance
   funCalcAndDisplayBalance(acc);
   //display summary - in-out-interests
@@ -230,6 +248,9 @@ const funClickTransfer = function (event) {
   ) {
     currentAccount.movements.push(-amountTransfer);
     receiverAcc.movements.push(amountTransfer);
+
+    currentAccount.movementsDates.push(new Date().toISOString());
+    receiverAcc.movementsDates.push(new Date().toISOString());
     updateUI(currentAccount);
   }
 };
@@ -273,6 +294,7 @@ const funLoan = function (evnt) {
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
     currentAccount.movements.push(amount);
+    currentAccount.movementsDates.push(new Date().toISOString());
     updateUI(currentAccount);
   } else {
     alert("Too Hight! ( • ᴖ • ｡)");
@@ -294,6 +316,8 @@ const funSort = function () {
   updateUI(currentAccount);
 };
 //función paara crear el array de valores de transacción
+
+//Acceder a las fechas de los movimientos de cada objeto
 
 //MAPSmax
 const currencies = new Map([
@@ -319,10 +343,10 @@ btn_sort.addEventListener("click", funSort);
 // };
 // console.log(funmax(account__four.movements));
 // El método some and any, vamos a comprender la diferencia y relación con .includes()
-console.log(movements.includes(-130)); // solo podemos probar la igualdad
+// console.log(movements.includes(-130)); // solo podemos probar la igualdad
 //Cuando queremos meter una condición para evaluar si esto se incluye
-const trueDepositFalse = movements.some((some) => some > 0);
-console.log(trueDepositFalse);
+// const trueDepositFalse = movements.some((some) => some > 0);
+// console.log(trueDepositFalse);
 //EVERY--- SI TODOS LOS ELEMENTOS SATISFACEN LA CONDICIÓN
 const everyM = account__four.movements.every((mov) => mov > 0);
 console.log(`Es: ${everyM}`);
@@ -331,12 +355,12 @@ console.log(`Es: ${everyM}`);
 
 const depositTrue = (mov) => mov > 0;
 //const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-console.log("-----------------------------------------");
+/*  console.log("-----------------------------------------");
 console.log(movements.some(depositTrue));
 console.log(movements.every(depositTrue));
 console.log(movements.filter(depositTrue));
 console.log(movements.filter(depositTrue).length);
-
+*/
 //.flat() and .flatMap();
 const anasArry = [1, 2, [3, 4, [5, 6, [7, 8]]]];
 console.log(anasArry.flat(Infinity));
@@ -440,15 +464,19 @@ balance_value.addEventListener("click", function () {
 });
 
 //EJERCICIO PRÁCTICO SOLO POR DIVERSIÓN
-
 balance_value.addEventListener("click", function () {
-  [...document.querySelectorAll(".movements_row")].forEach(function (row, index) {
+  [...document.querySelectorAll(".movements_row")].forEach(function (
+    row,
+    index
+  ) {
     if (index % 2 === 0) {
       row.style.backgroundColor = "#FDEDDE";
     }
-  }); 
+  });
 });
 const evenOrOdd = (num) => num % 2 === 0;
 console.log(evenOrOdd(4));
 console.log(evenOrOdd(7));
 
+
+console.log(account__one.movementsDates);

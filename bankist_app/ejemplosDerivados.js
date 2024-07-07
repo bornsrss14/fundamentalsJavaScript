@@ -153,7 +153,6 @@ console.log(
 );
 
 console.log(rosBirthDay.toISOString());
-const now =
-  Date.now(); /* Esto devuelve los milisegundos transcurridos desde el 1 de Enero de 1970 */
+const now =  Date.now(); /* Esto devuelve los milisegundos transcurridos desde el 1 de Enero de 1970 */
 let date = new Date(now);
 console.log(date.toString());
