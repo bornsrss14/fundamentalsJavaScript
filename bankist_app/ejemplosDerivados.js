@@ -164,3 +164,12 @@ const miFecha = new Date(
 ); /* Esto me devuelve algo como esto:  Sun Jul 07 2024 01:53:59 GMT-0600 (hora estándar central) 
 va a crear una fecha en base a un parametro dado*/
 console.log(miFecha);
+
+const formatCur = function(value, locale,currency){
+  return new Intl.NumberFormat(locale, {
+    style:"currency",
+    currency: currency,
+  }).format(value);
+}
+
+formatCur(mov,acc.locale, acc.currency);

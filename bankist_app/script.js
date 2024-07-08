@@ -1,6 +1,6 @@
 "use strict";
 const account__one = {
-  owner: "Emily Thompson",
+  /* american */ owner: "Emily Thompson",
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, //%
   pin: 1414,
@@ -15,11 +15,11 @@ const account__one = {
     "2020-07-12T10:51:36.790Z",
   ],
   currency: "EUR",
-  locale: "pt-PT", // de-DE
+  locale: "en-UK", // de-DE
 };
 
 const account__two = {
-  owner: "Jack Miller",
+  /* CNY chino */ owner: "Jin Chon",
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
@@ -33,8 +33,8 @@ const account__two = {
     "2020-06-25T18:49:59.371Z",
     "2020-07-26T12:01:20.894Z",
   ],
-  currency: "USD",
-  locale: "en-US",
+  currency: "CNY",
+  locale: "zh-CN",
 };
 
 const account__three = {
@@ -63,7 +63,7 @@ const account__four = {
   interestRate: 1,
   pin: 1985,
   movementsDates: [
-    "2021-01-15T10:30:45.123Z",
+    /* acc.movementsDates[index] */ "2021-01-15T10:30:45.123Z",
     "2024-07-01T14:50:12.456Z",
     "2021-03-30T07:24:34.789Z",
     "2021-04-12T19:45:23.321Z",
@@ -72,12 +72,36 @@ const account__four = {
     "2021-07-25T09:29:45.432Z",
     "2021-08-30T13:15:20.876Z",
   ],
-  currency: "USD",
-  locale: "en-US",
+  currency: "JPY",
+  locale: "ja-JP",
+};
+const account__five = {
+  owner: "Anjali Kapoor",
+  movements: [40, 100, 500, 2, 45, 35, 2300, 670],
+  interestRate: 1,
+  pin: 5555,
+  movementsDates: [
+    /* acc.movementsDates[index] */ "2021-01-15T10:30:45.123Z",
+    "2023-07-01T14:50:12.456Z",
+    "2021-03-30T07:24:34.789Z",
+    "2021-04-12T19:45:23.321Z",
+    "2024-06-29T11:33:54.654Z",
+    "2021-06-18T15:40:30.987Z",
+    "2021-07-25T09:29:45.432Z",
+    "2021-08-30T13:15:20.876Z",
+  ],
+  currency: "INR",
+  locale: "en-in",
 };
 
 // const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const accounts = [account__one, account__two, account__three, account__four];
+const accounts = [
+  account__one,
+  account__two,
+  account__three,
+  account__four,
+  account__five,
+];
 //ENTRADAS
 const input_user = document.querySelector(".login_input--user");
 const input_pin = document.querySelector(".login_input--pin");
@@ -106,48 +130,50 @@ const btn_closeAccount = document.querySelector(".btn_closeAccount");
 const container_app = document.querySelector(".app");
 const container_movements = document.querySelector(".movements");
 /// apartir de aquí inicio on el codigo
-/*document.addEventListener("DOMContentLoaded", () => {
-  const fechaActual = new Date();
-  const opciones = { year: "numeric", month: "long", day: "numeric" };
-  fechaSpan.textContent = fechaActual.toLocaleDateString("es-ES", opciones);
-});*/
-/* AGREGAMOS LA FECHA ACTUAL */
-const dateNow = new Date();
-const day = `${dateNow.getDate()}`.padStart(2, 0);
-const hour = dateNow.getHours();
-const month = `${dateNow.getMonth() + 1}`.padStart(2, 0);
-const seconds = `${dateNow.getSeconds()}`.padStart(2, 0);
-const minutes = dateNow.getMinutes();
-const year = dateNow.getFullYear();
-console.log(`FECHA ACTUAL${dateNow}`);
-fechaSpan.textContent = `${day} / ${month} / ${year} At: ${hour}:${minutes}:${seconds}`;
 
-const formatMovementDate = function (date) {
+const formatMovementDate = function (date, locale) {
   const clacDaysPassed = (frstDate, scndDate) =>
     Math.round(Math.abs((scndDate - frstDate) / (1000 * 60 * 60 * 24)));
   const daysPassed = clacDaysPassed(new Date(), date);
-  console.log(daysPassed);
   if (daysPassed === 0) return "Today";
   if (daysPassed === 1) return "Yesterday";
   if (daysPassed <= 7) return `${daysPassed} days ago`;
-  if(daysPassed >7 && daysPassed <=14) return 'Last week';
+  if (daysPassed > 7 && daysPassed <= 14) return "Last week";
 
-  const day = `${date.getDate()}`.padStart(2, 0);
-  const month = `${date.getMonth()}`.padStart(2, 0);
-  const year = date.getFullYear();
+  return new Intl.DateTimeFormat(locale).format(date);
 
-  return `${day} /${month}/ ${year}`;
+  // const day = `${date.getDate()}`.padStart(2, 0);
+  // const month = `${date.getMonth()}`.padStart(2, 0);
+  // const year = date.getFullYear();
+};
+
+const formatCur = function (value, locale, currency) {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+  }).format(value);
 };
 
 const displayMovements = function (acc) {
+  const fechaActual = new Date();
+  const opciones = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  };
+  fechaSpan.textContent = new Intl.DateTimeFormat(acc.locale, opciones).format(
+    fechaActual
+  );
+
   container_movements.innerHTML = "";
   acc.movements.forEach(function (mov, index) {
     /* Lo que necesita es cachar una fecha generada, de dónde se generó ??? pues en el metodo al generar un prestamo o una transferencia*/
     /* Aquí ya no es necesario hacer por ejemplo const new = Date.now(), porqeu aquí genera una fecha actual, de ahora */
-
     const dateMovement = new Date(acc.movementsDates[index]);
-    const displayDate = formatMovementDate(dateMovement);
-    
+    const displayDate = formatMovementDate(dateMovement, acc.locale);
+    const formattedMov = formatCur(mov, acc.locale, acc.currency);
 
     const type = mov > 0 ? "deposite" : "withdrawal";
     const html = `<div class="movements_row">
@@ -155,7 +181,7 @@ const displayMovements = function (acc) {
       index + 1
     } ${type}</div>
      <div class="movements__date"> ${displayDate}</div> 
-    <div class="movements_value">${mov} €</div>
+    <div class="movements_value"> ${formattedMov}</div>
   </div>`;
     container_movements.insertAdjacentHTML("afterbegin", html);
   });
@@ -172,12 +198,14 @@ const createUsernames = function (accs) {
       .join("");
   });
 };
+
 createUsernames(accounts); //recibe el array
 console.log(accounts);
 //event handler
 let currentAccount;
 //FUNCION PARA INCIAR SESION
 // login_input--pin login_input--user
+
 const loThi = (a, b) => a - b;
 const hiTlo = (a, b) => b - a;
 
@@ -238,7 +266,7 @@ const funCalcAndDisplayBalance = function (acc) {
     (accumulator, currValue) => accumulator + currValue,
     0
   );
-  balance_value.textContent = `${acc.balance} €`;
+  balance_value.textContent = formatCur(acc.balance, acc.locale, acc.currency);
 };
 // funCalcAndDisplayBalance(account__one.movements);
 
