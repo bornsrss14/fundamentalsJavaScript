@@ -64,10 +64,10 @@ const account__four = {
   pin: 1985,
   movementsDates: [
     "2021-01-15T10:30:45.123Z",
-    "2021-02-22T14:50:12.456Z",
+    "2024-07-01T14:50:12.456Z",
     "2021-03-30T07:24:34.789Z",
     "2021-04-12T19:45:23.321Z",
-    "2021-05-05T11:33:54.654Z",
+    "2024-06-29T11:33:54.654Z",
     "2021-06-18T15:40:30.987Z",
     "2021-07-25T09:29:45.432Z",
     "2021-08-30T13:15:20.876Z",
@@ -105,14 +105,13 @@ const btn_closeAccount = document.querySelector(".btn_closeAccount");
 //CONTENEDORES
 const container_app = document.querySelector(".app");
 const container_movements = document.querySelector(".movements");
-
 /// apartir de aquí inicio on el codigo
 /*document.addEventListener("DOMContentLoaded", () => {
   const fechaActual = new Date();
   const opciones = { year: "numeric", month: "long", day: "numeric" };
   fechaSpan.textContent = fechaActual.toLocaleDateString("es-ES", opciones);
 });*/
-
+/* AGREGAMOS LA FECHA ACTUAL */
 const dateNow = new Date();
 const day = `${dateNow.getDate()}`.padStart(2, 0);
 const hour = dateNow.getHours();
@@ -121,8 +120,24 @@ const seconds = `${dateNow.getSeconds()}`.padStart(2, 0);
 const minutes = dateNow.getMinutes();
 const year = dateNow.getFullYear();
 console.log(`FECHA ACTUAL${dateNow}`);
-
 fechaSpan.textContent = `${day} / ${month} / ${year} At: ${hour}:${minutes}:${seconds}`;
+
+const formatMovementDate = function (date) {
+  const clacDaysPassed = (frstDate, scndDate) =>
+    Math.round(Math.abs((scndDate - frstDate) / (1000 * 60 * 60 * 24)));
+  const daysPassed = clacDaysPassed(new Date(), date);
+  console.log(daysPassed);
+  if (daysPassed === 0) return "Today";
+  if (daysPassed === 1) return "Yesterday";
+  if (daysPassed <= 7) return `${daysPassed} days ago`;
+  if(daysPassed >7 && daysPassed <=14) return 'Last week';
+
+  const day = `${date.getDate()}`.padStart(2, 0);
+  const month = `${date.getMonth()}`.padStart(2, 0);
+  const year = date.getFullYear();
+
+  return `${day} /${month}/ ${year}`;
+};
 
 const displayMovements = function (acc) {
   container_movements.innerHTML = "";
@@ -131,17 +146,15 @@ const displayMovements = function (acc) {
     /* Aquí ya no es necesario hacer por ejemplo const new = Date.now(), porqeu aquí genera una fecha actual, de ahora */
 
     const dateMovement = new Date(acc.movementsDates[index]);
-    const day = `${dateMovement.getDate()}`.padStart(2, 0);
-    const month = `${dateMovement.getMonth() + 1}`.padStart(2, 0);
-    const year = dateMovement.getFullYear();
-    const movDateSet = `${day}/${month}/${year}`;
+    const displayDate = formatMovementDate(dateMovement);
+    
 
     const type = mov > 0 ? "deposite" : "withdrawal";
     const html = `<div class="movements_row">
     <div class="movements_type movements_type--${type}">${
       index + 1
     } ${type}</div>
-     <div class="movements__date"> ${movDateSet}</div> 
+     <div class="movements__date"> ${displayDate}</div> 
     <div class="movements_value">${mov} €</div>
   </div>`;
     container_movements.insertAdjacentHTML("afterbegin", html);
@@ -298,7 +311,7 @@ const funLoan = function (evnt) {
     currentAccount.movements.some((mov) => mov >= amount * 0.1)
   ) {
     currentAccount.movements.push(amount);
-    currentAccount. .push(new Date().toISOString());
+    currentAccount.movementsDates.push(new Date().toISOString());
     updateUI(currentAccount);
   } else {
     alert("Too Hight! ( • ᴖ • ｡)");
@@ -481,6 +494,5 @@ balance_value.addEventListener("click", function () {
 const evenOrOdd = (num) => num % 2 === 0;
 console.log(evenOrOdd(4));
 console.log(evenOrOdd(7));
-
 
 console.log(account__one.movementsDates);

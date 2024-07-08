@@ -153,6 +153,14 @@ console.log(
 );
 
 console.log(rosBirthDay.toISOString());
-const now =  Date.now(); /* Esto devuelve los milisegundos transcurridos desde el 1 de Enero de 1970 */
-let date = new Date(now);
-console.log(date.toString());
+// const now =  Date.now(); /* Esto devuelve los milisegundos transcurridos desde el 1 de Enero de 1970 */
+// let date = new Date(now);
+// console.log(date.toString());
+
+/* NEcesito generar una fecha random */
+const fechaDeHoy = Date();
+const miFecha = new Date(
+  fechaDeHoy
+); /* Esto me devuelve algo como esto:  Sun Jul 07 2024 01:53:59 GMT-0600 (hora estándar central) 
+va a crear una fecha en base a un parametro dado*/
+console.log(miFecha);
