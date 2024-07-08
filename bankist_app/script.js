@@ -244,19 +244,19 @@ const funSummaryInOut = function (acc) {
   const summary = acc.movements
     .filter((val) => val > 0)
     .reduce((acc, val, i, arr) => acc + val, 0);
-  summary_in.textContent = `${summary}€`;
+  summary_in.textContent = formatCur(summary, acc.locale, acc.currency);
 
   const summaryOut = acc.movements
     .filter((val) => val < 0)
     .reduce((acc, val, i, arr) => acc + val, 0);
-  summary_out.textContent = `${Math.abs(summaryOut)}€`;
+  summary_out.textContent = formatCur(summaryOut, acc.locale, acc.currency);
 
   const interest = acc.movements
     .filter((mov) => mov > 0)
     .map((deposit) => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => int >= 1)
     .reduce((acc, int) => acc + int, 0);
-  summary_interest.textContent = `${interest.toFixed(2)} €`;
+  summary_interest.textContent = formatCur(interest, acc.locale, acc.currency);
 };
 // funSummaryInOut(account__one.movements);
 
