@@ -130,6 +130,8 @@ const btn_closeAccount = document.querySelector(".btn_closeAccount");
 const container_app = document.querySelector(".app");
 const container_movements = document.querySelector(".movements");
 /// apartir de aquí inicio on el codigo
+let currentAccount, timer;
+const dur = 0.5;
 
 const formatMovementDate = function (date, locale) {
   const clacDaysPassed = (frstDate, scndDate) =>
@@ -202,7 +204,7 @@ const createUsernames = function (accs) {
 createUsernames(accounts); //recibe el array
 console.log(accounts);
 //event handler
-let currentAccount, timer;
+
 //FUNCION PARA INCIAR SESION
 // login_input--pin login_input--user
 
@@ -224,14 +226,14 @@ const startLogOutTimer = function (durationMin) {
       container_app.style.opacity = 0;
     }
     remainingTime--;
-  }
+  };
 
   /* set time to five minutes */
-  
+
   /* call the timer every second */
-  
+
   /* timer expries and logged out user when reatches 0 s */
-  tick(); 
+  tick();
   const timer = setInterval(tick, 1000);
   return timer;
 };
@@ -256,8 +258,8 @@ btn_login.addEventListener("click", function (evnt) {
   } else {
     alert("(╯°□°)╯");
   }
-  if(timer)clearInterval(timer);
-  timer = startLogOutTimer(.50);
+  if (timer) clearInterval(timer);
+  timer = startLogOutTimer(dur);
 });
 const updateUI = function (acc) {
   //display movements
@@ -326,6 +328,8 @@ const funClickTransfer = function (event) {
     currentAccount.movementsDates.push(new Date().toISOString());
     receiverAcc.movementsDates.push(new Date().toISOString());
     updateUI(currentAccount);
+    clearInterval(timer);
+    timer = startLogOutTimer(dur);
   }
 };
 
@@ -370,6 +374,8 @@ const funLoan = function (evnt) {
     currentAccount.movements.push(amount);
     currentAccount.movementsDates.push(new Date().toISOString());
     updateUI(currentAccount);
+    clearInterval(timer);
+    timer = startLogOutTimer(dur);
   } else {
     alert("Too Hight! ( • ᴖ • ｡)");
   }
