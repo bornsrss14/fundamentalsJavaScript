@@ -173,3 +173,10 @@ const formatCur = function(value, locale,currency){
 }
 
 formatCur(mov,acc.locale, acc.currency);
+
+/* PARA HACER EL TIMER PRIMERO VAMOS HACER QUE LA HORA SE DEVUELLVA CADA SEGUNDO CON SET */
+const intervalId = setInterval(() => {
+  console.log('Esto se ejecuta cada segundo');
+}, 1000);
+
+intervalId();

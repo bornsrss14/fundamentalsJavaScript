@@ -36,11 +36,11 @@ html {
 }
 .transfer--area {
   grid-area: content2;
-  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+  background-image: linear-gradient(to top left, #ffb8d0, #f7e085);
 }
 .loan--area {
   grid-area: content3;
-  background-image: linear-gradient(to top left, #39b385, #9be15d);
+  background-image: linear-gradient(to top left, #89a8e4, #5581d9);
 }
 .close--area {
   grid-area: content4;

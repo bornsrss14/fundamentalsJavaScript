@@ -202,12 +202,39 @@ const createUsernames = function (accs) {
 createUsernames(accounts); //recibe el array
 console.log(accounts);
 //event handler
-let currentAccount;
+let currentAccount, timer;
 //FUNCION PARA INCIAR SESION
 // login_input--pin login_input--user
 
 const loThi = (a, b) => a - b;
 const hiTlo = (a, b) => b - a;
+
+const startLogOutTimer = function (durationMin) {
+  let remainingTime = durationMin * 60;
+  const tick = function () {
+    const min = String(Math.trunc(remainingTime / 60)).padStart(2, "0");
+    const sec = String(remainingTime % 60).padStart(2, "0");
+    /* in each call, print the remaining time to UI */
+    timer_logout.textContent = `${min}:${sec}`;
+
+    if (remainingTime === 0) {
+      clearInterval(timer);
+      timer_logout.textContent = "El temporizador ha terminado";
+      welcome_message.textContent = "Log In to get started";
+      container_app.style.opacity = 0;
+    }
+    remainingTime--;
+  }
+
+  /* set time to five minutes */
+  
+  /* call the timer every second */
+  
+  /* timer expries and logged out user when reatches 0 s */
+  tick(); 
+  const timer = setInterval(tick, 1000);
+  return timer;
+};
 
 btn_login.addEventListener("click", function (evnt) {
   evnt.preventDefault();
@@ -229,6 +256,8 @@ btn_login.addEventListener("click", function (evnt) {
   } else {
     alert("(╯°□°)╯");
   }
+  if(timer)clearInterval(timer);
+  timer = startLogOutTimer(.50);
 });
 const updateUI = function (acc) {
   //display movements
