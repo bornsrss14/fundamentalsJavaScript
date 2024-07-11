@@ -4,12 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pandasneezing store</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" href="amongus.ico" type="image/x-icon" />
   </head>
   <body>
     <header class="header">
-      <nav class="nav"></nav>
-      <div class="hero-site"></div>
+      <nav class="nav">
+        <img width="50" src="/assets/amongus.ico" alt="" />
+        <p>pandasneezing</p>
+        <div class="options-list">
+          <ul class="nav_links">
+            <li class="nav_item">
+              <a class="nav_link" href="features.html">Features</a>
+            </li>
+            <li class="nav_item">
+              <a class="nav_link" href="features.html">Operations</a>
+            </li>
+            <li class="nav_item">
+              <a class="nav_link" href="features.html">Testimonials</a>
+            </li>
+          </ul>
+          <button class="btn btn_open_modal">Open account</button>
+        </div>
+      </nav>
+      <div class="hero-site">
+        <h1>
+          When <span class="hightlight">banking</span> meets
+          <span class="hightlight">minimalist</span>
+        </h1>
+        <h4>Come say hi!</h4>
+      </div>
+      <button class="btn--text btn-scroll--to">Learn more about it! ↓</button>
+      <!--  Originally only src="img/hero.png"  -->
+      <img class="header--img" src="" alt="minimalist app items" />
     </header>
     <section class="section section--1">
       <div class="section__title">
@@ -17,6 +48,53 @@
         <h3 class="sec_header--3">
           Everything you need in a modern bank and more.
         </h3>
+      </div>
+      <div class="features">
+        <div class="rectangular-img">
+          <img
+            class="features--img"
+            src="https://firebasestorage.googleapis.com/v0/b/bornsrss-8ab5d.appspot.com/o/cards-tatoki%2Fproduct-one.webp?alt=media&token=692c5326-76c3-4e56-889a-7be5602137fa"
+            alt=""
+          />
+        </div>
+        <div class="rectangle-text">
+          <div class="icon-container"><i></i></div>
+          <h5>100% Digital bank</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem
+            ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+        </div>
+        <div class="rectangle-text">
+          <div class="icon-container"><i></i></div>
+          <h5>Whatch your money grow</h5>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis
+            expedita neque recusandae iste ullam.
+          </p>
+        </div>
+        <div class="rectangular-img">
+          <img
+            class="features--img"
+            src="https://firebasestorage.googleapis.com/v0/b/bornsrss-8ab5d.appspot.com/o/cards-tatoki%2Fshiba-perrito.jpg?alt=media&token=4b3718b8-823d-4368-b83c-3a68086c0cd4"
+            alt=""
+          />
+        </div>
+        <div class="rectangular-img">
+          <img
+            class="features--img"
+            src="https://firebasestorage.googleapis.com/v0/b/bornsrss-8ab5d.appspot.com/o/cards-tatoki%2Flibreta.jpg?alt=media&token=32f805e7-812e-40fd-83ac-45d3a75c5473"
+            alt=""
+          />
+        </div>
+        <div class="rectangle-text">
+          <div class="icon-container"><i></i></div>
+          <h5>Free debit card included.</h5>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
+            perspiciatis dolorem iusto earum consectetur.
+          </p>
+        </div>
       </div>
     </section>
     <section class="section section--2">
@@ -27,10 +105,40 @@
         </h3>
       </div>
       <div class="operations">
-        <div class="operations_tab-container"></div>
+        <div class="operations_tab-container">
+          <button
+            class="btn operations__tab operations__tab--1 operations__tab--active"
+          >
+            <span>01 </span>Lo más nuevo
+          </button>
+          <button
+            class="btn operations__tab operations__tab--2"
+          >
+            <span>02 </span>Grandes regalos por $100
+          </button>
+          <button
+            class="btn operations__tab operations__tab--3 "
+          >
+            <span>03 </span>Lo más vendido
+          </button>
+        </div>
         <div
           class="operations__content operations__content--1 operations__content--active"
-        ></div>
+        >
+          <div class="icon-title">
+            <div class="icon-container">
+              <svg><i></i></svg>
+            </div>
+            <h5>Conoce los últimos lanzamientos</h5>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
+            tempore, eveniet facere, doloribus quos minima ut distinctio quaerat
+            id mollitia quam aliquam ad corrupti blanditiis repellendus harum
+            maiores, totam beatae nulla error? Doloribus explicabo voluptas
+            porro, qui quidem quia saepe.
+          </p>
+        </div>
         <!-- Aquí se supone que van otras dos secciones div -->
       </div>
     </section>
