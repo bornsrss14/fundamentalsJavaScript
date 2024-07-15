@@ -3,8 +3,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+.logo-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.pandasneezing {
+  margin-left: 1rem;
+  font-weight: 700;
+}
 body {
   font-family: "Poppins", sans-serif;
+  background-color: #eeecec;
 }
 .options-list {
   display: flex;
@@ -15,6 +25,13 @@ body {
   display: flex;
   flex-direction: row;
   gap: 2rem;
+}
+.nav_links li {
+  list-style: none;
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
 }
 .nav {
   display: flex;
@@ -31,8 +48,8 @@ body {
   width: 100%;
 }
 .rectangular-img {
-  width: 22rem;
-  height: 11rem;
+  width: 27rem;
+  height: 12rem;
   overflow: hidden;
   position: relative;
 }
@@ -48,13 +65,18 @@ body {
 }
 
 .icon-container {
+  display: flex;
+  flex-direction: row;
   height: 3rem;
   width: 3rem;
-  background-color: pink;
+  background-color: rgb(245, 232, 234);
   border-radius: 100%;
+  align-items: center;
+  justify-content: center;
 }
 .operations {
   margin-top: 3rem;
+  border: 1px solid #ddd;
 }
 .operations_tab-container {
   display: flex;
@@ -62,7 +84,7 @@ body {
 }
 
 .operations__tab--active {
-  transform: translateY(-66%)!important;
+  transform: translateY(-66%) !important;
   margin-right: 2.3rem;
 }
 .operations__tab {
@@ -97,10 +119,87 @@ body {
   gap: 1rem;
   align-items: center;
 }
+
+.ul_redes-sociales li {
+  height: 2rem;
+  width: 2rem;
+  background-color: pink;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.ul_redes-sociales {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
 /* All sections */
+.div-input-btn {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 10rem;
+}
+.registro-footer {
+  padding: 1rem;
+  text-align: center;
+}
+.div-redes--sociales {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  text-align: center;
+}
+.div_registro-redes {
+  display: flex;
+  flex-direction: column;
+}
+section {
+  padding: 2rem 3rem;
+  border-top: 1px solid #ddd;
+  background-color: #f7f7f7;
+}
+.footer-inf {
+  display: grid;
+  padding: 0 3rem;
+  margin: 0 2rem;
+  grid-template-columns: repeat(4, 1fr);
+}
+.div_inf--tienda {
+  padding: 0 2rem;
+}
+.div_nuestras--tiendas {
+  padding: 0 2rem;
+}
+.div-ligaDe--interes {
+  padding: 0 2rem;
+}
+.div-legales {
+  padding: 0 2rem;
+}
 
-section{
-    padding: 2rem 3rem;
-    border-top: 1px solid #ddd;
-
+.btn_suscribirme {
+  height: 2rem;
+  text-align: center;
+  background-color: steelblue;
+  padding: 0.5rem;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  cursor: pointer;
+}
+.ipt_suscribirme {
+  height: 2rem;
+  padding: 0.5rem;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+}
+li {
+  list-style: none;
+}
+.icono-peque {
+  font-size: 1.2rem;
+  color: pink;
+}
+.icono-mediano {
+  font-size: 2rem;
+  color: pink;
 }

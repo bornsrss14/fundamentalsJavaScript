@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>pandasneezing store</title>
@@ -14,8 +22,10 @@
   <body>
     <header class="header">
       <nav class="nav">
-        <img width="50" src="/assets/amongus.ico" alt="" />
-        <p>pandasneezing</p>
+        <div class="logo-logo">
+          <img width="50" src="/assets/amongus-Photoroom.png" alt="" />
+          <p class="pandasneezing">pandasneezing</p>
+        </div>
         <div class="options-list">
           <ul class="nav_links">
             <li class="nav_item">
@@ -58,7 +68,9 @@
           />
         </div>
         <div class="rectangle-text">
-          <div class="icon-container"><i></i></div>
+          <div class="icon-container">
+            <i class="material-icons icono-mediano">favorite</i>
+          </div>
           <h5>100% Digital bank</h5>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem
@@ -66,7 +78,9 @@
           </p>
         </div>
         <div class="rectangle-text">
-          <div class="icon-container"><i></i></div>
+          <div class="icon-container">
+            <i class="icono-mediano material-icons">star</i>
+          </div>
           <h5>Whatch your money grow</h5>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis
@@ -88,7 +102,9 @@
           />
         </div>
         <div class="rectangle-text">
-          <div class="icon-container"><i></i></div>
+          <div class="icon-container">
+            <i class="icono-mediano material-icons">sentiment_satisfied</i>
+          </div>
           <h5>Free debit card included.</h5>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum
@@ -111,14 +127,10 @@
           >
             <span>01 </span>Lo más nuevo
           </button>
-          <button
-            class="btn operations__tab operations__tab--2"
-          >
+          <button class="btn operations__tab operations__tab--2">
             <span>02 </span>Grandes regalos por $100
           </button>
-          <button
-            class="btn operations__tab operations__tab--3 "
-          >
+          <button class="btn operations__tab operations__tab--3">
             <span>03 </span>Lo más vendido
           </button>
         </div>
@@ -143,13 +155,109 @@
       </div>
     </section>
     <section class="section section--3">
-      <div class="section__title section__title--testimonials"></div>
+      <div class="section__title section__title--testimonials">
+        <h2>Not sure yet?</h2>
+        <h3>Millions of Bankists are already making their lifes simpler.</h3>
+      </div>
       <div class="slider"></div>
     </section>
     <section class="section section--signUp">
       <div class="section__title"></div>
       <button class="btn btn_open_modal">Open your free account today!</button>
     </section>
-    <footer class="footer"></footer>
+    <footer class="footer">
+      <div class="div_registro-redes">
+        <div class="div-input-btn">
+          <div class="registro-footer">
+            <div>
+              <h3>Registrate</h3>
+              <h5>¿Quieres recibir promociones?</h5>
+            </div>
+            <div>
+              <form action="">
+                <div>
+                  <input
+                    placeholder="e-mail adress"
+                    class="ipt_suscribirme"
+                    type="text"
+                  />
+                  <span
+                    ><button class="btn_suscribirme">suscribirme</button></span
+                  >
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="div-redes--sociales">
+            <div class="sociales">
+              <h3>Redes sociales</h3>
+              <h5>siguenos en redes sociales</h5>
+            </div>
+            <div class="icon_redes--sociales">
+              <ul class="ul_redes-sociales">
+                <li>
+                  <a href=""><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href=""><i class="fa fa-instagram"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-inf">
+          <div class="div_inf--tienda">
+            <h5>Información de la tienda</h5>
+            <ul>
+              <li>
+                <i class="icono-peque material-icons">location_on</i>
+                <p>
+                  Calzada Zavaleta 2519-B, Col. Sta Cruz Buenavista Puebla Pue.
+                  México
+                </p>
+              </li>
+              <li>
+                <i class="icono-peque material-icons">call</i>
+                <a href="">271.128.3345</a>
+              </li>
+              <li>
+                <i class="icono-peque material-icons">mail</i
+                ><a href="mailto:pandasneezing14@gmail.com"
+                  >pandasneezing14@gmail.com</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="div_nuestras--tiendas">
+            <h5>Nuestras tiendas</h5>
+            <ul>
+              <li><a href="">Nuestras tiendas</a></li>
+              <li><a href="">Zavaleta (222) 284 3385</a></li>
+              <li><a href="">Vía San Ángel (222) 225 0460</a></li>
+              <li><a href="">Lomas: (222) 431 4443</a></li>
+            </ul>
+          </div>
+          <div class="div-ligaDe--interes">
+            <h5>Ligas de Interes</h5>
+            <ul>
+              <li><a href="">Rastrea tu pedido</a></li>
+              <li><a href="">Solicita tu factura</a></li>
+              <li><a href="">Confirma tu pago</a></li>
+              <li><a href="">Mi cuenta</a></li>
+              <li><a href="">¿Cómo comprar?</a></li>
+            </ul>
+          </div>
+          <div class="div-legales">
+            <h5>Legales</h5>
+            <ul>
+              <li><a href="">Política de Privacidad</a></li>
+              <li><a href="">Política de Envíos</a></li>
+              <li><a href="">Terminos de Servicio</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
   </body>
 </html>
