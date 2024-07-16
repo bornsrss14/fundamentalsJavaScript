@@ -65,6 +65,15 @@ a {
   object-fit: cover;
   object-position: center;
 }
+.section__description {
+  font-size: 1.6rem;
+  color: rgb(52, 32, 239);
+}
+.sec_header {
+  font-size: 2.4rem;
+  line-height: 0.8rem;
+  font-weight: 500;
+}
 
 .icon-container {
   display: flex;
@@ -219,12 +228,18 @@ li {
   font-size: 2rem;
   color: pink;
 }
-.testimonial{
+.testimonial {
   position: relative;
   width: 65%;
 }
-.testimonial_photo{
-  border-radius: 50%;
+.testimonial_location {
+  color: rgb(43, 43, 43);
+  font-size: 1.3rem;
+}
+.testimonial_name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgb(35, 35, 35);
 }
 .testimonial_author {
   display: grid;
@@ -232,11 +247,17 @@ li {
   font-style: normal;
 }
 .name-location {
+  position: relative;
+  left: 1rem;
   display: flex;
+  min-width: 30rem;
   flex-direction: column;
 }
+#no-padding{
+  margin-top: 0;
+}
 
-#no-padding {
+#no-margin {
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -291,15 +312,28 @@ li {
   justify-content: center;
   /* Aquí para una transición */
 }
-.testimonial_header{
+.testimonial_header {
   font-size: 2.25rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
 }
-.testimonial_text{
+.testimonial_text {
   font-size: 1.7rem;
   margin-bottom: 2rem;
   color: #666;
+}
+.recuadro-base img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.recuadro-base {
+  height: 5rem;
+  width: 5rem;
+  overflow: hidden;
+  position: relative;
+  border-radius: 50%;
 }
 /* .testimonial::before {
   content: "\201C";
