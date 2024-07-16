@@ -41,7 +41,7 @@ a {
   justify-content: space-around;
 }
 .features {
-  grid-area: two;
+  /* grid-area: two; */
   display: grid;
   grid-template-columns: repeat(2, 50%);
   gap: 1rem;
@@ -49,14 +49,14 @@ a {
   width: 100%;
 }
 .rectangular-img {
-  width: 27rem;
-  height: 12rem;
+  width: 100%;
+  height: 22rem;
   overflow: hidden;
   position: relative;
 }
 .rectangle-text {
   overflow: hidden;
-  max-width: 22rem;
+  max-width: 100%;
   max-height: 15rem;
 }
 .rectangular-img img {
@@ -64,6 +64,14 @@ a {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+#container_section--2,
+.contenedor-ochenta {
+  max-width: 80%;
+  margin: auto;
+}
+.general_container--1{
+  background-color: #f7f7f7;
 }
 .section__description {
   font-size: 1.6rem;
@@ -89,12 +97,19 @@ a {
   margin-top: 3rem;
   background-color: #fff;
   border: 1px solid #ddd;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
 }
-.operations_tab-container {
+.operations_tab-container{
   display: flex;
   justify-content: center;
 }
+
+.operations_tab-container button{
+  font-size: 1.6rem;
+}
+  
+
+  
 
 .operations__tab--active {
   transform: translateY(-66%) !important;
@@ -112,6 +127,7 @@ a {
 }
 .operations__tab--1 {
   /*Esto es el boton 1*/
+
   background-color: blue;
 }
 .operations__tab--2 {
@@ -146,14 +162,14 @@ a {
   gap: 1rem;
 }
 /* All sections */
-.section--1 {
+/* .section--1 {
   display: grid;
   grid-template-areas:
     "one"
     "two";
   align-items: center;
   justify-content: center;
-}
+} */
 .section__title {
   grid-area: one;
 }
@@ -179,7 +195,7 @@ a {
   flex-direction: column;
 }
 section {
-  padding: 2rem 3rem;
+  /* padding: 2rem 3rem; */
   border-top: 1px solid #ddd;
   background-color: #f7f7f7;
 }
@@ -253,7 +269,7 @@ li {
   min-width: 30rem;
   flex-direction: column;
 }
-#no-padding{
+#no-padding {
   margin-top: 0;
 }
 
@@ -312,6 +328,18 @@ li {
   justify-content: center;
   /* Aquí para una transición */
 }
+.section--signUp{
+background-color: #37383d;
+text-align: center;
+padding: 8rem 3rem;
+}
+.section_header{
+  font-size: 4rem;
+  line-height:1.3;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+}
 .testimonial_header {
   font-size: 2.25rem;
   font-weight: 500;
@@ -334,6 +362,15 @@ li {
   overflow: hidden;
   position: relative;
   border-radius: 50%;
+}
+#font_s--cuadricula{
+  font-size: 1.6rem;
+  min-width: 100%;
+  margin: 0 .8rem;
+}
+.font_s--titulo{
+  font-size: 1.9rem;
+  margin: 1rem .8rem 0;
 }
 /* .testimonial::before {
   content: "\201C";
