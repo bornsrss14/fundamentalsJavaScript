@@ -9,7 +9,6 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right 50% top 20%;
-  
 }
 .logo-logo {
   display: flex;
@@ -25,15 +24,25 @@ body {
   background-color: #eeecec;
 }
 .options-list {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap:2rem;
+  margin: 1rem;
 }
+.btn_open_modal {
+  grid-column: span 1;
+  margin: 1rem;
+  background-color: blue;
+  color: #fff;
+  
+}
+
 .nav {
   background-color: #fff;
   opacity: 93%;
 }
 .nav_links {
+  grid-column: span 3;
   display: flex;
   flex-direction: row;
   gap: 2rem;
@@ -128,7 +137,7 @@ a {
   justify-content: center;
 }
 .operations {
-  margin-top: 3rem;
+  margin-top: 7rem;
   background-color: #fff;
   border: 1px solid #ddd;
   padding-bottom: 2rem;
@@ -152,7 +161,8 @@ a {
   transform: translateY(-50%);
   margin-right: 2.3rem;
 }
-.btn {
+.btn,
+.btn_open_modal {
   padding: 0.8rem 2.3rem;
   /*  */
   border-radius: 14rem;
@@ -218,7 +228,7 @@ a {
 .div-input-btn {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 0 10rem;
+  margin: 1.8rem 8rem;
 }
 .registro-footer {
   padding: 1rem;
@@ -236,7 +246,7 @@ a {
   flex-direction: column;
 }
 section {
-  /* padding: 2rem 3rem; */
+  padding: 2rem 3rem;
   border-top: 1px solid #ddd;
   background-color: #f7f7f7;
 }
@@ -350,9 +360,12 @@ li {
   background-color: grey;
 }
 .dots {
+  position: absolute;
+  bottom: 0;
   display: flex;
-  max-width: 8%;
+  min-width: 15%;
   justify-content: space-evenly;
+  left: 42.5%;
 }
 .slider_btn {
   position: absolute;
@@ -391,6 +404,9 @@ li {
   align-items: center;
   justify-content: center;
   /* Aquí para una transición */
+}
+.section--3_in {
+  position: relative;
 }
 .section--signUp {
   background-color: blue;
@@ -495,6 +511,12 @@ h4 {
   grid-row: 1 / span 4;
   transform: translateY(6rem);
 }
+#miid::placeholder {
+  color: gray;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 1.4rem;
+}
 /* .testimonial::before {
   content: "\201C";
   position: absolute;
@@ -506,3 +528,36 @@ h4 {
   color: var(--color-primary);
   z-index: -1;
 } */
+
+.footer-bottom-wrapper > small {
+  font-size: 1rem;
+  width: 100vw;
+}
+.footer-bottom {
+  background-color: blue;
+  color: #fff;
+  position: relative;
+  bottom: 0.4rem;
+  left: 1.5rem;
+}
+
+.to-top-button {
+  position: fixed;
+  align-content: center;
+  justify-content: center;
+  display: block;
+  width: 3.9rem;
+  height: 3.9rem;
+  bottom: 1rem;
+  right: 1rem;
+  font-size: 2.3rem;
+  background-color: #a81da8;
+  color: white;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  display: none; /* Inicialmente oculto */
+}
+.to-top-button:hover {
+  background-color: #0056b3;
+}
