@@ -15,7 +15,7 @@ console.log(allSections);
 /* ------------------------------------------------------------------------------------------------ */
 const btn_sus = document.querySelector(".btn_suscribirme");
 const btn_closeModal = document.querySelector(".btn--close-modal");
-const btn_openModal = document.querySelector(".btn_open_modal");
+const btn_openModal = document.querySelectorAll(".btn_open_modal");
 const modal = document.querySelector(".modal");
 const modal_overlay = document.querySelector(".overlay");
 

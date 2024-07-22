@@ -50,11 +50,7 @@ body {
   margin: 1rem;
   background-color: var(--blue--color);
   color: var(--white--color);
-}
-
-.nav {
-  background-color: var(--white--color);
-  opacity: 93%;
+  border: 0.05rem solid var(--bc--color);
 }
 .nav_links {
   grid-column: span 3;
@@ -71,9 +67,11 @@ a {
 }
 .nav {
   display: flex;
+  background-color: var(--white--color);
+  opacity: 93%;
+  align-items: flex-start;
   flex-direction: row;
   width: 100vw;
-  align-items: center;
   justify-content: space-around;
 }
 .features {
@@ -660,7 +658,7 @@ h4 {
   /* propiedad de transition */
 }
 
-.hidden{
+.hidden {
   visibility: hidden;
   opacity: 0;
 }
