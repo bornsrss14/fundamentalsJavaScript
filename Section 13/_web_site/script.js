@@ -1,5 +1,23 @@
 "use strict";
+/* practice asignments  187.Selecting and deletinglements */
+
+const allSections = document.querySelectorAll(".section");
+const allTagsButtons = document.getElementsByTagName("button");
+console.log(`La cantidad de botones: ${allTagsButtons.length}`);
+console.log(allTagsButtons[4 - 1]);
+console.log(allTagsButtons);
+
+console.log(`La cantidad de secciones que existen: ${allSections.length}`);
+console.log(allSections[2 - 1]);
+console.log("---When the range is oun of bounds---");
+console.log(allSections.item(1));
+console.log(allSections);
+/* ------------------------------------------------------------------------------------------------ */
 const btn_sus = document.querySelector(".btn_suscribirme");
+const btn_closeModal = document.querySelector(".btn--close-modal");
+const btn_openModal = document.querySelector(".btn_open_modal");
+const modal = document.querySelector(".modal");
+const modal_overlay = document.querySelector(".overlay");
 
 /* evitar la carga del form */
 btn_sus.addEventListener("click", function (e) {
@@ -25,7 +43,21 @@ window.onscroll = function () {
   }
 };
 
+/* Todos las funciones implementadas */
+
+function funCloseModal() {}
+function funOpenModal() {
+  modal.classList.remove("hidden");
+  modal_overlay.classList.remove("hidden");
+}
+
 // Cuando se hace clic en el botón, se desplaza hacia arriba de la página
 toTopBtn.onclick = function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+
+btn_closeModal.addEventListener("click", funCloseModal);
+btn_openModal.addEventListener("click", funOpenModal);
+
+/* manipulando estilos en el dom */
+// document.documentElement.style.setProperty('--purple--color', 'orange');
