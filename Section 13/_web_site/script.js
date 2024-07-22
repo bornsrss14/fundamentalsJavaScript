@@ -45,11 +45,23 @@ window.onscroll = function () {
 
 /* Todos las funciones implementadas */
 
-function funCloseModal() {}
+function funCloseModal() {
+  modal.classList.add("hidden");
+  modal_overlay.classList.add("hidden");
+}
 function funOpenModal() {
   modal.classList.remove("hidden");
   modal_overlay.classList.remove("hidden");
 }
+
+for (let i = 0; i < btn_openModal.length; i++)
+  btn_openModal[i].addEventListener("click", funOpenModal);
+
+document.addEventListener("keydown", function (e) { /* cierra con esc */
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    funCloseModal();
+  }
+});
 
 // Cuando se hace clic en el botón, se desplaza hacia arriba de la página
 toTopBtn.onclick = function () {
