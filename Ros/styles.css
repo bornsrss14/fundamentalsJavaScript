@@ -14,7 +14,52 @@
     font-size: 3rem;
 } */
 
-.padre span {
+/* .padre span {
+    color: pink;
+    ;
+} */
+
+body {
+    background-color: violet;
+  }
+  .ul {
+    border: 2px solid blue;
+    border-radius: 5px;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    margin-top: 70px;
+  }
+  ul {.padre span {
     color: pink;
     ;
 }
+    background: rgb(214, 230, 222);
+    padding: 20px;
+  }
+  ul li {
+    background: rgb(217, 230, 212);
+    color: black;
+    margin: 5px;
+  }
+
+  .list {
+    background: rgb(21, 75, 75);
+  }
+
+  .bg-red{
+    background-color: red;
+  }
+
+  .selec__btn{
+    background-color: white;
+    width: 6.5rem;
+    height: 2rem;
+    border: none;
+    color: blue;
+    font-weight: 500;
+  }
+
+  .yellow {
+    background-color: yellow;
+  }

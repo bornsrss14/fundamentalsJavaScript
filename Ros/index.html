@@ -6,20 +6,74 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="bg-blue-200">
     <!-- <div class="evento_cuadroRojo">
       <button class="evento_alerta">Boton Alerta</button>
     </div> -->
 
-    <div class="padre">
+    <!-- <div class="padre">
       <h1>
         Esto es un <span class="highlight">ejemplo</span> de
         <span class="highlight">elemento</span> hijo
       </h1>
       <p>El primer elemento hijo es de color azul</p>
       <p>El último elemento hijo es de color rojo</p>
+    </div> -->
+
+    <div class="ul">
+      <ul class="list">
+        <li class="l1 li">Read a book</li>
+        <li class="l2 li">Finish writing my article</li>
+        <li class="l3 li">Draft my resume</li>
+      </ul>
     </div>
+
+    <!-- Este es otro ejemplo para manejar los selectores de diferentes espacios -->
+    <section class="section__frst">
+      <div>
+        <div class=""></div>
+        <p>Este es el primer ejemplo</p>
+        <button class="selec__btn btn__1">Aceptar</button>
+      </div>
+    </section>
+    <section class="section__scnd">
+      <div>
+        <div>
+          <p>Este es el segundo ejemplo</p>
+
+          <button class="selec__btn btn__2">Aceptar</button>
+        </div>
+      </div>
+    </section>
+    <section class="section__third">
+      <div>
+        <p>Este es el tercer ejemplo</p>
+        <div><button class="selec__btn btn__3">Aceptar</button></div>
+      </div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </section>
+
+    <section class="section__fourth">
+      <div>
+        <div>
+          <div>
+            <p>Este es el cuarto ejemplo</p>
+            <button class="selec__btn btn__4">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <script src="script.js"></script>
   </body>
 </html>
+
+<!-- En primer lugar apuntamos al evento padre, para poder delegar el comportamiento (función) a los hijos que cumplan
+ con el requisito de (en este caso, estar etiquetados con la clase .li)
+ 
+ 2. Vamos a cachar de dónde se origina el evento, (EN QUÈ TARGET)
+ 3. Si cumple la condición entonces se hará lo descrito
+ 
+ -->
