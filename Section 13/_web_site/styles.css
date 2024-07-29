@@ -78,7 +78,7 @@ a {
   /* grid-area: two; */
   display: grid;
   grid-template-columns: repeat(2, 50%);
-  gap: 1rem;
+  gap: 2rem;
   padding: 1.3rem;
   width: 100%;
 }
@@ -103,6 +103,7 @@ a {
   overflow: hidden;
   max-width: 100%;
   max-height: 15rem;
+  padding: 0rem 2rem;
 }
 .rectangular-img img {
   width: 100%;
@@ -112,7 +113,7 @@ a {
 }
 #container_section--2,
 .contenedor-ochenta {
-  max-width: 80%;
+  max-width: 95%;
   margin: auto;
 }
 .general_container--1 {
@@ -259,7 +260,7 @@ a {
   flex-direction: column;
 }
 section {
-  padding: 2rem 3rem;
+  padding: 12rem 3rem;
   border-top: 1px solid #ddd;
   background-color: #f7f7f7;
 }
@@ -369,8 +370,21 @@ li {
   width: 10px;
   border-radius: 100%;
 }
-.dots_dot--active {
-  background-color: grey;
+
+.dots__dot {
+  border: none;
+  background-color: #b9b9b9;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.75rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.dots__dot--active {
+  background-color: var(--blue--color);
 }
 .dots {
   position: absolute;

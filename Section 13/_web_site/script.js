@@ -13,23 +13,24 @@ console.log("---When the range is oun of bounds---");
 console.log(allSections.item(1));
 console.log(allSections);
 /* ------------------------------------------------------------------------------------------------ */
+const toTopBtn = document.getElementById("toTopBtn");
 const btn_sus = document.querySelector(".btn_suscribirme");
 const btn_closeModal = document.querySelector(".btn--close-modal");
 const btn_openModal = document.querySelectorAll(".btn_open_modal");
 const modal = document.querySelector(".modal");
 const modal_overlay = document.querySelector(".overlay");
+const dotsContainer = document.querySelector(".dots");
+const btnLeft = document.querySelector(".slider_btn--left");
+const btnRight = document.querySelector(".slider_btn--right");
+const sliderEntero = document.querySelector(".slider");
+const slides = document.querySelectorAll(".slide");
 
 /* evitar la carga del form */
 btn_sus.addEventListener("click", function (e) {
   e.preventDefault();
 });
-/* Showing date at the bottom in the <small> tag */
 const showYear = document.getElementById("showYear");
 showYear.innerHTML = new Date().getFullYear();
-
-/* Button to the navigate easily to top of the page */
-// Obtener el botón
-const toTopBtn = document.getElementById("toTopBtn");
 
 // Mostrar el botón cuando se desplaza hacia abajo 100px desde la parte superior de la página
 window.onscroll = function () {
@@ -44,32 +45,90 @@ window.onscroll = function () {
 };
 
 /* Todos las funciones implementadas */
-
-function funCloseModal() {
+const funCloseModal = function () {
   modal.classList.add("hidden");
   modal_overlay.classList.add("hidden");
-}
-function funOpenModal() {
+};
+const funOpenModal = function () {
   modal.classList.remove("hidden");
   modal_overlay.classList.remove("hidden");
-}
-
-for (let i = 0; i < btn_openModal.length; i++)
-  btn_openModal[i].addEventListener("click", funOpenModal);
-
-document.addEventListener("keydown", function (e) { /* cierra con esc */
+};
+btn_openModal.forEach((btn) => btn.addEventListener("click", funOpenModal));
+document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && !modal.classList.contains("hidden")) {
     funCloseModal();
   }
 });
-
-// Cuando se hace clic en el botón, se desplaza hacia arriba de la página
-toTopBtn.onclick = function () {
+const funNavigateToTop = function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+/* slider */
+let currentSlide = 0;
+let maxSlides = slides.length;
+const goToSlide = function (slide) {
+  slides.forEach((s, index) => {
+    s.style.transform = `translateX(${100 * (index - slide)}%)`;
+  });
+};
+goToSlide(0);
+/* 003.- ALL BIG FUNCTIONS */
 
+const createDots = function () {
+  slides.forEach(function (_, index) {
+    dotsContainer.insertAdjacentHTML(
+      "beforeend",
+      `<button class = "dots__dot" data-slide="${index}" ></button>`
+    ); /* <div class="slide" data-slide="1"></div> */
+  });
+};
+createDots();
+
+const activeDot = function (slide) {
+  document
+    .querySelectorAll(".dots__dot")
+    .forEach((dot) => dot.classList.remove("dots__dot--active"));
+
+  document
+    .querySelector(`.dots__dot[data-slide="${slide}"]`)
+    .classList.add("dots__dot--active");
+};
+activeDot(0);
+
+const funPreviousSlide = function () {
+  currentSlide === 0 ? (currentSlide = maxSlides - 1) : currentSlide--;
+  goToSlide(currentSlide);
+  activeDot(currentSlide);
+};
+const funNextSlide = function () {
+  if (currentSlide === maxSlides - 1) {
+    currentSlide = 0;
+  } else {
+    currentSlide++;
+  }
+  goToSlide(currentSlide);
+  activeDot(currentSlide);
+};
+
+const funDotClick = function (e) {
+  if (e.target.classList.contains("dots__dot")) {
+    const { slide } = e.target.dataset;
+    goToSlide(slide);
+    activeDot(slide);
+  }
+};
+/*004.- ALL EVENTLISTENERS */
 btn_closeModal.addEventListener("click", funCloseModal);
-btn_openModal.addEventListener("click", funOpenModal);
-
+toTopBtn.addEventListener("click", funNavigateToTop);
+btnLeft.addEventListener("click", funPreviousSlide);
+btnRight.addEventListener("click", funNextSlide);
+dotsContainer.addEventListener("click", funDotClick);
+document.addEventListener("keydown", function (ev) {
+  if (ev.key === "ArrowLeft") {
+    funPreviousSlide();
+  }
+  if (ev.key === "ArrowRight") {
+    funNextSlide();
+  }
+});
 /* manipulando estilos en el dom */
 // document.documentElement.style.setProperty('--purple--color', 'orange');
