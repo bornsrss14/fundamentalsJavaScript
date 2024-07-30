@@ -24,18 +24,8 @@ const btnLeft = document.querySelector(".slider_btn--left");
 const btnRight = document.querySelector(".slider_btn--right");
 const sliderEntero = document.querySelector(".slider");
 const slides = document.querySelectorAll(".slide");
-
 const btnScroll = document.querySelector(".btn--scroll-to");
 const section__1 = document.getElementById("section--1");
-
-const funSmoothScroll = function () {
-  const coordenadas = section__1.getBoundingClientRect();
-  window.scrollTo({
-    top: coordenadas.top + window.pageYOffset,
-    left: coordenadas.left + window.pageXOffset,
-    behavior: "smooth",
-  });
-};
 
 /* evitar la carga del form */
 btn_sus.addEventListener("click", function (e) {
@@ -57,6 +47,14 @@ window.onscroll = function () {
 };
 
 /* Todos las funciones implementadas */
+const funSmoothScroll = function () {
+  const coordenadas = section__1.getBoundingClientRect();
+  window.scrollTo({
+    top: coordenadas.top + window.pageYOffset,
+    left: coordenadas.left + window.pageXOffset,
+    behavior: "smooth",
+  });
+};
 const funCloseModal = function () {
   modal.classList.add("hidden");
   modal_overlay.classList.add("hidden");
@@ -74,6 +72,28 @@ document.addEventListener("keydown", function (e) {
 const funNavigateToTop = function () {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
+/* Delegación de eventos */
+const linksContainer = document.querySelector(".nav_links");
+
+linksContainer.addEventListener("click", function (event) {
+  if (event.target.classList.contains("nav_link")) {
+    event.preventDefault();
+    const sectionId = event.target.getAttribute("href");
+    const section = document.querySelector(sectionId);
+
+    if (section) {
+      // Calcula las coordenadas de la sección
+      const coordenadas = section.getBoundingClientRect();
+      // Realiza el smooth scroll
+      window.scrollTo({
+        top: coordenadas.top + window.pageYOffset,
+        left: 0, // Normalmente no necesitas desplazamiento horizontal para secciones
+        behavior: "smooth",
+      });
+    }
+  }
+});
+
 /* slider */
 let currentSlide = 0;
 let maxSlides = slides.length;
