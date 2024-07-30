@@ -25,6 +25,18 @@ const btnRight = document.querySelector(".slider_btn--right");
 const sliderEntero = document.querySelector(".slider");
 const slides = document.querySelectorAll(".slide");
 
+const btnScroll = document.querySelector(".btn--scroll-to");
+const section__1 = document.getElementById("section--1");
+
+const funSmoothScroll = function () {
+  const coordenadas = section__1.getBoundingClientRect();
+  window.scrollTo({
+    top: coordenadas.top + window.pageYOffset,
+    left: coordenadas.left + window.pageXOffset,
+    behavior: "smooth",
+  });
+};
+
 /* evitar la carga del form */
 btn_sus.addEventListener("click", function (e) {
   e.preventDefault();
@@ -130,5 +142,6 @@ document.addEventListener("keydown", function (ev) {
     funNextSlide();
   }
 });
+btnScroll.addEventListener("click", funSmoothScroll);
 /* manipulando estilos en el dom */
 // document.documentElement.style.setProperty('--purple--color', 'orange');
