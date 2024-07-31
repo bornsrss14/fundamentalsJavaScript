@@ -26,6 +26,9 @@ const sliderEntero = document.querySelector(".slider");
 const slides = document.querySelectorAll(".slide");
 const btnScroll = document.querySelector(".btn--scroll-to");
 const section__1 = document.getElementById("section--1");
+const tabsContainer = document.querySelector('.operations_tab-container');
+const allInfoCont = document.querySelectorAll('.infoContent--tab');
+const allTabs = document.querySelectorAll('.operations__tab');
 
 /* evitar la carga del form */
 btn_sus.addEventListener("click", function (e) {
@@ -47,6 +50,23 @@ window.onscroll = function () {
 };
 
 /* Todos las funciones implementadas */
+const funTabInter = function(event){
+  const clickedEl = event.target.closest('operations__tab');
+  if(!clickedEl) return;
+  allTabs.forEach((tab) => tab.classList.remove('operations__tab--active'));
+  allInfoCont.forEach((inf) => inf.classList.remove('infoTab--active'));
+
+  clickedEl.classList.add('.operations__tab--active');
+  document
+  .querySelector(`.infoContentTab--${clickedEl.dataset.tab}`) /* operations__content--1 */
+  .classList.add('operations__tab--active');
+
+  
+
+}
+
+
+
 const funSmoothScroll = function () {
   const coordenadas = section__1.getBoundingClientRect();
   window.scrollTo({
@@ -163,5 +183,6 @@ document.addEventListener("keydown", function (ev) {
   }
 });
 btnScroll.addEventListener("click", funSmoothScroll);
+tabsContainer.addEventListener('click', funTabInter);
 /* manipulando estilos en el dom */
 // document.documentElement.style.setProperty('--purple--color', 'orange');

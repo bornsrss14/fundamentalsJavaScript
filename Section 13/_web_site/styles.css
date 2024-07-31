@@ -111,11 +111,7 @@ a {
   object-fit: cover;
   object-position: center;
 }
-#container_section--2,
-.contenedor-ochenta {
-  max-width: 95%;
-  margin: auto;
-}
+
 .general_container--1 {
   background-color: #f7f7f7;
 }
@@ -150,55 +146,12 @@ a {
   align-items: center;
   justify-content: center;
 }
-.operations {
-  margin-top: 7rem;
-  background-color: var(--white--color);
-  border: 1px solid #ddd;
-  padding-bottom: 2rem;
-}
-.operations_tab-container {
-  display: flex;
-  justify-content: center;
-}
-
-.operations_tab-container button {
-  font-size: 1.6rem;
-}
-
-.operations__tab--active {
-  color: var(--white--color);
-  transform: translateY(-66%) !important;
-
-  margin-right: 2.3rem;
-}
-.operations__tab {
-  transform: translateY(-50%);
-  margin-right: 2.3rem;
-}
 .btn,
 .btn_open_modal {
   padding: 0.8rem 2.3rem;
   /*  */
   border-radius: 14rem;
   cursor: pointer;
-}
-.operations__tab--1 {
-  /*Esto es el boton 1*/
-
-  background-color: var(--blue--color);
-}
-.operations__tab--2,
-.operations__tab--3 {
-  /*Esto es el boton 1*/
-  background-color: var(--white--color);
-  border: 1px solid #cecece;
-}
-/* .operations__tab--3 {
-  background-color: rgb(172, 255, 173);
-} */
-.operations__content {
-  width: 80%;
-  margin: auto;
 }
 .icon-title {
   display: flex;
@@ -226,17 +179,9 @@ a {
   flex-direction: row;
   gap: 1rem;
 }
-/* All sections */
-/* .section--1 {
-  display: grid;
-  grid-template-areas:
-    "one"
-    "two";
-  align-items: center;
-  justify-content: center;
-} */
+
 .section__title {
-  grid-area: one;
+  margin-bottom: 6rem;
 }
 
 .div-input-btn {
@@ -555,6 +500,47 @@ h4 {
   color: var(--color-primary);
   z-index: -1;
 } */
+
+/* Tabs */
+.operations {
+  max-width: 100rem;
+  margin: 12rem auto 0 auto;
+
+  background-color: #fff;
+}
+
+.tabsContainerAll span {
+  margin-right: 1rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.tabsContainerAll {
+  display: flex;
+  justify-content: center;
+}
+
+.infTab--active {
+  transform: translateY(-66%);
+}
+.infoTab--1 {
+  background-color: var(--blue--color);
+  color: var(--white--color);
+}
+.infoTab--2 {
+  background-color: rgb(157, 157, 201);
+  color: var(--white--color);
+}
+.infoTab--3 {
+  background-color: #bb8dbb;
+  color: var(--white--color);
+}
+.infoTab {
+  margin-right: 2.5rem;
+  transform: translateY(-50%);
+}
+
+/* the end of section tabs */
 
 .footer-bottom-wrapper > small {
   font-size: 1rem;
