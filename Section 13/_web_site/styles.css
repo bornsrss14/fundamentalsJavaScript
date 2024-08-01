@@ -521,7 +521,13 @@ h4 {
 }
 
 .infTab--active {
-  transform: translateY(-66%);
+  transform: translateY(-66%) !important;
+  background-color: #0000ff;
+  color: var(--white--color);
+}
+.infoTab--inactive {
+  background-color: var(--white--color);
+  color: var(--black--color);
 }
 .infoTab--1 {
   background-color: var(--blue--color);
@@ -538,6 +544,18 @@ h4 {
 .infoTab {
   margin-right: 2.5rem;
   transform: translateY(-50%);
+}
+
+.infoContainer {
+  display: none;
+  font-size: 1.7rem;
+  padding: 2.5rem 7rem 6.5rem 7rem;
+}
+
+.infContainer--active {
+  display: grid;
+  column-gap: 3rem;
+  row-gap: 0.5rem;
 }
 
 /* the end of section tabs */
