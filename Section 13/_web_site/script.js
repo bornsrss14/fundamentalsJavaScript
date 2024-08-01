@@ -52,7 +52,7 @@ window.onscroll = function () {
 
 /* Todos las funciones implementadas */
 
-dadTabs.addEventListener("click", function (event) {
+const funTabInter = function (event) {
   const clicked = event.target.closest(".infoTab");
   if (!clicked) return;
   console.log("Esta mierda funciona");
@@ -63,7 +63,7 @@ dadTabs.addEventListener("click", function (event) {
   document
     .querySelector(`.infContainer--${clicked.dataset.tab}`)
     .classList.add("infContainer--active");
-});
+};
 
 const funSmoothScroll = function () {
   const coordenadas = section__1.getBoundingClientRect();
@@ -181,5 +181,6 @@ document.addEventListener("keydown", function (ev) {
   }
 });
 btnScroll.addEventListener("click", funSmoothScroll);
+dadTabs.addEventListener('click', funTabInter);
 /* manipulando estilos en el dom */
 // document.documentElement.style.setProperty('--purple--color', 'orange');
