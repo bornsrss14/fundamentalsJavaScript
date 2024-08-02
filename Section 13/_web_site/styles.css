@@ -73,7 +73,14 @@ a {
   flex-direction: row;
   width: 100vw;
   justify-content: space-around;
+  z-index: 1000;
 }
+
+.sticky {
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.984);
+}
+
 .features {
   /* grid-area: two; */
   display: grid;
@@ -204,11 +211,7 @@ a {
   display: flex;
   flex-direction: column;
 }
-section {
-  padding: 12rem 3rem;
-  border-top: 1px solid #ddd;
-  background-color: #f7f7f7;
-}
+
 .footer-inf {
   display: grid;
   padding: 0 3rem;
@@ -560,6 +563,19 @@ h4 {
 
 /* the end of section tabs */
 
+/* //////////////////////////////////// */
+/* Fade sections */
+.section--hidden {
+  opacity: 0;
+  transform: translateY(10rem);
+}
+
+section {
+  padding: 12rem 3rem;
+  border-top: 1px solid #ddd;
+  background-color: #f7f7f7;
+  transition: transform 1s, opacity 1s;
+}
 .footer-bottom-wrapper > small {
   font-size: 1rem;
   width: 100vw;

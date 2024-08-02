@@ -1,17 +1,16 @@
 "use strict";
 /* practice asignments  187.Selecting and deletinglements */
 
-const allSections = document.querySelectorAll(".section");
-const allTagsButtons = document.getElementsByTagName("button");
-console.log(`La cantidad de botones: ${allTagsButtons.length}`);
-console.log(allTagsButtons[4 - 1]);
-console.log(allTagsButtons);
+// const allTagsButtons = document.getElementsByTagName("button");
+// // console.log(`La cantidad de botones: ${allTagsButtons.length}`);
+// console.log(allTagsButtons[4 - 1]);
+// // console.log(allTagsButtons);
 
-console.log(`La cantidad de secciones que existen: ${allSections.length}`);
-console.log(allSections[2 - 1]);
-console.log("---When the range is oun of bounds---");
-console.log(allSections.item(1));
-console.log(allSections);
+// console.log(`La cantidad de secciones que existen: ${allSections.length}`);
+// console.log(allSections[2 - 1]);
+// console.log("---When the range is oun of bounds---");
+// console.log(allSections.item(1));
+// console.log(allSections);
 /* ------------------------------------------------------------------------------------------------ */
 const toTopBtn = document.getElementById("toTopBtn");
 const btn_sus = document.querySelector(".btn_suscribirme");
@@ -30,6 +29,11 @@ const tabsContainer = document.querySelector(".operations_tab-container");
 const allInfoCont = document.querySelectorAll(".infoContainer");
 const allTabs = document.querySelectorAll(".infoTab");
 const dadTabs = document.querySelector(".tabsContainerAll");
+const header = document.querySelector(".header");
+const nav = document.querySelector(".nav");
+const navHeight = nav.getBoundingClientRect().height;
+
+const allSections = document.querySelectorAll(".section");
 
 /* evitar la carga del form */
 btn_sus.addEventListener("click", function (e) {
@@ -51,6 +55,43 @@ window.onscroll = function () {
 };
 
 /* Todos las funciones implementadas */
+///////////////////////////////////////
+//F.1 Sticky navigation: Intersection Observer API
+
+const objectParms = {
+  root: null,
+  threshold: 0,
+  rootMargin: `${-navHeight}px`,
+};
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) nav.classList.add("sticky");
+  else nav.classList.remove("sticky");
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, objectParms);
+headerObserver.observe(header);
+///////////////////////////////////////
+// /* Function 1.  Reveal Sections*/
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  if (!entry.isIntersecting) return;  
+    entry.target.classList.remove("section--hidden");
+};
+
+const object = {
+  root: null,
+  threshold: 0.15,
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, object);
+allSections.forEach((s) => {
+  sectionObserver.observe(s);
+  s.classList.add("section--hidden");
+});
 
 const funTabInter = function (event) {
   const clicked = event.target.closest(".infoTab");
@@ -181,6 +222,6 @@ document.addEventListener("keydown", function (ev) {
   }
 });
 btnScroll.addEventListener("click", funSmoothScroll);
-dadTabs.addEventListener('click', funTabInter);
+dadTabs.addEventListener("click", funTabInter);
 /* manipulando estilos en el dom */
 // document.documentElement.style.setProperty('--purple--color', 'orange');
