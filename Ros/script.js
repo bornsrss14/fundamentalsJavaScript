@@ -69,3 +69,32 @@ collectionButtons.forEach((element) => {
     // e.target.style.backgroundColor = 'yellow';
   });
 });
+
+/* Cuando sabemos que no podemos agregaar un evento a cada elemento, podemos pensar en delegar actividad, 
+y que el padre sea el encargado para manejar eso con los hijos */
+
+//objeto de Observador API
+
+
+const calbackFunction = function (entries, observer1) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      console.log("Elemento visible", entry.target);
+      console.log("Porcentaje visible", entry.intersectionRatio);
+    } else {
+      console.log("Elemento no visible:", entry.target);
+    }
+  });
+};
+
+let options = {
+  threshold: 0.12,
+  rootMargin: "0px",
+  root: null /* en este caso es el viewport */,
+};
+
+let observer1 = new IntersectionObserver(calbackFunction, options);
+
+document.querySelectorAll('.selec__btn').forEach((el) => observer1.observe(el));
+
+// botnes.forEach( elemento => observerEjemplo.observe(elemento));
