@@ -78,8 +78,9 @@ headerObserver.observe(header);
 const revealSection = function (entries, observer) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
-  if (!entry.isIntersecting) return;  
-    entry.target.classList.remove("section--hidden");
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove("section--hidden");
+  observer.unobserve(entry.target);
 };
 
 const object = {
@@ -93,6 +94,33 @@ allSections.forEach((s) => {
   s.classList.add("section--hidden");
 });
 
+/* //////////////////////////////// */
+/* Lazy loading images */
+
+const allImgsLazy = document.querySelectorAll('img[data-src]');
+
+const funLazyImgs = function (entries, observer) {
+  const [entry] = entries;
+  if(!entry.isIntersecting) return;
+  // replace src with data-src
+  
+  entry.target.src = entry.target.dataset.src;
+  entry.target.addEventListener('load', function(){
+    const tar = entry.target.closest('.rectangular-img');
+    tar.classList.remove('lazy-img');
+  });
+  observerImges.unobserve(entry.target);
+};
+const optionsImgLazy = {
+  root: null,
+  rootMargin: '0px',
+  threshold: .75,
+};
+const observerImges = new IntersectionObserver(funLazyImgs, optionsImgLazy);
+allImgsLazy.forEach((img) => observerImges.observe(img)
+);
+
+/* ////////////////////////// */
 const funTabInter = function (event) {
   const clicked = event.target.closest(".infoTab");
   if (!clicked) return;
