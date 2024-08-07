@@ -440,7 +440,7 @@ li {
 }
 
 .lazy-img {
-  transition: filter 1s ease-in-out; /* Controla la velocidad de la transición */
+  transition: filter .8s ease-in-out; /* Controla la velocidad de la transición */
   filter: blur(10px); /* Desenfoque inicial */
 }
 
