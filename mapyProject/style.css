@@ -3,7 +3,7 @@
   --color-brand--2: #00c46a;
 
   --color-dark--1: #073250;
-  --color-dark--2: #42484d;
+  --color-dark--2: #2d72aa;
   --color-light--1: #d7d5d5;
   --color-light--2: #ececec;
   --color-light--3: rgb(214, 222, 224);
@@ -113,14 +113,12 @@ a:visited {
 
 .form {
   background-color: var(--color-dark--2);
-  border-radius: 5px;
-  padding: 1.5rem 2.75rem;
+  border-radius: .45rem;
+  padding: 1.1rem 2.55rem;
   margin-bottom: 1.75rem;
-
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem 2.5rem;
-
   /* Match height and activity boxes */
   height: 9.25rem;
   transition: all 0.5s, transform 1ms;
