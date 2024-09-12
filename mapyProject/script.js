@@ -29,6 +29,47 @@ copyright.textContent = `${formattedDate}, ultima actualización: ${formattedTim
 // Initialize the map and set its view to a chosen geographical point and zoom level
 // Set up the map tiles
 
+class Workout {
+  date = new Date();
+  id = (Date.now() + '').slice(-10);
+
+  constructor(coords, distance, duration) {
+    this.coords = coords;
+    this.distance = distance; //should be in kilometers
+    this.duration = duration; //should be in minutes
+  }
+}
+
+class Hicking extends Workout {
+  constructor(coords, distance, duration, cadence) {
+    super(coords, distance, duration);
+    this.cadence = cadence;
+    this.calcPace();
+  }
+  calcPace() {
+    //min/km
+    this.pace = this.duration / this.distance;
+    return this.pace;
+  }
+}
+
+class Cycling extends Workout {
+  constructor(coords, distance, duration, elevGain) {
+    super(coords, distance, duration);
+    this.elevGain = elevGain;
+    this.calcSpeed();
+  }
+  calcSpeed() {
+    //km/h
+    this.speed = this.distance / (this.duration / 60);
+    return this.speed;
+  }
+}
+
+const newHick = new Hicking([18, -96], 5.2, 24, 178);
+const newCycling = new Cycling([18, -96], 27, 95, 523);
+console.log(newHick, newCycling);
+
 class App {
   #map;
   #mapEvent;
