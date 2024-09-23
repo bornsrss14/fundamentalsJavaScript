@@ -100,7 +100,7 @@ class App {
   #map;
   #mapEvent;
   #workouts = [];
-  #mapZoomLevel = 13;
+  #mapZoomLevel = 16;
   constructor() {
     /* Get user's position */
     this._getPosition();
@@ -135,6 +135,10 @@ class App {
     }).addTo(this.#map);
 
     this.#map.on('click', this._showForm.bind(this));
+
+    this.#workouts.forEach(work => {
+      this._renderWorkoutMarker(work);
+    });
   }
   _showForm(mapE) {
     this.#mapEvent = mapE;
@@ -297,7 +301,9 @@ class App {
     console.log(data);
     if (!data) return;
     this.#workouts = data;
-    this.#workouts.forEach(work => this._renderWorkout(work));
+    this.#workouts.forEach(work => {
+      this._renderWorkout(work);
+    });
   }
 }
 
