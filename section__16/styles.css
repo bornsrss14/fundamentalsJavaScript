@@ -1,5 +1,10 @@
-/*  */
+:root {
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
 
+/*STYLES FOR THE IMG LOAD FUNTION*/
 .image {
   opacity: 0; /* Image is initially invisible */
   transition: opacity 1s ease-in; /* 1-second fade-in transition */
@@ -8,3 +13,60 @@
   opacity: 1; /* Fully visible when this class is added */
 }
 
+/* COUNTRIES CARDS */
+#countries--cards {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 4rem;
+}
+.divCountryDescription,
+.divCountryName {
+  width: 80%;
+}
+
+.divCountryFlag {
+  width: 100%;
+  height: 50%;
+}
+.imgFlag {
+  width: 100%;
+  max-height: 100%;
+  border-top-left-radius: 2%;
+  border-top-right-radius: 2%;
+}
+.countryCardDiv {
+  height: 23%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aqua; */
+}
+.descriprionCardStyle {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 10px;
+}
+
+.descriprionCardStyle p,
+.divCountryName p,
+h1 {
+  margin: 6px 5px 0px 5px;
+}
+.countryCardDiv {
+  border-radius: 2%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra tenue */
+  height: 25rem;
+}
+
+.divCountryName {
+  display: flex;
+  flex-direction: column;
+}
+
+.divCountryName,
+.divCountryDescription {
+  padding: 0rem 1rem 2rem 1rem;
+}
