@@ -1,7 +1,6 @@
 "use stric";
 const countriesContainer = document.getElementById("countries--cards");
 const btnSearch = document.querySelector(".btnSearch");
-const btn = document.querySelector(".countriesBtn");
 function setDisplayFlex() {
   const parentDivReference = document.querySelector(".divCountryDescription");
   const childDivs = parentDivReference.querySelectorAll("div");
@@ -13,42 +12,31 @@ function setDisplayFlex() {
 }
 
 /* LLAMADA DE FUNCIONES */
+function loadCountries() {
+  const request = new XMLHttpRequest();
+  request.open("GET", "https://restcountries.com/v3.1/all");
+  request.send();
 
-fetch("https://restcountries.com/v3.1/all")
-  .then((response) => response.json())
-  .then((data) => {
-    // Seleccionar el <select> en el DOM
-    const selectElement = document.getElementById("selectCountry");
+  request.addEventListener("load", function () {
+    const countries = JSON.parse(this.responseText);
+    const selectCountry = document.getElementById("selectCountry");
 
-    // Mostrar los primeros 14 países
-    data.slice(0, -1).forEach((country) => {
-      // Crear un <option> por cada país
+    countries.forEach((country) => {
       const option = document.createElement("option");
-      option.value = country.cca2; // El código del país (ISO 3166-1 alfa-2)
-      option.textContent = country.name.common; // Nombre común del país
-
-      // Añadir la opción al <select>
-      selectElement.appendChild(option);
+      option.value = country.name.common.toLowerCase();
+      option.textContent = country.name.common; // establish the text that it will be showed
+      selectCountry.appendChild(option); // add option to the select element
     });
-  })
-  .catch((error) => {
-    console.error("Error fetching countries:", error);
   });
-
-btnSearch.addEventListener("click", function () {
-  return retrieveCountry();
-});
+}
 
 function retrieveCountry() {
   const selector = document.getElementById("selectCountry");
   if (selector) {
-    let countrySelected = selector.value.toLowerCase(); // Recupera el país seleccionado
-    console.log(countrySelected);
+    let countrySelected = selector.value.trim().toLowerCase(); // Retriev selected country
+    // console.log(countrySelected); // shows country selected in the console
 
-    // Crear una nueva solicitud
     const request = new XMLHttpRequest();
-
-    // Reemplazar el valor seleccionado en la URL de la solicitud GET
     request.open(
       "GET",
       `https://restcountries.com/v3.1/name/${countrySelected}`
@@ -57,44 +45,52 @@ function retrieveCountry() {
 
     request.addEventListener("load", function () {
       const [data] = JSON.parse(this.responseText);
-      console.log(data);
+      // console.log(data); // show data countries into the console
 
       const html = `
-       <div class="countryCardDiv">
-            <div class="divCountryFlag">
-              <img class="imgFlag" src="${data.flags.png}" alt="" />
-            </div>
-            <div class="divCountryName" >
-              <h1 class="country">${data.name.common}</h1>
-              <p class="continent">${data.region}</p>
-            </div>
-            <div class="divCountryDescription">
-              <div class="divPopulation descriptionCardStyle">
-                <p>🙍🙍‍♂️ </p>
-                <p class="population"> ${(+data.population / 1000).toFixed(
-                  1
-                )} people</p>
+              <div class="countryCardDiv">
+                  <div class="divCountryFlag">
+                      <img class="imgFlag" src="${
+                        data.flags.png
+                      }" alt="Flag of ${data.name.common}" />
+                  </div>
+                  <div class="divCountryName">
+                      <h1 class="country">${data.name.common}</h1>
+                      <p class="continent">${data.region}</p>
+                  </div>
+                  <div class="divCountryDescription">
+                      <div class="divPopulation descriptionCardStyle">
+                          <p>🙍🙍‍♂️</p>
+                          <p class="population">${(
+                            +data.population / 1000
+                          ).toFixed(1)} people</p>
+                      </div>
+                      <div class="divLanguage descriptionCardStyle">
+                          <p>🗣️</p>
+                          <p class="language">${
+                            Object.values(data.languages)[0]
+                          }</p>
+                      </div>
+                      <div class="divCurrency descriptionCardStyle">
+                          <p>💱</p>
+                          <p class="currency">${
+                            Object.values(data.currencies)[0].name
+                          }</p>
+                      </div>
+                  </div>
               </div>
-              <div class="divLanguage descriptionCardStyle">
-                <p>🗣️ </p>
-                <p class="languaje">${Object.values(data.languages)[0]}</p>
-              </div>
-              <div class="divCurrency descriptionCardStyle">
-                <p>💱 </p>
-                <p class="currency"> ${
-                  Object.values(data.currencies)[0].name
-                }</p>
-              </div>
-            </div>
-          </div>
-      `;
+          `;
 
+      /* insert HTML code into container */
+      countriesContainer.innerHTML = ""; // clean the container
       countriesContainer.insertAdjacentHTML("beforeend", html);
-      setDisplayFlex();
     });
   }
 }
-
+/* load countries when page is loaded*/
+window.onload = loadCountries;
+// Asociar la función al botón
+btnSearch.addEventListener("click", retrieveCountry);
 // const img = document.querySelector(".image");
 // img.src = "gatito.jpg"; // Set the image source
 // img.addEventListener("load", function () {

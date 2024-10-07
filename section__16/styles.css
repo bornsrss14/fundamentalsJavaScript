@@ -54,12 +54,12 @@
 .descriprionCardStyle p,
 .divCountryName p,
 h1 {
-  margin: 6px 5px 0px 5px;
+  margin: 5px 4px 0px 3px;
 }
 .countryCardDiv {
   border-radius: 2%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra tenue */
-  height: 25rem;
+  height: 27rem;
   width: 25rem;
 }
 
