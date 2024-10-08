@@ -2,7 +2,13 @@
   padding: 0;
   border: 0;
   box-sizing: border-box;
+}
+body {
   font-size: 14px;
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna */
+  grid-template-rows: auto auto; /* Tantas filas como se necesiten */
+  gap: 20px; /* Espacio entre las filas */
 }
 
 /*STYLES FOR THE IMG LOAD FUNTION*/
@@ -16,10 +22,26 @@
 
 /* COUNTRIES CARDS */
 #countries--cards {
-  display: flex;
+  width: 100vw;
+  /* display: flex;
   justify-content: space-evenly;
+  flex-direction: row;
   padding: 4rem;
+  flex-wrap: wrap-reverse; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-flow: dense;
+  gap: 1rem;
+  padding: 1% 10%;
 }
+/* .countryCardDiv:nth-child(odd) {
+  height: 24rem;
+  width: 24rem;
+}
+.countryCardDiv:nth-child(even) {
+  height: 18rem;
+  width: 18rem;
+} */
 .divCountryDescription,
 .divCountryName {
   width: 80%;
@@ -36,12 +58,14 @@
   border-top-right-radius: 2%;
 }
 .countryCardDiv {
-  height: 23%;
-  width: 20%;
+  height: 20rem;
+  width: 2rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 3rem;
   /* background-color: aqua; */
 }
 .descriptionCardStyle {
@@ -81,4 +105,32 @@ h1 {
   font-size: 1.1rem;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Sombra tenue */
   cursor: pointer;
+}
+
+#selectCountry {
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 2rem;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  padding: .2rem 1.2rem;
+}
+#selectCountry:after {
+  content: "▼"; /* Añadir un icono de flecha */
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 1em;
+  color: #333;
+  pointer-events: none;
+}
+
+#selectCountry select:focus {
+  outline: none;
+  border: none;
 }

@@ -82,7 +82,7 @@ function retrieveCountry() {
           `;
 
       /* insert HTML code into container */
-      countriesContainer.innerHTML = ""; // clean the container
+      // countriesContainer.innerHTML = ""; // clean the container
       countriesContainer.insertAdjacentHTML("beforeend", html);
     });
   }
