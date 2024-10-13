@@ -30,24 +30,8 @@ function loadCountries() {
   });
 }
 
-function retrieveCountry() {
-  const selector = document.getElementById("selectCountry");
-  if (selector) {
-    let countrySelected = selector.value.trim().toLowerCase(); // Retriev selected country
-    // console.log(countrySelected); // shows country selected in the console
-
-    const request = new XMLHttpRequest();
-    request.open(
-      "GET",
-      `https://restcountries.com/v3.1/name/${countrySelected}`
-    );
-    request.send();
-
-    request.addEventListener("load", function () {
-      const [data] = JSON.parse(this.responseText);
-      // console.log(data); // show data countries into the console
-
-      const html = `
+const renderCountry = function (data) {
+  const html = `
               <div class="countryCardDiv">
                   <div class="divCountryFlag">
                       <img class="imgFlag" src="${
@@ -81,16 +65,49 @@ function retrieveCountry() {
               </div>
           `;
 
-      /* insert HTML code into container */
-      // countriesContainer.innerHTML = ""; // clean the container
-      countriesContainer.insertAdjacentHTML("beforeend", html);
+  /* insert HTML code into container */
+  // countriesContainer.innerHTML = ""; // clean the container
+  countriesContainer.insertAdjacentHTML("beforeend", html);
+};
+
+function retrieveCountryAndNeighbour() {
+  const selector = document.getElementById("selectCountry");
+  if (selector) {
+    let countrySelected = selector.value.trim().toLowerCase(); // Retriev selected country
+    // console.log(countrySelected); // shows country selected in the console
+
+    const request = new XMLHttpRequest();
+    request.open(
+      "GET",
+      `https://restcountries.com/v3.1/name/${countrySelected}`
+    );
+    request.send();
+
+    request.addEventListener("load", function () {
+      const [data] = JSON.parse(this.responseText);
+      // console.log(data); // show data countries into the console
+      /* render country data */
+      renderCountry(data);
+
+      // get neightbour's country
+      const neightbour = data.borders?.[0];
+      if (!neightbour) return;
+
+      const request2 = new XMLHttpRequest();
+      request.open("GET",`https://restcountries.com/v3.1/alpha/${neightbour}`);
+      request2.send();
+      request2.addEventListener("load", function () {
+        const data2 = JSON.parse(this.responseText);
+        console.log(data2);
+        renderCountry(data2);
+      });
     });
   }
 }
 /* load countries when page is loaded*/
 window.onload = loadCountries;
 // Asociar la función al botón
-btnSearch.addEventListener("click", retrieveCountry);
+btnSearch.addEventListener("click", retrieveCountryAndNeighbour);
 // const img = document.querySelector(".image");
 // img.src = "gatito.jpg"; // Set the image source
 // img.addEventListener("load", function () {

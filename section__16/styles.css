@@ -22,7 +22,7 @@ body {
 
 /* COUNTRIES CARDS */
 #countries--cards {
-  width: 100vw;
+  width: 60%;
   /* display: flex;
   justify-content: space-evenly;
   flex-direction: row;
@@ -109,28 +109,14 @@ h1 {
 
 #selectCountry {
   position: relative;
-  display: inline-block;
   width: 250px;
-  height: 40px;
+  height: 32px;
   overflow: hidden;
   border-radius: 2rem;
   background-color: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border: 1px solid #ccc;
-  padding: .2rem 1.2rem;
-}
-#selectCountry:after {
-  content: "▼"; /* Añadir un icono de flecha */
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  font-size: 1em;
-  color: #333;
-  pointer-events: none;
+  border:none;
+  padding: 0.2rem 1.2rem;
 }
 
-#selectCountry select:focus {
-  outline: none;
-  border: none;
-}
+
