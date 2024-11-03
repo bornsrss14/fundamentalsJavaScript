@@ -85,16 +85,16 @@ function retrieveCountryAndNeighbour() {
 
     request.addEventListener("load", function () {
       const [data] = JSON.parse(this.responseText);
-      // console.log(data); // show data countries into the console
+      console.log(data); // show data countries into the console
       /* render country data */
       renderCountry(data);
 
       // get neightbour's country
-      const neightbour = data.borders?.[0];
+      const neightbour =
+        data.borders?.[0] || console.log("no se ha encontrado");
       if (!neightbour) return;
-
       const request2 = new XMLHttpRequest();
-      request.open("GET",`https://restcountries.com/v3.1/alpha/${neightbour}`);
+      request.open("GET", `https://restcountries.com/v3.1/alpha/${neightbour}`);
       request2.send();
       request2.addEventListener("load", function () {
         const data2 = JSON.parse(this.responseText);

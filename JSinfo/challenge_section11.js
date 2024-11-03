@@ -183,6 +183,7 @@ const trueFalseFun = (dog) =>
   dog.curFood > dog.recommendedFood * 0.9 &&
   dog.curFood < dog.recommendedFood * 1.1;
 //Hay algun elemento dentro del array pasado que cumpla con lo descrito en la función ???
+
 const trueFalseDos = function (dogsArry) {
   const trueFalse = dogsArry.some(trueFalseFun);
   console.log(trueFalse);

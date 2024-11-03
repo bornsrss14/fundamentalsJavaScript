@@ -89,9 +89,9 @@ class Cycling extends Workout {
   }
 }
 
-const newHick = new Hicking([18, -96], 5.2, 24, 178);
-const newCycling = new Cycling([18, -96], 27, 95, 523);
-console.log(newHick, newCycling);
+// const newHick = new Hicking([18, -96], 5.2, 24, 178);
+// const newCycling = new Cycling([18, -96], 27, 95, 523);
+// console.log(newHick, newCycling);
 
 /* -------------------------------------------------------------- */
 /*--------------- APLICATION ARCHITECTURE ----------------------- */
@@ -127,7 +127,7 @@ class App {
     const { longitude } = position.coords;
     console.log(`https://www.google.pt/maps/@${latitude}, ${longitude}`);
     const currCoords = [latitude, longitude];
-    console.log(this);
+    // console.log(this);
     this.#map = L.map('map').setView(currCoords, this.#mapZoomLevel);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
@@ -199,7 +199,7 @@ class App {
 
     /* Add the new object to workout array */
     this.#workouts.push(workout);
-    console.log(workout);
+    // console.log(workout);
 
     /* Render the new object in the map as a pin */
     this._renderWorkoutMarker(workout);
@@ -245,6 +245,8 @@ class App {
             <span class="workout__value">${workout.duration}</span>
             <span class="workout__unit">min</span>
           </div>
+
+        
     `;
     if (workout.type === 'hicking')
       html += `
@@ -279,13 +281,13 @@ class App {
   }
   _moveToPopup(e) {
     const workoutEl = e.target.closest('.workout ');
-    console.log(workoutEl);
+    // console.log(workoutEl);
     14;
     if (!workoutEl) return;
     const workout = this.#workouts.find(
       work => work.id === workoutEl.dataset.id
     );
-    console.log(workout);
+    // console.log(workout);
     this.#map.setView(workout.coords, this.#mapZoomLevel, {
       animate: true,
       pan: {
@@ -298,7 +300,7 @@ class App {
   }
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('workouts'));
-    console.log(data);
+    // console.log(data);
     if (!data) return;
     this.#workouts = data;
     this.#workouts.forEach(work => {

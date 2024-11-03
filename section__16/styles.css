@@ -3,13 +3,13 @@
   border: 0;
   box-sizing: border-box;
 }
-body {
+/* body {
   font-size: 14px;
   display: grid;
-  grid-template-columns: 1fr; /* Una columna */
-  grid-template-rows: auto auto; /* Tantas filas como se necesiten */
-  gap: 20px; /* Espacio entre las filas */
-}
+  grid-template-columns: 1fr; 
+  grid-template-rows: auto auto; 
+  gap: 20px;
+} */
 
 /*STYLES FOR THE IMG LOAD FUNTION*/
 .image {
@@ -115,8 +115,6 @@ h1 {
   border-radius: 2rem;
   background-color: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  border:none;
+  border: none;
   padding: 0.2rem 1.2rem;
 }
-
-

@@ -200,5 +200,5 @@ console.log(`El promedio del tiempo en que ocurrieron los eventos fue de ${lastT
 
 for (const [key1, value1] of gameEvents) {
   const resultDesition = key1 <= 45 ? 'FIRST': 'SECOND';
-  console.log(`The Event of ${value1} at minute ${key1} pertenece al ${resultDesition} HALF`);
+  console.log(`The Event of ${value1} at minute ${key1} pertenece al [${resultDesition} HALF]`);
 }

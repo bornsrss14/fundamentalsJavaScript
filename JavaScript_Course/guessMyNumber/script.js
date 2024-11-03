@@ -1,18 +1,4 @@
 "use strict";
-// console.log(document.querySelector('.message').textContent);
-// document.querySelector('.message').textContent = 'Hello ';
-// console.log(document.querySelector('.message').textContent);
-// document.querySelector('.number').textContent = 14;
-
-// 1.- Cuando comenzamos el juego, el numero ingresado en el input debe
-// ser recuperado, comencemos por eso, guardarlo en una variable
-// 2. También debemos de verificar si el valor es valido
-//    2.1 Cuando el numero es correcto
-//    2.2 Cuando el numero es muy alto
-//    2.3 Cuando el numero es muy bajo
-
-// 3.- Cada vez que fallamos al adivinar el numero, nuestro score decrementa
-
 let diceRoll = Math.trunc(Math.random() * 20) + 1; //give us a number btween 0 n 1
 let score__inicial = 20;
 const start = "Start guessing...";
@@ -77,3 +63,5 @@ let resetAndAgain = function () {
 };
 document.querySelector(".again").addEventListener("click", resetAndAgain);
 document.querySelector(".btn-reset").addEventListener("click", resetAndAgain);
+
+

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section class="sectionHero"></section>
+
+    <section class="sectionSearch">
+      <div>
+        <div class="modelo-flex">
+          <i class="material-symbols-outlined"> quiz</i>
+          <span>Búsqueda por tipo</span>
+        </div>
+
+        <div class="elements--div">
+          <i class="material-symbols-outlined"> home</i>
+          <!-- Aquí van todos los botones generados dinamicamente -->
+          <div class="circleElement"></div>
+          <div class="circleElement"></div>
+          <div class="circleElement"></div>
+          <div class="circleElement"></div>
+        </div>
+      </div>
+      <div class="searchSection--dos">
+        <div class="modelo-flex">
+          <i class="material-symbols-outlined">search</i>
+
+          <span>Busqueda por Pokemon</span>
+        </div>
+        <div class="search-box">
+          <div class="row">
+            <input
+              type="text"
+              class="search-bar"
+              placeholder="Search for a Pokemon..."
+              autocomplete="off"
+            />
+            <button class="btnSearchPokemon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon icon-tabler icons-tabler-outline icon-tabler-search"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+                <path d="M21 21l-6 -6" />
+              </svg>
+            </button>
+          </div>
+          <div class="results"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sectionCards">
+      <div class="cartas"></div>
+    </section>
+  </body>
+  <script src="script.js"></script>
+</html>
