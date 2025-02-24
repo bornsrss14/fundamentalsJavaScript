@@ -175,11 +175,7 @@ class App {
     /* if activity is Hicking, create a hicke object */
     if (type === 'hicking') {
       const cadence = +inputCadence.value;
-      /* Check if data is valid */
       if (
-        // !Number.isFinite(distance) ||
-        // !Number.isFinite(duration) ||
-        // !Number.isFinite(cadence)
         !funValidateInputs(distance, duration, cadence) ||
         !allPositive(distance, duration, cadence)
       )
@@ -200,7 +196,6 @@ class App {
     /* Add the new object to workout array */
     this.#workouts.push(workout);
     // console.log(workout);
-
     /* Render the new object in the map as a pin */
     this._renderWorkoutMarker(workout);
 

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 :root {
   --color-brand--1: #ffb545;
   --color-brand--2: #00c46a;
@@ -6,7 +7,9 @@
   --color-dark--2: #2d72aa;
   --color-light--1: #d7d5d5;
   --color-light--2: #ececec;
+  --color-form-1: #f9f5f5;
   --color-light--3: rgb(214, 222, 224);
+  --white: #ffffff;
 }
 
 * {
@@ -41,16 +44,27 @@ a:visited {
 /* SIDEBAR */
 .sidebar {
   flex-basis: 50rem;
-  background-color: var(--color-dark--1);
+  background-color: #fff;
   padding: 3rem 5rem 4rem 5rem;
   display: flex;
   flex-direction: column;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
 }
 
 .logo {
-  height: 5.2rem;
+  height: 6rem;
   align-self: center;
   margin-bottom: 4rem;
+}
+#logo-pandasneezing {
+  font-size: 4rem;
+  color: var(--color-dark--1);
+  font-family: 'Poppins', serif;
+}
+.panda{
+  color: transparent; /* Hace el texto invisible */
+  -webkit-text-stroke: .6px var(--color-dark--1); /* Grosor y color del borde */
 }
 
 .workouts {
@@ -112,8 +126,8 @@ a:visited {
 }
 
 .form {
-  background-color: var(--color-dark--2);
-  border-radius: .45rem;
+  background-color: var(--color-form-1);
+  border-radius: 0.45rem;
   padding: 1.1rem 2.55rem;
   margin-bottom: 1.75rem;
   display: grid;
@@ -121,6 +135,7 @@ a:visited {
   gap: 0.5rem 2.5rem;
   /* Match height and activity boxes */
   height: 9.25rem;
+  color: var(--color-dark--1);
   transition: all 0.5s, transform 1ms;
 }
 
@@ -154,7 +169,7 @@ a:visited {
   font-size: 1.4rem;
   border: none;
   border-radius: 3px;
-  background-color: var(--color-light--3);
+  background-color: var(--white);
   transition: all 0.2s;
 }
 
@@ -171,7 +186,7 @@ a:visited {
   margin-top: auto;
   font-size: 1.3rem;
   text-align: center;
-  color: var(--color-light--1);
+  color: var(--color-dark--1);
 }
 
 .twitter-link:link,
@@ -185,7 +200,7 @@ a:visited {
   color: var(--color-light--2);
 }
 
-.btn_crud{
+.btn_crud {
   height: 3rem;
   width: 6rem;
   border: none;
@@ -194,7 +209,6 @@ a:visited {
   font-size: 1.4rem;
   font-family: 'Manrope', sans-serif;
   text-align: center;
-
 }
 
 /* MAP */
@@ -226,3 +240,10 @@ a:visited {
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
 }
+
+.logotipo {
+  display: flex;
+  flex-direction: row;
+  gap: 2.45rem;
+}
+
