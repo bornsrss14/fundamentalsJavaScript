@@ -65,9 +65,13 @@ body {
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  min-width: 300px;
+  min-width: 18.75rem;
   margin: 1rem 1rem 3.5rem 1rem;
   font-family: Arial, sans-serif;
+}
+.pokemonCard:hover {
+  background-color: #f7f8f3;
+  transition: all 400ms ease-in-out;
 }
 
 .description {
@@ -214,13 +218,13 @@ input {
 .elements--div {
   display: flex;
   flex-direction: row;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   align-items: center;
   gap: 0.4rem;
   border: solid 1px var(--text);
   border-radius: 0.5rem;
   height: fit-content;
-  padding: .35rem;
+  padding: 0.35rem;
 }
 .searchSection--dos {
   position: relative;
@@ -291,6 +295,34 @@ button {
   font-size: 20px; /* Ajusta el tamaño del ícono si lo necesitas */
 }
 
-.ejemplo{
+.ejemplo {
   color: aqua;
+}
+.cuadro_anim {
+  transition: ;
+}
+
+.anim {
+  width: 100px;
+  height: 100px;
+  background-color: coral;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.pokemonCard:hover{
+  animation: pulsing .5s forwards;
+  cursor: pointer;
+}
+@keyframes pulsing {
+  0% {
+    transform: scale(1);
+  }
+  100% {  
+    transform: scale(1.08);
+  }
 }
